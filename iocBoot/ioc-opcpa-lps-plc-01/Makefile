@@ -5,11 +5,11 @@ IOC_INSTANCE_PATH := $(shell pwd)
 PRODUCTION_IOC := 0
 
 PROJECT_NAME := SLAC_OPCPA_EPS
-PROJECT_PATH := ../../../../../Desktop/OPCPA_EPS/SLAC_OPCPA_EPS.tsproj
+PROJECT_PATH := ../../OPCPA_EPS/SLAC_OPCPA_EPS.tsproj
 PLC := opcpa_lps_plc_01
 
 PYTMC_OPTS := 
-PREFIX := PLC:$(PLC)
+PREFIX := PLC:LAS:OPCPA:01
 
 # With two $$, as in $$(IOC) below, this will be expanded in the
 # environment of st.cmd:

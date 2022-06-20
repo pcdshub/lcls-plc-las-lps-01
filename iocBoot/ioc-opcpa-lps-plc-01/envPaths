@@ -1,0 +1,2 @@
+epicsEnvSet("IOC_TOP", "/c/Users/payers/Documents/repos/lcls-plc-las-lps-01/iocBoot/ioc-opcpa-lps-plc-01")
+epicsEnvSet("IOC_DATA", "C:\Users\payers/iocData")

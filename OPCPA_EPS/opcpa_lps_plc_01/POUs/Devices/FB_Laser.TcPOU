@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_Laser" Id="{999d848b-8bd4-48bf-ad93-9da1858512ee}" SpecialFunc="None">
+    <Declaration><![CDATA[// Monitors the lasers for under voltage events
+FUNCTION_BLOCK FB_Laser
+VAR_INPUT
+	nVoltageRaw : INT; // The raw signal collected from the ADC
+	bAmphosOn : BOOL; // Whether the amphos is turned on
+	bMasterLatchReset : BOOL; //Master latched error reset
+END_VAR
+VAR_IN_OUT CONSTANT
+	stSetpoints : ST_LaserSetpoints; // Setpoints for the laser
+END_VAR
+VAR_OUTPUT
+	{attribute 'pytmc' := '
+		pv: VOLTAGE
+		io: i
+		field: HOPR 10.0
+		field: LOPR 0.0
+		field: LSV MINOR
+		field: LLSV MAJOR
+		field: EGU Volts
+	'}
+	fVoltage : LREAL; // Voltage calculated from the raw ADC input
+	{attribute 'pytmc' := '
+		pv: ERROR
+		io: i
+		field: OSV MAJOR
+		field: ZSV NO_ALARM
+		field: ZNAM OK
+		field: ONAM ERROR
+	'}
+	bError : BOOL; // Whether an error was detected. Latches until reset
+	
+	bBelowNominal : BOOL; //fVoltage is below the nominal setpoint
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Scale the analog signal to voltage *)
+fVoltage := F_Scale(
+	fRawData := nVoltageRaw,
+	fRawDataLowerOffLimit := GVL_EL3174.fRawLowerLimit,
+	fRawDataUpperOffLimit := GVL_EL3174.fRawUpperLimit,
+	fScaleDataLowerOffLimit := GVL_EL3174.fScaleLowerLimit,
+	fScaleDataUpperOffLimit := GVL_EL3174.fScaleUpperLimit);
+
+IF bAmphosOn AND (fVoltage < stSetpoints.nMinNominalVoltage) THEN
+	bBelowNominal := TRUE;
+END_IF
+	
+(* Set error if amphos is below nominal voltage *)
+IF  bAmphosOn AND (fVoltage < stSetpoints.nMinVoltage) THEN
+	bError := TRUE;
+END_IF
+
+IF bMasterLatchReset THEN
+	bBelowNominal := FALSE;
+	bError := FALSE;
+END_IF]]></ST>
+    </Implementation>
+    <Method Name="Reset" Id="{2a90ea85-636b-4268-8e80-7752e6cdcc01}">
+      <Declaration><![CDATA[// Reset latched errors
+METHOD Reset
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[bError := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

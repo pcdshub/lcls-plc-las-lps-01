@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_BaseplateChiller" Id="{f1c4e0fa-ca2a-4b3d-bba0-0ee01f0d5f92}" SpecialFunc="None">
+    <Declaration><![CDATA[// Monitors the baseplate chiller from the flow sensor
+FUNCTION_BLOCK FB_BaseplateChiller
+VAR_INPUT
+	bBaseplateChillerFlow : BOOL; // Signal from the flow sensor. Normally high.
+	bMasterLatchReset : BOOL; //Master latched error reset
+END_VAR
+VAR_OUTPUT
+	{attribute 'pytmc' := '
+		pv: ERROR
+		io: i
+		field: OSV MAJOR
+		field: ZSV NO_ALARM
+		field: ZNAM OK
+		field: ONAM ERROR
+	'}
+	bError : BOOL; // Whether an error was detected. Should latch until reset
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Latch error if the baseplate chiller flow detects an error *)
+IF NOT bBaseplateChillerFlow THEN
+	bError := TRUE;
+END_IF
+
+IF bMasterLatchReset THEN
+	bError := FALSE;
+END_IF
+]]></ST>
+    </Implementation>
+    <Method Name="Reset" Id="{40d91e9c-2d15-4c66-8abe-ad4cf84eb069}">
+      <Declaration><![CDATA[// Reset latched errors
+METHOD Reset
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[bError := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

@@ -692,8 +692,6 @@ record(waveform, "$(PREFIX):LPS:PLC:AMS_ID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.sNetId?")
   field(FTVL, "CHAR")
   field(NELM, "23")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -706,8 +704,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -730,8 +726,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -794,8 +788,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -818,8 +810,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -882,8 +872,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -906,8 +894,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -970,8 +956,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -994,8 +978,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1058,8 +1040,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1082,8 +1062,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1146,8 +1124,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1170,8 +1146,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1234,8 +1208,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1258,8 +1230,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1322,8 +1292,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1346,8 +1314,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1410,8 +1376,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1434,8 +1398,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1498,8 +1460,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1522,8 +1482,6 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
-  field(MPST, "On Change")
-  field(APST, "On Change")
   info(archive, "VAL")
 }
 

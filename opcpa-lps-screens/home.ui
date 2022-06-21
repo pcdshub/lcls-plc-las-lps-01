@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1028</width>
+    <width>1039</width>
     <height>698</height>
    </rect>
   </property>
@@ -136,7 +136,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:PLC:AMS_ID_RBV</string>
+               <string>ca://$(P):LPS:PLC:AMS_ID_RBV</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -183,7 +183,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:PLC:MASTER_OK_RBV</string>
+               <string>ca://$(P):LPS:PLC:MASTER_OK_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -243,7 +243,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:PLC:SLAVES_OK_RBV</string>
+               <string>ca://$(P):LPS:PLC:SLAVES_OK_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -297,7 +297,7 @@
             </property>
             <property name="macros" stdset="0">
              <stringlist>
-              <string>{&quot;PV&quot;:&quot;ca://HPO:LPS:PLC&quot;}</string>
+              <string>{&quot;PV&quot;:&quot;ca://$(P):LPS:PLC&quot;}</string>
              </stringlist>
             </property>
            </widget>
@@ -336,7 +336,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:AMPHOS_SHUTTER:ENABLE_RBV</string>
+               <string>ca://$(P):LPS:AMPHOS_SHUTTER:ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -390,7 +390,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:CARBIDE_SHUTTER:ENABLE_RBV</string>
+               <string>ca://$(P):LPS:CARBIDE_SHUTTER:ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -444,7 +444,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:DUMP_CHILLER_RELAY:ENABLE_RBV</string>
+               <string>ca://$(P):LPS:DUMP_CHILLER_RELAY:ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -498,7 +498,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV</string>
+               <string>ca://$(P):LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -552,7 +552,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:AMPHOS_RELAY:ENABLE_RBV</string>
+               <string>ca://$(P):LPS:AMPHOS_RELAY:ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -656,7 +656,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP01:ERROR_RBV</string>
+               <string>ca://$(P):LPS:TEMP01:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -715,7 +715,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP01:LOC</string>
+               <string>ca://$(P):LPS:TEMP01:LOC</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -744,7 +744,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP02:ERROR_RBV</string>
+               <string>ca://$(P):LPS:TEMP02:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -803,7 +803,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP02:LOC</string>
+               <string>ca://$(P):LPS:TEMP02:LOC</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -832,7 +832,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP03:ERROR_RBV</string>
+               <string>ca://$(P):LPS:TEMP03:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -891,7 +891,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP03:LOC</string>
+               <string>ca://$(P):LPS:TEMP03:LOC</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -920,7 +920,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP04:ERROR_RBV</string>
+               <string>ca://$(P):LPS:TEMP04:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -979,7 +979,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:TEMP04:LOC</string>
+               <string>ca://$(P):LPS:TEMP04:LOC</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -1022,10 +1022,10 @@
             </property>
             <property name="macros" stdset="0">
              <stringlist>
-              <string>{&quot;DEVICE&quot;:&quot;Loop 01&quot;,&quot;PV&quot;:&quot;ca://HPO:LPS:TEMP01&quot;}</string>
-              <string>{&quot;DEVICE&quot;:&quot;Loop 02&quot;,&quot;PV&quot;:&quot;ca://HPO:LPS:TEMP02&quot;}</string>
-              <string>{&quot;DEVICE&quot;:&quot;Loop 03&quot;,&quot;PV&quot;:&quot;ca://HPO:LPS:TEMP03&quot;}</string>
-              <string>{&quot;DEVICE&quot;:&quot;Loop 04&quot;,&quot;PV&quot;:&quot;ca://HPO:LPS:TEMP04&quot;}</string>
+              <string>{&quot;DEVICE&quot;:&quot;Loop 01&quot;,&quot;PV&quot;:&quot;ca://$(P):LPS:TEMP01&quot;}</string>
+              <string>{&quot;DEVICE&quot;:&quot;Loop 02&quot;,&quot;PV&quot;:&quot;ca://$(P):LPS:TEMP02&quot;}</string>
+              <string>{&quot;DEVICE&quot;:&quot;Loop 03&quot;,&quot;PV&quot;:&quot;ca://$(P):LPS:TEMP03&quot;}</string>
+              <string>{&quot;DEVICE&quot;:&quot;Loop 04&quot;,&quot;PV&quot;:&quot;ca://$(P):LPS:TEMP04&quot;}</string>
              </stringlist>
             </property>
             <property name="openInNewWindow" stdset="0">
@@ -1095,7 +1095,7 @@
                <bool>true</bool>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:AMPHOS:ERROR_RBV</string>
+               <string>ca://$(P):LPS:AMPHOS:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1157,7 +1157,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:AMPHOS:POWER_STATE_RBV</string>
+               <string>ca://$(P):LPS:AMPHOS:POWER_STATE_RBV</string>
               </property>
              </widget>
             </item>
@@ -1197,7 +1197,7 @@
                <bool>true</bool>
               </property>
               <property name="channel" stdset="0">
-               <string notr="true">ca://HPO:LPS:AMPHOS:VOLTAGE_RBV</string>
+               <string notr="true">ca://$(P):LPS:AMPHOS:VOLTAGE_RBV</string>
               </property>
              </widget>
             </item>
@@ -1252,7 +1252,7 @@
                <bool>true</bool>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:OPCPA:ERROR_RBV</string>
+               <string>ca://$(P):LPS:OPCPA:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1314,7 +1314,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:OPCPA:POWER_STATE_RBV</string>
+               <string>ca://$(P):LPS:OPCPA:POWER_STATE_RBV</string>
               </property>
              </widget>
             </item>
@@ -1354,7 +1354,7 @@
                <bool>true</bool>
               </property>
               <property name="channel" stdset="0">
-               <string notr="true">ca://HPO:LPS:OPCPA:VOLTAGE_RBV</string>
+               <string notr="true">ca://$(P):LPS:OPCPA:VOLTAGE_RBV</string>
               </property>
              </widget>
             </item>
@@ -1413,8 +1413,8 @@
             </property>
             <property name="macros" stdset="0">
              <stringlist>
-              <string>{&quot;DEVICE&quot;:&quot;Amphos&quot;,&quot;PV&quot;:&quot;ca://HPO:LPS:AMPHOS&quot;}</string>
-              <string>{&quot;DEVICE&quot;:&quot;OPCPA&quot;,&quot;PV&quot;:&quot;ca://HPO:LPS:OPCPA&quot;}</string>
+              <string>{&quot;DEVICE&quot;:&quot;Amphos&quot;,&quot;PV&quot;:&quot;ca://$(P):LPS:AMPHOS&quot;}</string>
+              <string>{&quot;DEVICE&quot;:&quot;OPCPA&quot;,&quot;PV&quot;:&quot;ca://$(P):LPS:OPCPA&quot;}</string>
              </stringlist>
             </property>
            </widget>
@@ -1480,7 +1480,7 @@
                <bool>true</bool>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:DUMP_CHILLER:ERROR_RBV</string>
+               <string>ca://$(P):LPS:DUMP_CHILLER:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1566,7 +1566,7 @@
                <bool>true</bool>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:BASEPLATE_CHILLER:ERROR_RBV</string>
+               <string>ca://$(P):LPS:BASEPLATE_CHILLER:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1694,7 +1694,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LEAKS_RBV</string>
+               <string>ca://$(P):LPS:LEAK:LEAKS_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1741,7 +1741,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LOC01</string>
+               <string>ca://$(P):LPS:LEAK:LOC01</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -1783,7 +1783,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LEAKS_RBV</string>
+               <string>ca://$(P):LPS:LEAK:LEAKS_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1833,7 +1833,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LOC02</string>
+               <string>ca://$(P):LPS:LEAK:LOC02</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -1875,7 +1875,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LEAKS_RBV</string>
+               <string>ca://$(P):LPS:LEAK:LEAKS_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -1925,7 +1925,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LOC03</string>
+               <string>ca://$(P):LPS:LEAK:LOC03</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -1967,7 +1967,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LEAKS_RBV</string>
+               <string>ca://$(P):LPS:LEAK:LEAKS_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -2020,7 +2020,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LOC04</string>
+               <string>ca://$(P):LPS:LEAK:LOC04</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -2068,7 +2068,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LEAKS_RBV</string>
+               <string>ca://$(P):LPS:LEAK:LEAKS_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -2115,7 +2115,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LOC05</string>
+               <string>ca://$(P):LPS:LEAK:LOC05</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -2163,7 +2163,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LEAKS_RBV</string>
+               <string>ca://$(P):LPS:LEAK:LEAKS_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -2210,7 +2210,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:LPS:LEAK:LOC06</string>
+               <string>ca://$(P):LPS:LEAK:LOC06</string>
               </property>
               <property name="displayFormat" stdset="0">
                <enum>PyDMLabel::String</enum>
@@ -2271,7 +2271,7 @@
                <bool>false</bool>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://HPO:TTSIM:DEV01:ERROR_RBV</string>
+               <string>ca://$(P):TTSIM:DEV01:ERROR_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -2340,7 +2340,7 @@
               </property>
               <property name="macros" stdset="0">
                <stringlist>
-                <string>{&quot;PV&quot;:&quot;ca://HPO:LPS:LEAK&quot;}</string>
+                <string>{&quot;PV&quot;:&quot;ca://$(P):LPS:LEAK&quot;}</string>
                </stringlist>
               </property>
              </widget>
@@ -2407,7 +2407,7 @@
                   <bool>false</bool>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://HPO:LPS:MASTER_OVERRIDE</string>
+                  <string>ca://$(P):LPS:MASTER_OVERRIDE</string>
                  </property>
                  <property name="passwordProtected" stdset="0">
                   <bool>false</bool>
@@ -2459,7 +2459,7 @@
                   <bool>false</bool>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://HPO:LPS:MASTER_OVERRIDE_RBV</string>
+                  <string>ca://$(P):LPS:MASTER_OVERRIDE_RBV</string>
                  </property>
                  <property name="onColor" stdset="0">
                   <color>
@@ -2522,7 +2522,7 @@
                   <bool>false</bool>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://HPO:LPS:MASTER_AMP_SHUTTER</string>
+                  <string>ca://$(P):LPS:MASTER_AMP_SHUTTER</string>
                  </property>
                  <property name="confirmMessage" stdset="0">
                   <string/>
@@ -2569,7 +2569,7 @@
                   <string>Master Latch Reset</string>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://HPO:LPS:MASTER_LATCH_RESET</string>
+                  <string>ca://$(P):LPS:MASTER_LATCH_RESET</string>
                  </property>
                  <property name="confirmMessage" stdset="0">
                   <string>Are you sure you want to release all latched errors?</string>

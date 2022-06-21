@@ -310,7 +310,7 @@
 						</Var>
 						<Var>
 							<Name>GVL_IO.bCarbideShutterEnable</Name>
-							<Comment><![CDATA[ Ch2 HASS]]></Comment>
+							<Comment><![CDATA[ Ch4 HASS]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -10579,7 +10579,6 @@ Bit1: Value smaller than Limit2]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL_IO.bLoopTempSW03" VarB="MTI Inputs 10x Channel 5^Status^Input state"/>
 				<Link VarA="PlcTask Inputs^GVL_IO.bLoopTempSW04" VarB="MTI Inputs 10x Channel 6^Status^Input state"/>
 				<Link VarA="PlcTask Outputs^GVL_IO.bAmphosShutterEnable" VarB="MTO Outputs 10x Channel 1^Ctrl^Manual output state" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^GVL_IO.bCarbideShutterEnable" VarB="MTO Outputs 10x Channel 2^Ctrl^Manual output state" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259">
 				<Link VarA="PlcTask Outputs^GVL_IO.bAmphosShutterEnable" VarB="MTO Outputs 10x Channel 1^Ctrl^Manual output state"/>
@@ -10590,6 +10589,7 @@ Bit1: Value smaller than Limit2]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E11_EL2624">
 				<Link VarA="PlcTask Outputs^GVL_IO.bAmphosRelay" VarB="Channel 3^Output"/>
 				<Link VarA="PlcTask Outputs^GVL_IO.bBaseplateChillerRelay" VarB="Channel 2^Output"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.bCarbideShutterEnable" VarB="Channel 4^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_IO.bDumpChillerRelay" VarB="Channel 1^Output"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022">

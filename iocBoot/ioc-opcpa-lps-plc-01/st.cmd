@@ -6,7 +6,7 @@
 epicsEnvSet("ADS_IOC_TOP", "$(TOP)" )
 
 epicsEnvSet("ENGINEER", "payers" )
-epicsEnvSet("LOCATION", "PLC:opcpa_lps_plc_01" )
+epicsEnvSet("LOCATION", "PLC:LAS:OPCPA:01" )
 epicsEnvSet("IOCSH_PS1", "$(IOC)> " )
 epicsEnvSet("ACF_FILE", "$(ADS_IOC_TOP)/iocBoot/templates/unrestricted.acf")
 
@@ -55,13 +55,13 @@ adsAsynPortDriverConfigure("$(ASYN_PORT)", "$(IPADDR)", "$(AMSID)", "$(AMS_PORT)
 cd "$(ADS_IOC_TOP)/db"
 
 
-dbLoadRecords("iocSoft.db", "IOC=PLC:opcpa_lps_plc_01")
-dbLoadRecords("save_restoreStatus.db", "P=PLC:opcpa_lps_plc_01:")
+dbLoadRecords("iocSoft.db", "IOC=PLC:LAS:OPCPA:01")
+dbLoadRecords("save_restoreStatus.db", "P=PLC:LAS:OPCPA:01:")
 dbLoadRecords("caPutLog.db", "IOC=${IOC}")
 
 ## TwinCat System Databse files ##
-dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=ASYN_PLC, PREFIX=PLC:opcpa_lps_plc_01")
-dbLoadRecords("TwinCAT_AppInfo.db", "PORT=ASYN_PLC, PREFIX=PLC:opcpa_lps_plc_01")
+dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=ASYN_PLC, PREFIX=PLC:LAS:OPCPA:01")
+dbLoadRecords("TwinCAT_AppInfo.db", "PORT=ASYN_PLC, PREFIX=PLC:LAS:OPCPA:01")
 
 cd "$(IOC_TOP)"
 
@@ -73,7 +73,7 @@ cd "$(IOC_TOP)"
 set_savefile_path( "$(IOC_DATA)/$(IOC)/autosave" )
 set_requestfile_path( "$(IOC_TOP)/autosave" )
 
-save_restoreSet_status_prefix( "PLC:opcpa_lps_plc_01:" )
+save_restoreSet_status_prefix( "PLC:LAS:OPCPA:01:" )
 save_restoreSet_IncompleteSetsOk( 1 )
 save_restoreSet_DatedBackupFiles( 1 )
 set_pass0_restoreFile( "info_positions.sav" )

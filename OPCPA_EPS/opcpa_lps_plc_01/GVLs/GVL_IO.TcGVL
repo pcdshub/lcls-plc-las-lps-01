@@ -104,19 +104,8 @@ VAR_GLOBAL
 	bAmphosShutterEnableManualOperation AT %Q* : BOOL := TRUE;
     
     
-	{attribute 'pytmc' := '
-		pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM DISABLED
-		field: ONAM ENABLED
-	'}
-    {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTO Outputs 10x Channel 2^Ctrl^Manual output state'}
-	bCarbideShutterEnable AT %Q* : BOOL; // Ch2 HASS
     
-    
-	bCarbideShutterEnableManualOperation AT %Q* : BOOL := TRUE;
+	
 	
 	(* Slot8 EL9184 *)
 	
@@ -157,6 +146,20 @@ VAR_GLOBAL
 	'}
     {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E11_EL2624]^Channel 3^Output'}
 	bAmphosRelay AT %Q* : BOOL; // Ch3 Amphos Interlock relay
+    
+    {attribute 'pytmc' := '
+		pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
+		io: i
+		field: OSV NO_ALARM
+		field: ZSV MAJOR
+		field: ZNAM DISABLED
+		field: ONAM ENABLED
+	'}
+    {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E11_EL2624]^Channel 4^Output'}
+	bCarbideShutterEnable AT %Q* : BOOL; // Ch4 HASS
+    
+    
+	bCarbideShutterEnableManualOperation AT %Q* : BOOL := TRUE;
 	
 	(* Slot12 EL6022 *)
 	

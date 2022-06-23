@@ -256,6 +256,7 @@ fbDumpChiller(
 
 (* Flow sensor monitor for the baseplate chiller *)
 fbBaseplateChiller(
+    bAmphosOn := GVL_IO.bAmphosOn,
 	bBaseplateChillerFlow := GVL_IO.bBaseplateChillerFlow,
 	bError => stErrors.bBaseplateChiller,
 	bMasterLatchReset := bMasterLatchReset
@@ -398,7 +399,11 @@ ELSIF bBaseplateChillerReset THEN
 	fbBaseplateChiller.Reset();
 	fbErrorTriggers.ResetBaseplateChillerTrigger();
 END_IF
-]]></ST>
+
+(* Remove Master Latch Reset after one scan *)
+IF bMasterLatchReset THEN
+    bMasterLatchReset := FALSE;
+END_IF]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

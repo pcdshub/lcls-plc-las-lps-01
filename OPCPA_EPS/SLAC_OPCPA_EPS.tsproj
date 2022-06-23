@@ -309,15 +309,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL_IO.bCarbideShutterEnable</Name>
-							<Comment><![CDATA[ Ch4 HASS]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_IO.bCarbideShutterEnableManualOperation</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL_IO.bDumpChillerRelay</Name>
 							<Comment><![CDATA[ Ch1 Dump chiller NC relay]]></Comment>
 							<Type>BOOL</Type>
@@ -330,6 +321,15 @@
 						<Var>
 							<Name>GVL_IO.bAmphosRelay</Name>
 							<Comment><![CDATA[ Ch3 Amphos Interlock relay]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.bCarbideShutterEnable</Name>
+							<Comment><![CDATA[ Ch4 HASS]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.bCarbideShutterEnableManualOperation</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>

@@ -15,7 +15,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[IF stErrors.bHardwareFailure // Close attenuator if there is a hardware failure
 	OR NOT bAmphosOn // Close attenuator if Amphos is not on
-	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable // Close attenuator if there is a leak on the optical table with amphos on, there is a leak in the OPCPA with the carbide on, or there is a leak under the table
+	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) // Close attenuator if there is a leak on the optical table with amphos on, there is a leak in the OPCPA with the carbide on, or there is a leak under the table
 	(* OR stErrors.bAmphosMRC01 // Close attenuator if there is an AmphosMRC01 error *)
 THEN
 	F_AmphosAttenuatorEnable := FALSE;

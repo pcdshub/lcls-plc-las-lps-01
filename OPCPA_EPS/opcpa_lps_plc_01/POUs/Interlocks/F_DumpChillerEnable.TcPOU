@@ -14,7 +14,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (stErrors.bHardwareFailure // Disable dump chiller if there's a hardware failure
-	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpticalTableNoLaser OR stErrors.bLeakUnderTable) // Disable dump chiller for these leak conditions
+	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpticalTableNoLaser (* OR stErrors.bLeakUnderTable *) ) // Disable dump chiller for these leak conditions
 	AND NOT bMasterOverride //if master override is TRUE, ignore all errors
 THEN
 	F_DumpChillerEnable := FALSE;

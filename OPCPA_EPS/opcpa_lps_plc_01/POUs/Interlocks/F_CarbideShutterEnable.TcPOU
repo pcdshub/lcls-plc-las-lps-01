@@ -14,7 +14,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (stErrors.bHardwareFailure // Close carbide shutter if there is a hardware failure
-	OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable) // Close carbide shutter if leak in OPCPA with carbide on or if there is a leak under the table
+	OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) ) // Close carbide shutter if leak in OPCPA with carbide on or if there is a leak under the table
 	AND NOT bMasterOverride //if master override is TRUE, ignore all errors
 THEN
 	F_CarbideShutterEnable := FALSE;

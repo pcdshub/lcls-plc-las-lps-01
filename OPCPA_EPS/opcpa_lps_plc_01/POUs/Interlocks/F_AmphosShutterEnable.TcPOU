@@ -22,7 +22,7 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (stErrors.bHardwareFailure // Close shutter if there is a hardware failure
-	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable // Close shutter if there is a leak on the optical table with the amphos on, a leak under the table, or a leak inside the OPCPA with Carbide on
+	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) // Close shutter if there is a leak on the optical table with the amphos on, a leak under the table, or a leak inside the OPCPA with Carbide on
 	OR bAmphosOn AND (
 		(NOT bLoopTempOverride01 AND stErrors.bChillerLoop01) OR 
 		(NOT bLoopTempOverride02 AND stErrors.bChillerLoop02) OR 

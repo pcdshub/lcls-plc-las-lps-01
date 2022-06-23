@@ -96,9 +96,9 @@ IF (bLeakDetected OR bLowResistance) THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC6;
 	END_IF
 
-	
+	//CURRENT SETUP : LOC1 = OPCPA, LOC2 = rest of optical table (values decrease toward higher LOC#)
 	(* Latch Optical table leak errors *)
-	IF (stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax4) THEN
+	IF (stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
 		IF bAmphosOn THEN
 			bLeakOpticalTableAmphosOn := TRUE;
 		ELSIF NOT bCarbideOn THEN
@@ -107,11 +107,11 @@ IF (bLeakDetected OR bLowResistance) THEN
 	END_IF
 	
 	(* Latch carbide leak errors *)
-	IF (bCarbideOn AND stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax2) THEN
+	IF (bCarbideOn AND stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
 		bLeakOpcpaCarbideOn := TRUE;
 	END_IF
 	
-	(* Latch leak under table errors *)
+	(* Latch leak under table errors *) 
 	IF (stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5) THEN
 		bLeakUnderTable := TRUE;
 	END_IF
@@ -122,6 +122,7 @@ IF (bLeakDetected OR bLowResistance) THEN
 	END_IF
 	
 	IF bMasterLatchReset THEN
+        nLeakLocations := E_LeakLocation.NO_LEAK;
 		bLeakOpticalTableAmphosOn := FALSE;
 		bLeakOpcpaCarbideOn := FALSE;
 		bLeakOpticalTableNoLaser := FALSE;

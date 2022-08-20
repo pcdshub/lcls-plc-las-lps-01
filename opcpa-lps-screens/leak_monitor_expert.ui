@@ -80,8 +80,11 @@
      <property name="layoutType" stdset="0">
       <enum>PyDMTemplateRepeater::Flow</enum>
      </property>
+     <property name="layoutSpacing" stdset="0">
+      <number>2</number>
+     </property>
      <property name="countShownInDesigner" stdset="0">
-      <number>6</number>
+      <number>2</number>
      </property>
      <property name="templateFilename" stdset="0">
       <string>./widgets/leak_monitor.ui</string>

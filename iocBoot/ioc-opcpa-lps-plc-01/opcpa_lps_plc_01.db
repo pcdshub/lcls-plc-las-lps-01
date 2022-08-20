@@ -36,20 +36,6 @@ record(bi, "$(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE_RBV") {
   info(archive, "VAL")
 }
 
-record(bi, "$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV") {
-  field(DESC, "GVL_IO.bCarbideShutterEnable")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bCarbideShutterEnable?")
-  field(ZSV, "MAJOR")
-  field(OSV, "NO_ALARM")
-  field(ZNAM, "DISABLED")
-  field(ONAM, "ENABLED")
-  info(archive, "VAL")
-}
-
 record(bi, "$(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE_RBV") {
   field(DESC, "GVL_IO.bDumpChillerRelay")
   field(SCAN, "I/O Intr")
@@ -85,6 +71,20 @@ record(bi, "$(PREFIX):LPS:AMPHOS_RELAY:ENABLE_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bAmphosRelay?")
+  field(ZSV, "MAJOR")
+  field(OSV, "NO_ALARM")
+  field(ZNAM, "DISABLED")
+  field(ONAM, "ENABLED")
+  info(archive, "VAL")
+}
+
+record(bi, "$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV") {
+  field(DESC, "GVL_IO.bCarbideShutterEnable")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bCarbideShutterEnable?")
   field(ZSV, "MAJOR")
   field(OSV, "NO_ALARM")
   field(ZNAM, "DISABLED")
@@ -166,6 +166,10 @@ record(longin, "$(PREFIX):TTSIM:DEV01:LOC_RES_RBV") {
   field(TSE, "-2")
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbTraceTekModbus.nLocationResistance?")
+  field(ZSV, "NO_ALARM")
+  field(OSV, "MAJOR")
+  field(ZNAM, "OK")
+  field(ONAM, "ERROR")
   info(archive, "VAL")
 }
 
@@ -526,6 +530,19 @@ record(ai, "$(PREFIX):LPS:AMPHOS:VOLTAGE_RBV") {
   info(archive, "VAL")
 }
 
+record(ai, "$(PREFIX):LPS:AMPHOS:SCALED_PWR_RBV") {
+  field(DESC, "MAIN.fbAmphos.fPower")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbAmphos.fPower?")
+  field(PREC, "3")
+  field(EGU, "Watts")
+  info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
+}
+
 record(bi, "$(PREFIX):LPS:AMPHOS:ERROR_RBV") {
   field(DESC, "MAIN.fbAmphos.bError")
   field(SCAN, "I/O Intr")
@@ -553,6 +570,19 @@ record(ai, "$(PREFIX):LPS:OPCPA:VOLTAGE_RBV") {
   field(LOPR, "0.0")
   field(LLSV, "MAJOR")
   field(LSV, "MINOR")
+  info(autosaveFields_pass0, "PREC")
+  info(archive, "VAL")
+}
+
+record(ai, "$(PREFIX):LPS:OPCPA:SCALED_PWR_RBV") {
+  field(DESC, "MAIN.fbOpcpa.fPower")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbOpcpa.fPower?")
+  field(PREC, "3")
+  field(EGU, "Watts")
   info(autosaveFields_pass0, "PREC")
   info(archive, "VAL")
 }
@@ -692,6 +722,8 @@ record(waveform, "$(PREFIX):LPS:PLC:AMS_ID_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.sNetId?")
   field(FTVL, "CHAR")
   field(NELM, "23")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -704,6 +736,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -726,6 +760,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -788,6 +824,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -810,6 +848,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -872,6 +912,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -894,6 +936,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -956,6 +1000,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -978,6 +1024,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1040,6 +1088,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1062,6 +1112,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1124,6 +1176,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1146,6 +1200,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1208,6 +1264,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1230,6 +1288,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1292,6 +1352,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1314,6 +1376,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1376,6 +1440,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1398,6 +1464,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1460,6 +1528,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:TYPE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.sType?")
   field(FTVL, "CHAR")
   field(NELM, "15")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 
@@ -1482,6 +1552,8 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:NAME_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.sName?")
   field(FTVL, "CHAR")
   field(NELM, "31")
+  field(MPST, "On Change")
+  field(APST, "On Change")
   info(archive, "VAL")
 }
 

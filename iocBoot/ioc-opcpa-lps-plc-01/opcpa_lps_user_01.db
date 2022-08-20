@@ -1,0 +1,49 @@
+record(stringin, "$(PREFIX):LPS:TEMP01:LOC") {
+  field(DESC, "Chiller Loop Monitor 1 Location")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:TEMP02:LOC") {
+  field(DESC, "Chiller Loop Monitor 2 Location")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:TEMP03:LOC") {
+  field(DESC, "Chiller Loop Monitor 3 Location")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:TEMP04:LOC") {
+  field(DESC, "Chiller Loop Monitor 4 Location")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:LEAK:LOC01") {
+  field(DESC, "Leak Location 1")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:LEAK:LOC02") {
+  field(DESC, "Leak Location 2")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:LEAK:LOC03") {
+  field(DESC, "Leak Location 3")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:LEAK:LOC04") {
+  field(DESC, "Leak Location 4")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:LEAK:LOC05") {
+  field(DESC, "Leak Location 5")
+  field(SCAN, "I/O Intr")
+}
+
+record(stringin, "$(PREFIX):LPS:LEAK:LOC06") {
+  field(DESC, "Leak Location 6")
+  field(SCAN, "I/O Intr")
+}

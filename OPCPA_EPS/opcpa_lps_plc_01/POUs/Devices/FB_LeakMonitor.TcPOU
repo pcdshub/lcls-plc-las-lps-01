@@ -84,17 +84,27 @@ IF (bLeakDetected OR bLowResistance) THEN
 	(* Find leak location for PV. Stays until reset *)
 	IF stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1 THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC1;
-	ELSIF stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax2 THEN
+    END_IF
+        
+	IF stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax2 THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC2;
-	ELSIF stBound.nLMin3 <= nLocationResistance AND nLocationResistance < stBound.nLMax3 THEN
+    END_IF
+        
+	IF stBound.nLMin3 <= nLocationResistance AND nLocationResistance < stBound.nLMax3 THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC3;
-	ELSIF stBound.nLMin4 <= nLocationResistance AND nLocationResistance < stBound.nLMax4 THEN
+    END_IF
+        
+	IF stBound.nLMin4 <= nLocationResistance AND nLocationResistance < stBound.nLMax4 THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC4;
-	ELSIF stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5 THEN
+    END_IF
+        
+	IF stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5 THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC5;
-	ELSIF stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6 THEN
+    END_IF
+        
+	IF stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6 THEN
 		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC6;
-	END_IF
+    END_IF
 
 	//CURRENT SETUP : LOC1 = OPCPA, LOC2 = rest of optical table (values decrease toward higher LOC#)
 	(* Latch Optical table leak errors *)
@@ -121,14 +131,15 @@ IF (bLeakDetected OR bLowResistance) THEN
 		bLeakInsideRacks := TRUE;
 	END_IF
 	
-	IF bMasterLatchReset THEN
-        nLeakLocations := E_LeakLocation.NO_LEAK;
-		bLeakOpticalTableAmphosOn := FALSE;
-		bLeakOpcpaCarbideOn := FALSE;
-		bLeakOpticalTableNoLaser := FALSE;
-		bLeakUnderTable := FALSE;
-		bLeakInsideRacks := FALSE;
-	END_IF
+END_IF
+
+IF bMasterLatchReset THEN
+	nLeakLocations := E_LeakLocation.NO_LEAK;
+	bLeakOpticalTableAmphosOn := FALSE;
+	bLeakOpcpaCarbideOn := FALSE;
+	bLeakOpticalTableNoLaser := FALSE;
+	bLeakUnderTable := FALSE;
+	bLeakInsideRacks := FALSE;
 END_IF
 ]]></ST>
     </Implementation>

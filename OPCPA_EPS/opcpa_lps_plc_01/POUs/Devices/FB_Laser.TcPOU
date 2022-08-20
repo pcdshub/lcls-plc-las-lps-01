@@ -22,6 +22,14 @@ VAR_OUTPUT
 		field: EGU Volts
 	'}
 	fVoltage : LREAL; // Voltage calculated from the raw ADC input
+    
+    {attribute 'pytmc' := '
+        pv: SCALED_PWR
+        io: i
+        field: EGU Watts
+    '}
+    fPower : LREAL; // Value to be scaled from fVoltage to give meter reading in terms of watts
+    
 	{attribute 'pytmc' := '
 		pv: ERROR
 		io: i
@@ -43,6 +51,8 @@ fVoltage := F_Scale(
 	fRawDataUpperOffLimit := GVL_EL3174.fRawUpperLimit,
 	fScaleDataLowerOffLimit := GVL_EL3174.fScaleLowerLimit,
 	fScaleDataUpperOffLimit := GVL_EL3174.fScaleUpperLimit);
+
+fPower := fVoltage; //Value is scaled by user set ASLO and AOFF fields (for display only)
 
 IF bAmphosOn AND (fVoltage < stSetpoints.nMinNominalVoltage) THEN
 	bBelowNominal := TRUE;

@@ -92,7 +92,7 @@ VAR
 		pv: @(PREFIX):LPS:MASTER_OVERRIDE
 		io: o
 	'}
-	bMasterOverride : BOOL; // Master override control for safety system.
+	bMasterOverride : BOOL := TRUE; // Master override control for safety system.
 	
 	{attribute 'pytmc' := '
 		pv: @(PREFIX):LPS:MASTER_AMP_SHUTTER
@@ -105,13 +105,20 @@ VAR
 		io: o
 	'}
 	bMasterLatchReset : BOOL; //Master release of latched error conditions
+	
+	bLatchStart : BOOL := FALSE; //Latch at start of loop. 
     
 	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:PLC'}
 	fbDiag : FB_EcatDiag; // Ethercat diagnostics
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(******************************************************************* 
+      <ST><![CDATA[(* Ensure master latch is TRUE for at least one full cycle of the PLC logic *)
+IF bMasterLatchReset AND NOT bLatchStart THEN
+	bLatchStart := TRUE;
+END_IF
+
+(******************************************************************* 
 		Update diagnostics. Check for hardware failures
 *******************************************************************)
 (* Check PLC hardware for failures *)
@@ -401,8 +408,9 @@ ELSIF bBaseplateChillerReset THEN
 END_IF
 
 (* Remove Master Latch Reset after one scan *)
-IF bMasterLatchReset THEN
+IF bMasterLatchReset AND bLatchStart THEN
     bMasterLatchReset := FALSE;
+	bLatchStart := FALSE;
 END_IF]]></ST>
     </Implementation>
   </POU>

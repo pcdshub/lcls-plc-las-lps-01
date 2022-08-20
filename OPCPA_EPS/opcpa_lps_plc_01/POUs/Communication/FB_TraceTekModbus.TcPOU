@@ -11,7 +11,11 @@ END_VAR
 VAR_OUTPUT
 	{attribute 'pytmc' := '
 		pv: LOC_RES
-		io: input
+		io: i
+		field: OSV MAJOR
+		field: ZSV NO_ALARM
+		field: ZNAM OK
+		field: ONAM ERROR
 	'}
 	nLocationResistance: UINT; // Resistance measured in the detection wire
 	{attribute 'pytmc' := '

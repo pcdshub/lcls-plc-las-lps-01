@@ -234,11 +234,6 @@
 							<Type GUID="{5BEACB64-8490-46B4-B636-A0EB00630394}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>GVL_IO.bAmphosOn</Name>
-							<Comment><![CDATA[ Ch1]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL_IO.nOpcpaVoltageRaw</Name>
 							<Comment><![CDATA[ Ch1]]></Comment>
 							<Type>INT</Type>
@@ -251,6 +246,11 @@
 							<Name>GVL_IO.nAmphosVoltageRaw</Name>
 							<Comment><![CDATA[ Ch2]]></Comment>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.bAmphosOn</Name>
+							<Comment><![CDATA[ Ch1]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.bLeakDetected</Name>

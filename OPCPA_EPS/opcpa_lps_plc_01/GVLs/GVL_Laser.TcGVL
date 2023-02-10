@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <GVL Name="GVL_Laser" Id="{e0af405c-e897-41b3-8e91-0c860cf7df68}">
+    <Declaration><![CDATA[// Setpoints for lasers
+{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
+    stAmphosSP : ST_LaserSetpoints; // Amphos setpoints
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:OPCPA'}
+    stOpcpaSP : ST_LaserSetpoints; // OPCPA setpoints
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

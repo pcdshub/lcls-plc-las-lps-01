@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <DUT Name="E_LeakLocation" Id="{2f6f5662-e0e9-45ea-b191-3cdfc221cc16}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_LeakLocation :
+(
+    NO_LEAK := 0,
+    LOC1 := 1,
+    LOC2 := 2,
+    LOC3 := 4,
+    LOC4 := 8,
+    LOC5 := 16,
+    LOC6 := 32
+) BYTE;
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

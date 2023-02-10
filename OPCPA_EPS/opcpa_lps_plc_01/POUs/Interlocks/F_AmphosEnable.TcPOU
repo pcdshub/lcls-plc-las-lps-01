@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="F_AmphosEnable" Id="{4eee8ded-a078-4dda-b600-54c6bc2c4702}" SpecialFunc="None">
+    <Declaration><![CDATA[// Interlock logic for the Amphos relay
+FUNCTION F_AmphosEnable : BOOL
+VAR_INPUT
+    fAmphosVoltage : LREAL; // The Amphos voltage
+    bEnabled : BOOL; // Whether the amphos enable signal is currently on
+    bMasterOverride : BOOL; //Master manual override control input
+END_VAR
+VAR_IN_OUT CONSTANT
+    stAmphosSetpoints : ST_LaserSetpoints; // The Amphos setpoints
+    stErrors : ST_ErrorStates; // Currently detected errors
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (stErrors.bHardwareFailure // Disable Amphos if there is a hardware failure
+    OR stErrors.bAmphosBeam  // Disable Amphos if there is a beam error
+    OR stErrors.bAmphosBeam AND NOT bEnabled) // Once amphos is disabled, keep it disabled until beam error is reset
+    AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+THEN
+    F_AmphosEnable := FALSE;
+ELSE
+    F_AmphosEnable := TRUE;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

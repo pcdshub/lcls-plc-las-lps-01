@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="F_DumpChillerEnable" Id="{3066f6d6-3e9d-4000-97ec-3f0f004d791c}" SpecialFunc="None">
+    <Declaration><![CDATA[// Interlock logic for the Dump Chiller
+FUNCTION F_DumpChillerEnable : BOOL
+VAR_INPUT
+    bMasterOverride : BOOL; //Master manual override control input
+END_VAR
+VAR_IN_OUT CONSTANT
+    stErrors : ST_ErrorStates; // Currently detected errors
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (stErrors.bHardwareFailure // Disable dump chiller if there's a hardware failure
+    OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpticalTableNoLaser (* OR stErrors.bLeakUnderTable *) ) // Disable dump chiller for these leak conditions
+    AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+THEN
+    F_DumpChillerEnable := FALSE;
+ELSE
+    F_DumpChillerEnable := TRUE;
+END_IF
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

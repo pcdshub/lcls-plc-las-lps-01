@@ -4,22 +4,22 @@
     <Declaration><![CDATA[// Interlock logic for the Baseplate Chiller
 FUNCTION F_BaseplateChillerEnable : BOOL
 VAR_INPUT
-	bMasterOverride : BOOL; //Master manual override control input
+    bMasterOverride : BOOL; //Master manual override control input
 END_VAR
 VAR_IN_OUT CONSTANT
-	stErrors : ST_ErrorStates; // Currently detected errors
+    stErrors : ST_ErrorStates; // Currently detected errors
 END_VAR
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (stErrors.bHardwareFailure // Disable baseplate chiller if there is a hardware failure
-	(* OR stErrors.bLeakUnderTable *) OR stErrors.bLeakOpcpaCarbideOn) // Disable baseplate chiller if there is a leak under the table
-	AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+    (* OR stErrors.bLeakUnderTable *) OR stErrors.bLeakOpcpaCarbideOn) // Disable baseplate chiller if there is a leak under the table
+    AND NOT bMasterOverride //if master override is TRUE, ignore all errors
 THEN
-	F_BaseplateChillerEnable := FALSE;
+    F_BaseplateChillerEnable := FALSE;
 ELSE
-	F_BaseplateChillerEnable := TRUE;
+    F_BaseplateChillerEnable := TRUE;
 END_IF
 ]]></ST>
     </Implementation>

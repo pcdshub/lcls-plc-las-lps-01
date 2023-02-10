@@ -4,22 +4,22 @@
     <Declaration><![CDATA[// Interlock logic for the Carbide Shutter
 FUNCTION F_CarbideShutterEnable : BOOL
 VAR_INPUT
-	bMasterOverride : BOOL; //Master manual override control input
+    bMasterOverride : BOOL; //Master manual override control input
 END_VAR
 VAR_IN_OUT CONSTANT
-	stErrors : ST_ErrorStates; // Currently detected errors
+    stErrors : ST_ErrorStates; // Currently detected errors
 END_VAR
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (stErrors.bHardwareFailure // Close carbide shutter if there is a hardware failure
-	OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) ) // Close carbide shutter if leak in OPCPA with carbide on or if there is a leak under the table
-	AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+    OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) ) // Close carbide shutter if leak in OPCPA with carbide on or if there is a leak under the table
+    AND NOT bMasterOverride //if master override is TRUE, ignore all errors
 THEN
-	F_CarbideShutterEnable := FALSE;
+    F_CarbideShutterEnable := FALSE;
 ELSE
-	F_CarbideShutterEnable := TRUE;
+    F_CarbideShutterEnable := TRUE;
 END_IF]]></ST>
     </Implementation>
   </POU>

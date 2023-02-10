@@ -4,12 +4,12 @@
     <Declaration><![CDATA[// Global variables for the TraceTek leak detector
 {attribute 'qualified_only'}
 VAR_GLOBAL CONSTANT
-	(* Modbus address *)
-	nModbusSlaveAddress : BYTE := 199; // Modbus slave address of the TraceTek device
+    (* Modbus address *)
+    nModbusSlaveAddress : BYTE := 199; // Modbus slave address of the TraceTek device
 END_VAR
 VAR_GLOBAL PERSISTENT
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:LEAK'}
-	stLeakMonitorBoundaries : ST_LeakBoundaries; // Boundaries of possible leak locations
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:LEAK'}
+    stLeakMonitorBoundaries : ST_LeakBoundaries; // Boundaries of possible leak locations
 END_VAR
 ]]></Declaration>
   </GVL>

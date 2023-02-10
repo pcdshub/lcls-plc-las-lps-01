@@ -11,4 +11,4 @@ epicsEnvSet("ADS","/reg/g/pcds/epics//R7.0.2-2.0/modules/twincat-ads/R2.0.0-0.0.
 epicsEnvSet("CAPUTLOG","/reg/g/pcds/epics//R7.0.2-2.0/modules/caPutLog/R3.7-1.0.0")
 epicsEnvSet("EPICS_BASE","/reg/g/pcds/epics//base/R7.0.2-2.0")
 epicsEnvSet("IOC_TOP", "/reg/g/pcds/epics-dev/payers/lcls-plc-las-lps-01/iocBoot/ioc-opcpa-lps-plc-01")
-epicsEnvSet("IOC_DATA", "/cds/home/p/payers/iocData")
+epicsEnvSet("IOC_DATA", "/reg/d/iocData")

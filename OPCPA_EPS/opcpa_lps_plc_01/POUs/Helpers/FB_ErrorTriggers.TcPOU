@@ -4,69 +4,69 @@
     <Declaration><![CDATA[// Detects rising-edge errors
 FUNCTION_BLOCK FB_ErrorTriggers
 VAR_INPUT
-	nLeakLocations : BYTE;
+    nLeakLocations : BYTE;
 END_VAR
 VAR_IN_OUT CONSTANT
-	stErrors : ST_ErrorStates; // Errors that have been detected
+    stErrors : ST_ErrorStates; // Errors that have been detected
 END_VAR
 VAR_OUTPUT
-	stNewErrors : St_ErrorStates; // Rising-edge errors
+    stNewErrors : St_ErrorStates; // Rising-edge errors
 END_VAR
 VAR
-	// R_TRIG function blocks for detecting new errors
-	fbLeakTrig : R_TRIG;
-	fbLeakOpticalTableAmphosOnTrig : R_TRIG;
-	fbLeakOpticalTableNoLaserTrig : R_TRIG;
-	fbLeakOpcpaCarbideOnTrig : R_TRIG;
-	fbLeakUnderTableTrig : R_TRIG;
-	fbLeakInsideRacksTrig : R_TRIG;
-	fbAmphosBeamTrig : R_TRIG;
-	fbOpcpaBeamTrig : R_TRIG;
-	fbDumpChillerTrig : R_TRIG;
-	fbBaseplateChillerTrig : R_TRIG;
+    // R_TRIG function blocks for detecting new errors
+    fbLeakTrig : R_TRIG;
+    fbLeakOpticalTableAmphosOnTrig : R_TRIG;
+    fbLeakOpticalTableNoLaserTrig : R_TRIG;
+    fbLeakOpcpaCarbideOnTrig : R_TRIG;
+    fbLeakUnderTableTrig : R_TRIG;
+    fbLeakInsideRacksTrig : R_TRIG;
+    fbAmphosBeamTrig : R_TRIG;
+    fbOpcpaBeamTrig : R_TRIG;
+    fbDumpChillerTrig : R_TRIG;
+    fbBaseplateChillerTrig : R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[fbLeakTrig(
-	CLK := nLeakLocations <> E_LeakLocation.NO_LEAK,
+    CLK := nLeakLocations <> E_LeakLocation.NO_LEAK,
 );
 fbLeakOpticalTableAmphosOnTrig(
-	CLK := stErrors.bLeakOpticalTableAmphosOn,
-	Q => stNewErrors.bLeakOpticalTableAmphosOn
+    CLK := stErrors.bLeakOpticalTableAmphosOn,
+    Q => stNewErrors.bLeakOpticalTableAmphosOn
 );
 fbLeakOpticalTableNoLaserTrig(
-	CLK := stErrors.bLeakOpticalTableNoLaser,
-	Q => stNewErrors.bLeakOpticalTableNoLaser
+    CLK := stErrors.bLeakOpticalTableNoLaser,
+    Q => stNewErrors.bLeakOpticalTableNoLaser
 );
 fbLeakOpcpaCarbideOnTrig(
-	CLK := stErrors.bLeakOpcpaCarbideOn,
-	Q => stNewErrors.bLeakOpcpaCarbideOn
+    CLK := stErrors.bLeakOpcpaCarbideOn,
+    Q => stNewErrors.bLeakOpcpaCarbideOn
 );
 fbLeakUnderTableTrig(
-	CLK := stErrors.bLeakUnderTable,
-	Q => stNewErrors.bLeakUnderTable
+    CLK := stErrors.bLeakUnderTable,
+    Q => stNewErrors.bLeakUnderTable
 );
 fbLeakInsideRacksTrig(
-	CLK := stErrors.bLeakInsideRacks,
-	Q => stNewErrors.bLeakInsideRacks
+    CLK := stErrors.bLeakInsideRacks,
+    Q => stNewErrors.bLeakInsideRacks
 );
 
 fbAmphosBeamTrig(
-	CLK := stErrors.bAmphosBeam,
-	Q => stNewErrors.bAmphosBeam
+    CLK := stErrors.bAmphosBeam,
+    Q => stNewErrors.bAmphosBeam
 );
 fbOpcpaBeamTrig(
-	CLK := stErrors.bOpcpaBeam,
-	Q => stNewErrors.bOpcpaBeam
+    CLK := stErrors.bOpcpaBeam,
+    Q => stNewErrors.bOpcpaBeam
 );
 
 fbDumpChillerTrig(
-	CLK := stErrors.bDumpChiller,
-	Q => stNewErrors.bDumpChiller
+    CLK := stErrors.bDumpChiller,
+    Q => stNewErrors.bDumpChiller
 );
 fbBaseplateChillerTrig(
-	CLK := stErrors.bBaseplateChiller,
-	Q => stNewErrors.bBaseplateChiller
+    CLK := stErrors.bBaseplateChiller,
+    Q => stNewErrors.bBaseplateChiller
 );]]></ST>
     </Implementation>
     <Method Name="NewLeakError" Id="{98701e39-0230-430d-802b-0633b5d846d1}">
@@ -87,8 +87,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[fbAmphosBeamTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bAmphosBeam
+    CLK := FALSE,
+    Q => stNewErrors.bAmphosBeam
 );]]></ST>
       </Implementation>
     </Method>
@@ -99,8 +99,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[fbBaseplateChillerTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bBaseplateChiller
+    CLK := FALSE,
+    Q => stNewErrors.bBaseplateChiller
 );]]></ST>
       </Implementation>
     </Method>
@@ -111,8 +111,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[fbDumpChillerTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bDumpChiller
+    CLK := FALSE,
+    Q => stNewErrors.bDumpChiller
 );
 ]]></ST>
       </Implementation>
@@ -125,24 +125,24 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[fbLeakOpticalTableAmphosOnTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bLeakOpticalTableAmphosOn
+    CLK := FALSE,
+    Q => stNewErrors.bLeakOpticalTableAmphosOn
 );
 fbLeakOpticalTableNoLaserTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bLeakOpticalTableNoLaser
+    CLK := FALSE,
+    Q => stNewErrors.bLeakOpticalTableNoLaser
 );
 fbLeakOpcpaCarbideOnTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bLeakOpcpaCarbideOn
+    CLK := FALSE,
+    Q => stNewErrors.bLeakOpcpaCarbideOn
 );
 fbLeakUnderTableTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bLeakUnderTable
+    CLK := FALSE,
+    Q => stNewErrors.bLeakUnderTable
 );
 fbLeakInsideRacksTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bLeakInsideRacks
+    CLK := FALSE,
+    Q => stNewErrors.bLeakInsideRacks
 );
 ]]></ST>
       </Implementation>
@@ -155,8 +155,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[fbOpcpaBeamTrig(
-	CLK := FALSE,
-	Q => stNewErrors.bOpcpaBeam
+    CLK := FALSE,
+    Q => stNewErrors.bOpcpaBeam
 );]]></ST>
       </Implementation>
     </Method>

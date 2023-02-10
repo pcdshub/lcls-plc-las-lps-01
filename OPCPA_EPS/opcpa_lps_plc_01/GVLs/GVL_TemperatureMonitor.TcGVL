@@ -4,22 +4,22 @@
     <Declaration><![CDATA[// Temperature monitor setpoints
 {attribute 'qualified_only'}
 VAR_GLOBAL PERSISTENT
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON01'}
-	stTempMonSP01 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON02'}
-	stTempMonSP02 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON03'}
-	stTempMonSP03 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON04'}
-	stTempMonSP04 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON05'}
-	stTempMonSP05 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON06'}
-	stTempMonSP06 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON07'}
-	stTempMonSP07 : ST_TemperatureMonitorSetpoints;
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON08'}
-	stTempMonSP08 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON01'}
+    stTempMonSP01 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON02'}
+    stTempMonSP02 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON03'}
+    stTempMonSP03 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON04'}
+    stTempMonSP04 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON05'}
+    stTempMonSP05 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON06'}
+    stTempMonSP06 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON07'}
+    stTempMonSP07 : ST_TemperatureMonitorSetpoints;
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON08'}
+    stTempMonSP08 : ST_TemperatureMonitorSetpoints;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

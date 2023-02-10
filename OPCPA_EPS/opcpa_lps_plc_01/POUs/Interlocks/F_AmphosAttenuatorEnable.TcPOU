@@ -4,23 +4,23 @@
     <Declaration><![CDATA[// Interlock logic for the Amphos attenuator
 FUNCTION F_AmphosAttenuatorEnable : BOOL
 VAR_INPUT
-	bAmphosOn : BOOL; // Whether the Amphos is turned on
+    bAmphosOn : BOOL; // Whether the Amphos is turned on
 END_VAR
 VAR_IN_OUT CONSTANT
-	stErrors : ST_ErrorStates; // Currently detected errors
+    stErrors : ST_ErrorStates; // Currently detected errors
 END_VAR
 VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF stErrors.bHardwareFailure // Close attenuator if there is a hardware failure
-	OR NOT bAmphosOn // Close attenuator if Amphos is not on
-	OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) // Close attenuator if there is a leak on the optical table with amphos on, there is a leak in the OPCPA with the carbide on, or there is a leak under the table
-	(* OR stErrors.bAmphosMRC01 // Close attenuator if there is an AmphosMRC01 error *)
+    OR NOT bAmphosOn // Close attenuator if Amphos is not on
+    OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn (* OR stErrors.bLeakUnderTable *) // Close attenuator if there is a leak on the optical table with amphos on, there is a leak in the OPCPA with the carbide on, or there is a leak under the table
+    (* OR stErrors.bAmphosMRC01 // Close attenuator if there is an AmphosMRC01 error *)
 THEN
-	F_AmphosAttenuatorEnable := FALSE;
+    F_AmphosAttenuatorEnable := FALSE;
 ELSE
-	F_AmphosAttenuatorEnable := TRUE;
+    F_AmphosAttenuatorEnable := TRUE;
 END_IF
 ]]></ST>
     </Implementation>

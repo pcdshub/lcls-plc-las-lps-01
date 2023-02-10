@@ -4,25 +4,25 @@
     <Declaration><![CDATA[// Monitors the chiller loop from the flow sensor
 FUNCTION_BLOCK FB_ChillerLoop
 VAR_INPUT
-	bLoopTempSW : BOOL; // NC Temperature switch. Indicates when temperature is too high
+    bLoopTempSW : BOOL; // NC Temperature switch. Indicates when temperature is too high
 END_VAR
 VAR_OUTPUT
-	{attribute 'pytmc' := '
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bError : BOOL := FALSE; // Whether an error was detected. Goes back to normal on its own
-	{attribute 'pytmc' := '
-		pv: OVERRIDE
-		io: io
-		field: ZNAM "OFF"
-		field: ONAM "ON"
-	'}
-	bOperatorOverride : BOOL := FALSE; // If TRUE, allows the EPS to keep running despite the chiller loop error
+    {attribute 'pytmc' := '
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bError : BOOL := FALSE; // Whether an error was detected. Goes back to normal on its own
+    {attribute 'pytmc' := '
+        pv: OVERRIDE
+        io: io
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    '}
+    bOperatorOverride : BOOL := FALSE; // If TRUE, allows the EPS to keep running despite the chiller loop error
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -31,7 +31,7 @@ bError := NOT bLoopTempSW;
 
 (* Reset the operator override if the system returns to normal tempreature range *)
 IF bLoopTempSW THEN
-	bOperatorOverride := FALSE;
+    bOperatorOverride := FALSE;
 END_IF]]></ST>
     </Implementation>
   </POU>

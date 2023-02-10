@@ -4,7 +4,7 @@
     <Declaration><![CDATA[// PLC global variables
 {attribute 'qualified_only'}
 VAR_GLOBAL
-	AMSNetId AT %I* : AMSNETID;
+    AMSNetId AT %I* : AMSNETID;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -4,12 +4,12 @@
     <Declaration><![CDATA[// Setpoints for the temperature monitors
 TYPE ST_TemperatureMonitorSetpoints :
 STRUCT
-	{attribute 'pytmc' := '
-		pv: MAX_TEMP
-		io: io
-		field: EGU C
-	'}
-	fMaxTemperature : LREAL; // Maximum temperature in Celsius allowed before triggering error
+    {attribute 'pytmc' := '
+        pv: MAX_TEMP
+        io: io
+        field: EGU C
+    '}
+    fMaxTemperature : LREAL; // Maximum temperature in Celsius allowed before triggering error
 END_STRUCT
 END_TYPE
 ]]></Declaration>

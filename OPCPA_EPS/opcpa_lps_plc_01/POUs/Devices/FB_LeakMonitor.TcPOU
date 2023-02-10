@@ -4,142 +4,142 @@
     <Declaration><![CDATA[// Detect leaks and leak locations
 FUNCTION_BLOCK FB_LeakMonitor
 VAR_INPUT
-	bLeakDetected : BOOL; // Whether a leak was detected
-	bAmphosOn : BOOL; // Whether the Amphos is on
-	bCarbideOn : BOOL; // Whether the Carbide is on
-	nLocationResistance: UINT; // Used for calculating the location of the leak
-	bMasterLatchReset : BOOL; //Master latched error reset
+    bLeakDetected : BOOL; // Whether a leak was detected
+    bAmphosOn : BOOL; // Whether the Amphos is on
+    bCarbideOn : BOOL; // Whether the Carbide is on
+    nLocationResistance: UINT; // Used for calculating the location of the leak
+    bMasterLatchReset : BOOL; //Master latched error reset
 END_VAR
 VAR_IN_OUT CONSTANT
-	stBound : ST_LeakBoundaries; // Setpoints for calculating leak locations from location resistance
+    stBound : ST_LeakBoundaries; // Setpoints for calculating leak locations from location resistance
 END_VAR
 VAR_OUTPUT
-	
-	{attribute 'pytmc' := '
-		pv: LOW_RES
-		io: i
-	'}
-	bLowResistance : BOOL := FALSE;    
 
-	{attribute 'pytmc' := '
-		pv: LEAKS
-		io: i
-	'}
-	nLeakLocations : BYTE := E_LeakLocation.NO_LEAK; // Locations of leaks
-	{attribute 'pytmc' := '
-		pv: LOTAO_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bLeakOpticalTableAmphosOn : BOOL := FALSE; // Leak on the optical table with Amphos on
-	{attribute 'pytmc' := '
-		pv: LOTNL_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bLeakOpticalTableNoLaser : BOOL := FALSE; // Leak on the optical table with no laser on
-	{attribute 'pytmc' := '
-		pv: LOCO_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bLeakOpcpaCarbideOn : BOOL := FALSE; // Leak inside the OPCPA with Carbide on
-	{attribute 'pytmc' := '
-		pv: LUT_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bLeakUnderTable : BOOL := FALSE; // Leak under the table
-	{attribute 'pytmc' := '
-		pv: LIR_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bLeakInsideRacks : BOOL := FALSE; // Leak inside the racks
+    {attribute 'pytmc' := '
+        pv: LOW_RES
+        io: i
+    '}
+    bLowResistance : BOOL := FALSE;
+
+    {attribute 'pytmc' := '
+        pv: LEAKS
+        io: i
+    '}
+    nLeakLocations : BYTE := E_LeakLocation.NO_LEAK; // Locations of leaks
+    {attribute 'pytmc' := '
+        pv: LOTAO_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bLeakOpticalTableAmphosOn : BOOL := FALSE; // Leak on the optical table with Amphos on
+    {attribute 'pytmc' := '
+        pv: LOTNL_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bLeakOpticalTableNoLaser : BOOL := FALSE; // Leak on the optical table with no laser on
+    {attribute 'pytmc' := '
+        pv: LOCO_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bLeakOpcpaCarbideOn : BOOL := FALSE; // Leak inside the OPCPA with Carbide on
+    {attribute 'pytmc' := '
+        pv: LUT_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bLeakUnderTable : BOOL := FALSE; // Leak under the table
+    {attribute 'pytmc' := '
+        pv: LIR_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bLeakInsideRacks : BOOL := FALSE; // Leak inside the racks
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (nLocationResistance < 200) THEN
-	bLowResistance := TRUE;
+    bLowResistance := TRUE;
 ELSE
-	bLowResistance := FALSE;
+    bLowResistance := FALSE;
 END_IF
 
 IF (bLeakDetected OR bLowResistance) THEN
-	(* Find leak location for PV. Stays until reset *)
-	IF stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1 THEN
-		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC1;
-    END_IF
-        
-	IF stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax2 THEN
-		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC2;
-    END_IF
-        
-	IF stBound.nLMin3 <= nLocationResistance AND nLocationResistance < stBound.nLMax3 THEN
-		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC3;
-    END_IF
-        
-	IF stBound.nLMin4 <= nLocationResistance AND nLocationResistance < stBound.nLMax4 THEN
-		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC4;
-    END_IF
-        
-	IF stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5 THEN
-		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC5;
-    END_IF
-        
-	IF stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6 THEN
-		nLeakLocations := nLeakLocations OR E_LeakLocation.LOC6;
+    (* Find leak location for PV. Stays until reset *)
+    IF stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1 THEN
+        nLeakLocations := nLeakLocations OR E_LeakLocation.LOC1;
     END_IF
 
-	//CURRENT SETUP : LOC1 = OPCPA, LOC2 = rest of optical table (values decrease toward higher LOC#)
-	(* Latch Optical table leak errors *)
-	IF (stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
-		IF bAmphosOn THEN
-			bLeakOpticalTableAmphosOn := TRUE;
-		ELSIF NOT bCarbideOn THEN
-			bLeakOpticalTableNoLaser := TRUE;
-		END_IF
-	END_IF
-	
-	(* Latch carbide leak errors *)
-	IF (bCarbideOn AND stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
-		bLeakOpcpaCarbideOn := TRUE;
-	END_IF
-	
-	(* Latch leak under table errors *) 
-	IF (stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5) THEN
-		bLeakUnderTable := TRUE;
-	END_IF
-	
-	(* Latch leak inside rack errors *)
-	IF (stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6) THEN
-		bLeakInsideRacks := TRUE;
-	END_IF
-	
+    IF stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax2 THEN
+        nLeakLocations := nLeakLocations OR E_LeakLocation.LOC2;
+    END_IF
+
+    IF stBound.nLMin3 <= nLocationResistance AND nLocationResistance < stBound.nLMax3 THEN
+        nLeakLocations := nLeakLocations OR E_LeakLocation.LOC3;
+    END_IF
+
+    IF stBound.nLMin4 <= nLocationResistance AND nLocationResistance < stBound.nLMax4 THEN
+        nLeakLocations := nLeakLocations OR E_LeakLocation.LOC4;
+    END_IF
+
+    IF stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5 THEN
+        nLeakLocations := nLeakLocations OR E_LeakLocation.LOC5;
+    END_IF
+
+    IF stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6 THEN
+        nLeakLocations := nLeakLocations OR E_LeakLocation.LOC6;
+    END_IF
+
+    //CURRENT SETUP : LOC1 = OPCPA, LOC2 = rest of optical table (values decrease toward higher LOC#)
+    (* Latch Optical table leak errors *)
+    IF (stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
+        IF bAmphosOn THEN
+            bLeakOpticalTableAmphosOn := TRUE;
+        ELSIF NOT bCarbideOn THEN
+            bLeakOpticalTableNoLaser := TRUE;
+        END_IF
+    END_IF
+
+    (* Latch carbide leak errors *)
+    IF (bCarbideOn AND stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
+        bLeakOpcpaCarbideOn := TRUE;
+    END_IF
+
+    (* Latch leak under table errors *)
+    IF (stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5) THEN
+        bLeakUnderTable := TRUE;
+    END_IF
+
+    (* Latch leak inside rack errors *)
+    IF (stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6) THEN
+        bLeakInsideRacks := TRUE;
+    END_IF
+
 END_IF
 
 IF bMasterLatchReset THEN
-	nLeakLocations := E_LeakLocation.NO_LEAK;
-	bLeakOpticalTableAmphosOn := FALSE;
-	bLeakOpcpaCarbideOn := FALSE;
-	bLeakOpticalTableNoLaser := FALSE;
-	bLeakUnderTable := FALSE;
-	bLeakInsideRacks := FALSE;
+    nLeakLocations := E_LeakLocation.NO_LEAK;
+    bLeakOpticalTableAmphosOn := FALSE;
+    bLeakOpcpaCarbideOn := FALSE;
+    bLeakOpticalTableNoLaser := FALSE;
+    bLeakUnderTable := FALSE;
+    bLeakInsideRacks := FALSE;
 END_IF
 ]]></ST>
     </Implementation>

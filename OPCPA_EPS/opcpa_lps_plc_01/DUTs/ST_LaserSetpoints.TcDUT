@@ -4,18 +4,18 @@
     <Declaration><![CDATA[// Setpoints for the lasers
 TYPE ST_LaserSetpoints :
 STRUCT
-	{attribute 'pytmc' := '
-		pv: MIN_VOLTAGE
-		io: io
-		field: EGU Volts
-	'}
-	nMinVoltage : LREAL; // Minimum voltage the laser will be allowed to operate at
-	{attribute 'pytmc' := '
-		pv: MIN_NOMINAL_VOLTAGE
-		io: io
-		field: EGU Volts
-	'}
-	nMinNominalVoltage : LREAL; // Minimum voltage for the laser to be operating nominally
+    {attribute 'pytmc' := '
+        pv: MIN_VOLTAGE
+        io: io
+        field: EGU Volts
+    '}
+    nMinVoltage : LREAL; // Minimum voltage the laser will be allowed to operate at
+    {attribute 'pytmc' := '
+        pv: MIN_NOMINAL_VOLTAGE
+        io: io
+        field: EGU Volts
+    '}
+    nMinNominalVoltage : LREAL; // Minimum voltage for the laser to be operating nominally
 END_STRUCT
 END_TYPE
 ]]></Declaration>

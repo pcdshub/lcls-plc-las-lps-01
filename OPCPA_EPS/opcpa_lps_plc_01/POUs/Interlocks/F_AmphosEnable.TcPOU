@@ -4,24 +4,24 @@
     <Declaration><![CDATA[// Interlock logic for the Amphos relay
 FUNCTION F_AmphosEnable : BOOL
 VAR_INPUT
-	fAmphosVoltage : LREAL; // The Amphos voltage
-	bEnabled : BOOL; // Whether the amphos enable signal is currently on
-	bMasterOverride : BOOL; //Master manual override control input
+    fAmphosVoltage : LREAL; // The Amphos voltage
+    bEnabled : BOOL; // Whether the amphos enable signal is currently on
+    bMasterOverride : BOOL; //Master manual override control input
 END_VAR
 VAR_IN_OUT CONSTANT
-	stAmphosSetpoints : ST_LaserSetpoints; // The Amphos setpoints
-	stErrors : ST_ErrorStates; // Currently detected errors
+    stAmphosSetpoints : ST_LaserSetpoints; // The Amphos setpoints
+    stErrors : ST_ErrorStates; // Currently detected errors
 END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF (stErrors.bHardwareFailure // Disable Amphos if there is a hardware failure
-	OR stErrors.bAmphosBeam  // Disable Amphos if there is a beam error
-	OR stErrors.bAmphosBeam AND NOT bEnabled) // Once amphos is disabled, keep it disabled until beam error is reset
-	AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+    OR stErrors.bAmphosBeam  // Disable Amphos if there is a beam error
+    OR stErrors.bAmphosBeam AND NOT bEnabled) // Once amphos is disabled, keep it disabled until beam error is reset
+    AND NOT bMasterOverride //if master override is TRUE, ignore all errors
 THEN
-	F_AmphosEnable := FALSE;
+    F_AmphosEnable := FALSE;
 ELSE
-	F_AmphosEnable := TRUE;
+    F_AmphosEnable := TRUE;
 END_IF
 ]]></ST>
     </Implementation>

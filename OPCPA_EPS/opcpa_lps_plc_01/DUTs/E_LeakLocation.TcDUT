@@ -5,13 +5,13 @@
 {attribute 'strict'}
 TYPE E_LeakLocation :
 (
-	NO_LEAK := 0,
-	LOC1 := 1,
-	LOC2 := 2,
-	LOC3 := 4,
-	LOC4 := 8,
-	LOC5 := 16,
-	LOC6 := 32
+    NO_LEAK := 0,
+    LOC1 := 1,
+    LOC2 := 2,
+    LOC3 := 4,
+    LOC4 := 8,
+    LOC5 := 16,
+    LOC6 := 32
 ) BYTE;
 END_TYPE
 ]]></Declaration>

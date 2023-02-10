@@ -4,19 +4,19 @@
     <Declaration><![CDATA[// Monitors the Amphos MRC input signal for errors
 FUNCTION_BLOCK FB_AmphosMRC
 VAR_INPUT
-	bAmphosOn : BOOL; // Whether the Amphos is turned on
-	bMRC : BOOL; // Error signal. Signal should normally be high
+    bAmphosOn : BOOL; // Whether the Amphos is turned on
+    bMRC : BOOL; // Error signal. Signal should normally be high
 END_VAR
 VAR_OUTPUT
-	{attribute 'pytmc' := '
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bError : BOOL; // Whether an error was detected. Error should go back to normal on its own
+    {attribute 'pytmc' := '
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bError : BOOL; // Whether an error was detected. Error should go back to normal on its own
 END_VAR
 VAR
 END_VAR

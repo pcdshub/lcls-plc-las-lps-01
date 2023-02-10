@@ -4,44 +4,44 @@
     <Declaration><![CDATA[// Communicates with the TraceTek TTSIM-1A hardware over Modbus to get more information about a leak
 FUNCTION_BLOCK FB_TraceTekModbus
 VAR_INPUT
-	nModbusSlaveAddress : BYTE; // Modbus address of slave to be read from
-	bLeakDetected : BOOL; // Whether a leak has been detected
-	bResetError : BOOL; // Reset signal for error
+    nModbusSlaveAddress : BYTE; // Modbus address of slave to be read from
+    bLeakDetected : BOOL; // Whether a leak has been detected
+    bResetError : BOOL; // Reset signal for error
 END_VAR
 VAR_OUTPUT
-	{attribute 'pytmc' := '
-		pv: LOC_RES
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	nLocationResistance: UINT; // Resistance measured in the detection wire
-	{attribute 'pytmc' := '
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	'}
-	bError : BOOL := FALSE; // Flag for Modbus communication errors
-	nErrorId : MODBUS_ERRORS := MODBUS_ERRORS.MODBUSERROR_NO_ERROR; // Description of Modbus error
+    {attribute 'pytmc' := '
+        pv: LOC_RES
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    nLocationResistance: UINT; // Resistance measured in the detection wire
+    {attribute 'pytmc' := '
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bError : BOOL := FALSE; // Flag for Modbus communication errors
+    nErrorId : MODBUS_ERRORS := MODBUS_ERRORS.MODBUSERROR_NO_ERROR; // Description of Modbus error
 END_VAR
 VAR
-	aModbusBuffer : WORD := 16#FFFF;  // "Infinite" until real value is read from device
-	fbModbusMaster : ModbusRtuMaster_KL6x22B := (
-		Quantity := 1,
-		MBAddr := 1,
-		cbLength := SIZEOF(aModbusBuffer),
-		pMemoryAddr := ADR(aModbusBuffer),
-		Timeout := T#5S
-	);
-	fbPoll : TON := (PT := T#0S); // Poll rate for reading modbus. Start at 0 so that modbus is read on first call
+    aModbusBuffer : WORD := 16#FFFF;  // "Infinite" until real value is read from device
+    fbModbusMaster : ModbusRtuMaster_KL6x22B := (
+        Quantity := 1,
+        MBAddr := 1,
+        cbLength := SIZEOF(aModbusBuffer),
+        pMemoryAddr := ADR(aModbusBuffer),
+        Timeout := T#5S
+    );
+    fbPoll : TON := (PT := T#0S); // Poll rate for reading modbus. Start at 0 so that modbus is read on first call
 END_VAR
 VAR_STAT
-	tPollRate : TIME := T#500MS;
+    tPollRate : TIME := T#500MS;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -53,22 +53,22 @@ fbModbusMaster.Execute := FALSE;
 fbModbusMaster.ReadInputRegs();
 
 IF bResetError THEN // Reset modbus error
-	bError := FALSE;
-	nErrorId := MODBUS_ERRORS.MODBUSERROR_NO_ERROR;
+    bError := FALSE;
+    nErrorId := MODBUS_ERRORS.MODBUSERROR_NO_ERROR;
 ELSIF fbModbusMaster.Error OR NOT fbModbusMaster.BUSY THEN
-	// Allow fb error state to go back to normal by checking modbus error state after reading has finished
-	bError := fbModbusMaster.Error;
-	nErrorId := fbModbusMaster.ErrorId;
+    // Allow fb error state to go back to normal by checking modbus error state after reading has finished
+    bError := fbModbusMaster.Error;
+    nErrorId := fbModbusMaster.ErrorId;
 END_IF
 
 (* If the modbus interface isn't busy and there is a leak, try reading
-the leak location from the TraceTek. Even if there is no leak, maintain 
+the leak location from the TraceTek. Even if there is no leak, maintain
 the modbus connection by checking every few seconds using the fbPoll rate *)
 IF NOT fbModbusMaster.BUSY AND (bLeakDetected OR fbPoll.Q) THEN
-	fbPoll(IN := FALSE, PT := tPollRate);
-	fbModbusMaster.UnitID := nModbusSlaveAddress;
-	fbModbusMaster.Execute := TRUE;
-	fbModbusMaster.ReadInputRegs();
+    fbPoll(IN := FALSE, PT := tPollRate);
+    fbModbusMaster.UnitID := nModbusSlaveAddress;
+    fbModbusMaster.Execute := TRUE;
+    fbModbusMaster.ReadInputRegs();
 END_IF
 
 // Copy the location resitance from the buffer to the FB output

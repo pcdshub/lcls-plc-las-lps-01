@@ -4,10 +4,10 @@
     <Declaration><![CDATA[// Setpoints for lasers
 {attribute 'qualified_only'}
 VAR_GLOBAL PERSISTENT
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
-	stAmphosSP : ST_LaserSetpoints; // Amphos setpoints
-	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:OPCPA'}
-	stOpcpaSP : ST_LaserSetpoints; // OPCPA setpoints
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
+    stAmphosSP : ST_LaserSetpoints; // Amphos setpoints
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:OPCPA'}
+    stOpcpaSP : ST_LaserSetpoints; // OPCPA setpoints
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

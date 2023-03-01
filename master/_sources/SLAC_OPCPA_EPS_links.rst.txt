@@ -1,0 +1,77 @@
+
+Links
+-----
+
+.. csv-table::
+    :header: Owner A, Item A, Owner B, Item B
+    :align: center
+
+        OutputSrc, GVL_IO.bAmphosShutterEnableManualOperation, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259, MTO Outputs 10x Channel 1^Ctrl^Enable manual operation
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bAmphosOn, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 1^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bBaseplateChillerFlow, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 7^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bCarbideOn, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E14_EL1124, Channel 1^Input
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bDumpChillerFlow, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 8^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bLeakDetected, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 2^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bLoopTempSW01, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 3^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bLoopTempSW02, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 4^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bLoopTempSW03, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 5^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bLoopTempSW04, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTI Inputs 10x Channel 6^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.bLoopTempSW05, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259, MTI Inputs 10x Channel 2^Status^Input state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.nAmphosVoltageRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E01_EL3174, AI Standard Channel 2^Value
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.nMpcVoltageRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E01_EL3174, AI Standard Channel 3^Value
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_IO.nOpcpaVoltageRaw, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E01_EL3174, AI Standard Channel 1^Value
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^GVL_PLC.AMSNetId, TIID^Device 1 (EtherCAT), InfoData^AmsNetId
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 0
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 1
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 10
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 11
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 12
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 13
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 14
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 15
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 16
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 17
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 18
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 19
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 2
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 20
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 21
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 3
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 4
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 5
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 6
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 7
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 8
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Data In 9
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Inputs^MAIN.fbTraceTekModbus.fbModbusMaster.InData^Status, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Inputs Channel 1^Status
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bAmphosRelay, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E11_EL2624, Channel 3^Output
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bAmphosShutterEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259, MTO Outputs 10x Channel 1^Ctrl^Manual output state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bAmphosShutterEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259, MTO Outputs 10x Channel 1^Ctrl^Manual output state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bBaseplateChillerRelay, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E11_EL2624, Channel 2^Output
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bCarbideShutterEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259, MTO Outputs 10x Channel 2^Ctrl^Manual output state
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bCarbideShutterEnable, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E11_EL2624, Channel 4^Output
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bCarbideShutterEnableManualOperation, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259, MTO Outputs 10x Channel 2^Ctrl^Enable manual operation
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^GVL_IO.bDumpChillerRelay, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E11_EL2624, Channel 1^Output
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^Ctrl, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Ctrl
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 0
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 1
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 10
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 11
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 12
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 13
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 14
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 15
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 16
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 17
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 18
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 19
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 2
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 20
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 21
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 3
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 4
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 5
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 6
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 7
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 8
+        TIPC^opcpa_lps_plc_01^opcpa_lps_plc_01 Instance, PlcTask Outputs^MAIN.fbTraceTekModbus.fbModbusMaster.OutData^D, TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E12_EL6022, COM Outputs Channel 1^Data Out 9

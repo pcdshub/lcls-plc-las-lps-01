@@ -1,0 +1,3450 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Types &mdash; pcdshub/lcls-plc-las-lps-01  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DUTs" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html" />
+    <link rel="prev" title="Settings" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pcdshub/lcls-plc-las-lps-01
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SLAC_OPCPA_EPS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_pragmas.html">Pragmas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_nc.html">NC Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_ethercat.html">EtherCAT Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_boxes.html">Boxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_links.html">Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">opcpa_lps_plc_01</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.html#pragmas">Pragmas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.html#libraries">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.html#symbols">Symbols</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fb-baseplatechiller">FB_BaseplateChiller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-chillerloop">FB_ChillerLoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-dumpchiller">FB_DumpChiller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-ecatdiag">FB_EcatDiag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-lasertimer">FB_LaserTimer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-lasertimer-mpc">FB_LaserTimer_MPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-leakmonitor">FB_LeakMonitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-tracetekmodbus">FB_TraceTekModbus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#st-devicediagnostic">ST_DeviceDiagnostic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#st-lasersetpoints">ST_LaserSetpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#st-leakboundaries">ST_LeakBoundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#st-temperaturemonitorsetpoints">ST_TemperatureMonitorSetpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#database-records">Database Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html">DUTs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html#gvls">GVLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html#pous">POUs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pcdshub/lcls-plc-las-lps-01</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Types</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/SLAC_OPCPA_EPS_opcpa_lps_plc_01_epics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-types">
+<h1>Data Types<a class="headerlink" href="#data-types" title="Link to this heading"></a></h1>
+<section id="fb-baseplatechiller">
+<h2>FB_BaseplateChiller<a class="headerlink" href="#fb-baseplatechiller" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-chillerloop">
+<h2>FB_ChillerLoop<a class="headerlink" href="#fb-chillerloop" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>$(SYMBOL).bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-dumpchiller">
+<h2>FB_DumpChiller<a class="headerlink" href="#fb-dumpchiller" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-ecatdiag">
+<h2>FB_EcatDiag<a class="headerlink" href="#fb-ecatdiag" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):AMS_ID_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).sNetId</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):MASTER_DEV_STATE_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nMasterDevState</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):MASTER_OK_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bMasterStateGood</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM OK</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM ERROR</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):MASTER_STATE_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nMasterState</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE01:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave01.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE01:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave01.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE01:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave01.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE01:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave01.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE01:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave01.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE01:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave01.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE02:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave02.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE02:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave02.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE02:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave02.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE02:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave02.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE02:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave02.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE02:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave02.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE03:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave03.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE03:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave03.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE03:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave03.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE03:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave03.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE03:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave03.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE03:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave03.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE04:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave04.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE04:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave04.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE04:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave04.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE04:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave04.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE04:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave04.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE04:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave04.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE05:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave05.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE05:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave05.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE05:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave05.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE05:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave05.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE05:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave05.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE05:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave05.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE06:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave06.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE06:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave06.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE06:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave06.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE06:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave06.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE06:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave06.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE06:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave06.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE07:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave07.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE07:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave07.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE07:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave07.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE07:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave07.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE07:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave07.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE07:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave07.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE08:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave08.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE08:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave08.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE08:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave08.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE08:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave08.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE08:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave08.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE08:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave08.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE09:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave09.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE09:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave09.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE09:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave09.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE09:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave09.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE09:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave09.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE09:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave09.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE10:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave10.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE10:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave10.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE10:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).stSlave10.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE10:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).stSlave10.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVE10:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave10.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVE10:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).stSlave10.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SLAVES_COUNT_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nSlaves</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):SLAVES_OK_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bAllSlaveStatesGood</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM OK</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM ERROR</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-lasertimer">
+<h2>FB_LaserTimer<a class="headerlink" href="#fb-lasertimer" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SCALED_PWR_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fPower</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Watts</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">field: HOPR 10.0</div>
+<div class="line">field: LLSV MAJOR</div>
+<div class="line">field: LOPR 0.0</div>
+<div class="line">field: LSV MINOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-lasertimer-mpc">
+<h2>FB_LaserTimer_MPC<a class="headerlink" href="#fb-lasertimer-mpc" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):SCALED_PWR_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fPower</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Watts</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">field: HOPR 10.0</div>
+<div class="line">field: LLSV MAJOR</div>
+<div class="line">field: LOPR 0.0</div>
+<div class="line">field: LSV MINOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-leakmonitor">
+<h2>FB_LeakMonitor<a class="headerlink" href="#fb-leakmonitor" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):LEAKS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLeakLocations</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LIR_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bLeakInsideRacks</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LOCO_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bLeakOpcpaCarbideOn</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LOTAO_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bLeakOpticalTableAmphosOn</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LOTNL_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bLeakOpticalTableNoLaser</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LOW_RES_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bLowResistance</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LUT_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bLeakUnderTable</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-tracetekmodbus">
+<h2>FB_TraceTekModbus<a class="headerlink" href="#fb-tracetekmodbus" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>$(SYMBOL).bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LOC_RES_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLocationResistance</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="st-devicediagnostic">
+<h2>ST_DeviceDiagnostic<a class="headerlink" href="#st-devicediagnostic" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>$(SYMBOL).nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>$(SYMBOL).sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="st-lasersetpoints">
+<h2>ST_LaserSetpoints<a class="headerlink" href="#st-lasersetpoints" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):MIN_NOMINAL_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>$(SYMBOL).nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):MIN_NOMINAL_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):MIN_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>$(SYMBOL).nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):MIN_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="st-leakboundaries">
+<h2>ST_LeakBoundaries<a class="headerlink" href="#st-leakboundaries" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):L_MAX01</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMax1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MAX01_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMax1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MAX02</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMax2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MAX02_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMax2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MAX03</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMax3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MAX03_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMax3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MAX04</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMax4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MAX04_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMax4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MAX05</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMax5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MAX05_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMax5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MAX06</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMax6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MAX06_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMax6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MIN01</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMin1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MIN01_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMin1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MIN02</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMin2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MIN02_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMin2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MIN03</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMin3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MIN03_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMin3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MIN04</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMin4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MIN04_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMin4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MIN05</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMin5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MIN05_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMin5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):L_MIN06</p></td>
+<td><p>longout</p></td>
+<td><p>$(SYMBOL).nLMin6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):L_MIN06_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>$(SYMBOL).nLMin6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="st-temperaturemonitorsetpoints">
+<h2>ST_TemperatureMonitorSetpoints<a class="headerlink" href="#st-temperaturemonitorsetpoints" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>$(SYMBOL).fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>$(SYMBOL).fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="database-records">
+<h1>Database Records<a class="headerlink" href="#database-records" title="Link to this heading"></a></h1>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Record</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pragma</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:POWER_STATE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bAmphosOn</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:ENABLE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bAmphosRelay</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ENABLED</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM DISABLED</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bAmphosShutterEnable</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ENABLED</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM DISABLED</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:SHUTTER_CMD_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bAmphosShutterManualOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:SHUTTER_CMD</p></td>
+<td><p>bo</p></td>
+<td><p>GVL_IO.bAmphosShutterManualOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bBaseplateChillerRelay</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ENABLED</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM DISABLED</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MPC:POWER_STATE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bCarbideOn</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bCarbideShutterEnable</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ENABLED</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM DISABLED</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>GVL_IO.bDumpChillerRelay</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ENABLED</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM DISABLED</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:MIN_NOMINAL_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_Laser.stAmphosSP.nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:MIN_NOMINAL_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_Laser.stAmphosSP.nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:MIN_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_Laser.stAmphosSP.nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:MIN_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_Laser.stAmphosSP.nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MPC:MIN_NOMINAL_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_Laser.stMpcSP.nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MPC:MIN_NOMINAL_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_Laser.stMpcSP.nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MPC:MIN_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_Laser.stMpcSP.nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MPC:MIN_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_Laser.stMpcSP.nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:OPCPA:MIN_NOMINAL_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_Laser.stOpcpaSP.nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:OPCPA:MIN_NOMINAL_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_Laser.stOpcpaSP.nMinNominalVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:OPCPA:MIN_VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_Laser.stOpcpaSP.nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:OPCPA:MIN_VOLTAGE</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_Laser.stOpcpaSP.nMinVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON01:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP01.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON01:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP01.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON02:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP02.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON02:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP02.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON03:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP03.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON03:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP03.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON04:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP04.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON04:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP04.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON05:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP05.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON05:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP05.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON06:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP06.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON06:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP06.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON07:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP07.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON07:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP07.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMPMON08:MAX_TEMP_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP08.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMPMON08:MAX_TEMP</p></td>
+<td><p>ao</p></td>
+<td><p>GVL_TemperatureMonitor.stTempMonSP08.fMaxTemperature</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU C</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MAX01_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MAX01</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MAX02_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MAX02</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MAX03_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MAX03</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MAX04_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MAX04</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MAX05_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MAX05</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MAX06_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MAX06</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMax6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MIN01_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MIN01</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin1</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MIN02_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MIN02</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin2</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MIN03_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MIN03</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin3</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MIN04_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MIN04</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin4</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MIN05_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MIN05</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin5</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:L_MIN06_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:L_MIN06</p></td>
+<td><p>longout</p></td>
+<td><p>GVL_TraceTek.stLeakMonitorBoundaries.nLMin6</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MODE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.Mode_LPS</p></td>
+<td><div class="line-block">
+<div class="line">field: NOBT 3</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MODE</p></td>
+<td><p>mbbo</p></td>
+<td><p>MAIN.Mode_LPS</p></td>
+<td><div class="line-block">
+<div class="line">field: NOBT 3</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MASTER_AMP_SHUTTER_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bAmpShutterClosed</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MASTER_AMP_SHUTTER</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bAmpShutterClosed</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bAmphosReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bAmphosReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:BASEPLATE_CHILLER:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bBaseplateChillerReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:BASEPLATE_CHILLER:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bBaseplateChillerReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:DUMP_CHILLER:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bDumpChillerReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:DUMP_CHILLER:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bDumpChillerReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bLeakMonitorReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bLeakMonitorReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MASTER_LATCH_RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bMasterLatchReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MASTER_LATCH_RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bMasterLatchReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MASTER_OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bMasterOverride</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MASTER_OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bMasterOverride</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MPC:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bMpcReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MPC:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bMpcReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:OPCPA:RESET_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.bOpcpaReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:OPCPA:RESET</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.bOpcpaReset</p></td>
+<td><div class="line-block">
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbAmphos.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:AMPHOS:SCALED_PWR_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>MAIN.fbAmphos.fPower</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Watts</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:AMPHOS:VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>MAIN.fbAmphos.fVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">field: HOPR 10.0</div>
+<div class="line">field: LLSV MAJOR</div>
+<div class="line">field: LOPR 0.0</div>
+<div class="line">field: LSV MINOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:BASEPLATE_CHILLER:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbBaseplateChiller.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP01:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop01.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP01:OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop01.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP01:OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.fbChillerLoop01.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP02:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop02.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP02:OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop02.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP02:OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.fbChillerLoop02.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP03:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop03.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP03:OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop03.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP03:OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.fbChillerLoop03.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP04:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop04.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP04:OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop04.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP04:OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.fbChillerLoop04.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP05:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop05.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:TEMP05:OVERRIDE_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbChillerLoop05.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:TEMP05:OVERRIDE</p></td>
+<td><p>bo</p></td>
+<td><p>MAIN.fbChillerLoop05.bOperatorOverride</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM “ON”</div>
+<div class="line">field: ZNAM “OFF”</div>
+<div class="line">io: output</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVES_OK_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbDiag.bAllSlaveStatesGood</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM OK</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM ERROR</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbDiag.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:MASTER_OK_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbDiag.bMasterStateGood</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM OK</div>
+<div class="line">field: OSV NO_ALARM</div>
+<div class="line">field: ZNAM ERROR</div>
+<div class="line">field: ZSV MAJOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:MASTER_DEV_STATE_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.nMasterDevState</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:MASTER_STATE_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.nMasterState</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVES_COUNT_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.nSlaves</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:AMS_ID_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.sNetId</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE01:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave01.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE01:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave01.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE01:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave01.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE01:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave01.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE01:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave01.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE01:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave01.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE02:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave02.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE02:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave02.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE02:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave02.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE02:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave02.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE02:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave02.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE02:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave02.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE03:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave03.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE03:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave03.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE03:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave03.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE03:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave03.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE03:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave03.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE03:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave03.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE04:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave04.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE04:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave04.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE04:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave04.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE04:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave04.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE04:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave04.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE04:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave04.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE05:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave05.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE05:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave05.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE05:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave05.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE05:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave05.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE05:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave05.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE05:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave05.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE06:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave06.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE06:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave06.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE06:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave06.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE06:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave06.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE06:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave06.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE06:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave06.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE07:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave07.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE07:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave07.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE07:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave07.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE07:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave07.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE07:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave07.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE07:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave07.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE08:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave08.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE08:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave08.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE08:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave08.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE08:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave08.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE08:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave08.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE08:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave08.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE09:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave09.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE09:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave09.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE09:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave09.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE09:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave09.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE09:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave09.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE09:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave09.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE10:ADDRESS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave10.nAddr</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE10:DEVICE_STATE_RBV</p></td>
+<td><p>mbbi</p></td>
+<td><p>MAIN.fbDiag.stSlave10.nDeviceState</p></td>
+<td><div class="line-block">
+<div class="line">field: FRST SAFEOP</div>
+<div class="line">field: FRSV MAJOR</div>
+<div class="line">field: FRVL 4</div>
+<div class="line">field: FVSV MINOR</div>
+<div class="line">field: ONST INIT</div>
+<div class="line">field: ONSV MAJOR</div>
+<div class="line">field: ONVL 1</div>
+<div class="line">field: SXST OP</div>
+<div class="line">field: SXSV NO_ALARM</div>
+<div class="line">field: SXVL 8</div>
+<div class="line">field: THST BOOTSTRAP</div>
+<div class="line">field: THSV MAJOR</div>
+<div class="line">field: THVL 3</div>
+<div class="line">field: TWST PREOP</div>
+<div class="line">field: TWSV MAJOR</div>
+<div class="line">field: TWVL 2</div>
+<div class="line">field: UNSV MAJOR</div>
+<div class="line">field: ZRST INVALID</div>
+<div class="line">field: ZRSV MAJOR</div>
+<div class="line">field: ZRVL 0</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE10:DEVICE_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave10.nDeviceStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE10:LINK_STATE_FLAGS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbDiag.stSlave10.nLinkStateFlags</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:PLC:SLAVE10:NAME_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave10.sName</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:PLC:SLAVE10:TYPE_RBV</p></td>
+<td><p>waveform</p></td>
+<td><p>MAIN.fbDiag.stSlave10.sType</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:DUMP_CHILLER:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbDumpChiller.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:LIR_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbLeakMonitor.bLeakInsideRacks</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:LOCO_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbLeakMonitor.bLeakOpcpaCarbideOn</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:LOTAO_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbLeakMonitor.bLeakOpticalTableAmphosOn</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:LOTNL_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbLeakMonitor.bLeakOpticalTableNoLaser</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:LUT_ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbLeakMonitor.bLeakUnderTable</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:LEAK:LOW_RES_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbLeakMonitor.bLowResistance</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:LEAK:LEAKS_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbLeakMonitor.nLeakLocations</p></td>
+<td><div class="line-block">
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MPC:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbMpc.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:MPC:SCALED_PWR_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>MAIN.fbMpc.fPower</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Watts</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:MPC:VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>MAIN.fbMpc.fVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">field: HOPR 10.0</div>
+<div class="line">field: LLSV MAJOR</div>
+<div class="line">field: LOPR 0.0</div>
+<div class="line">field: LSV MINOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:OPCPA:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbOpcpa.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):LPS:OPCPA:SCALED_PWR_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>MAIN.fbOpcpa.fPower</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Watts</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):LPS:OPCPA:VOLTAGE_RBV</p></td>
+<td><p>ai</p></td>
+<td><p>MAIN.fbOpcpa.fVoltage</p></td>
+<td><div class="line-block">
+<div class="line">field: EGU Volts</div>
+<div class="line">field: HOPR 10.0</div>
+<div class="line">field: LLSV MAJOR</div>
+<div class="line">field: LOPR 0.0</div>
+<div class="line">field: LSV MINOR</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>$(PREFIX):TTSIM:DEV01:ERROR_RBV</p></td>
+<td><p>bi</p></td>
+<td><p>MAIN.fbTraceTekModbus.bError</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>$(PREFIX):TTSIM:DEV01:LOC_RES_RBV</p></td>
+<td><p>longin</p></td>
+<td><p>MAIN.fbTraceTekModbus.nLocationResistance</p></td>
+<td><div class="line-block">
+<div class="line">field: ONAM ERROR</div>
+<div class="line">field: OSV MAJOR</div>
+<div class="line">field: ZNAM OK</div>
+<div class="line">field: ZSV NO_ALARM</div>
+<div class="line">io: input</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.html" class="btn btn-neutral float-left" title="Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html" class="btn btn-neutral float-right" title="DUTs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

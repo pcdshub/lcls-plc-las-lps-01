@@ -1,0 +1,2294 @@
+
+
+DUTs
+----
+
+
+E_DeviceState
+^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    TYPE E_DeviceState :
+    (
+        INVALID := 0,
+        INIT        := EC_DEVICE_STATE_INIT,
+        PREOP       := EC_DEVICE_STATE_PREOP,
+        BOOTSTRAP   := EC_DEVICE_STATE_BOOTSTRAP,
+        SAFEOP      := EC_DEVICE_STATE_SAFEOP,
+        OP          := EC_DEVICE_STATE_OP
+    ) WORD := INVALID;
+    END_TYPE
+
+
+Related:
+    * `E_DeviceState`_
+
+
+E_LeakLocation
+^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    {attribute 'strict'}
+    TYPE E_LeakLocation :
+    (
+        NO_LEAK := 0,
+        LOC1 := 1,
+        LOC2 := 2,
+        LOC3 := 4,
+        LOC4 := 8,
+        LOC5 := 16,
+        LOC6 := 32
+    ) BYTE;
+    END_TYPE
+
+
+
+
+E_Mode
+^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    TYPE E_Mode :
+    (
+        MASTER_Override     :=1,
+        Protection          := 2,
+        AMPHOS_Maintenance  := 3
+    );
+    END_TYPE
+
+
+
+
+ST_DeviceDiagnostic
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // PLC Terminal device diagnostics
+    TYPE ST_DeviceDiagnostic :
+    STRUCT
+        {attribute 'pytmc' := '
+            pv: TYPE
+            io: i
+        '}
+        sType : STRING[15];
+        {attribute 'pytmc' := '
+            pv: ADDRESS
+            io: i
+        '}
+        nAddr : WORD;
+        {attribute 'pytmc' := '
+            pv: NAME
+            io: i
+        '}
+        sName : STRING[31];
+        {attribute 'pytmc' := '
+            pv: DEVICE_STATE
+            io: i
+            field: ZRVL 0
+            field: ONVL 1
+            field: TWVL 2
+            field: THVL 3
+            field: FRVL 4
+            field: SXVL	8
+            field: ZRST INVALID
+            field: ONST INIT
+            field: TWST PREOP
+            field: THST BOOTSTRAP
+            field: FRST SAFEOP
+            field: SXST OP
+            field: ZRSV MAJOR
+            field: ONSV MAJOR
+            field: TWSV MAJOR
+            field: THSV MAJOR
+            field: FRSV MAJOR
+            field: FVSV MINOR
+            field: SXSV NO_ALARM
+            field: UNSV MAJOR
+        '}
+        nDeviceState : ENUM;
+        {attribute 'pytmc' := '
+            pv: DEVICE_STATE_FLAGS
+            io: i
+        '}
+        nDeviceStateFlags : BYTE;
+        {attribute 'pytmc' := '
+            pv: LINK_STATE_FLAGS
+            io: i
+        '}
+        nLinkStateFlags : BYTE;
+    END_STRUCT
+    END_TYPE
+
+
+
+
+ST_ErrorStates
+^^^^^^^^^^^^^^
+
+::
+
+    // Error states that can occur in the program
+    TYPE ST_ErrorStates :
+    STRUCT
+        // Leak Alarms
+        bLeakOpticalTableAmphosOn   : BOOL; // Leak on the optical table with Amphos on
+        bLeakOpticalTableNoLaser    : BOOL; // Leak on the optical table with no laser on
+        bLeakOpcpaCarbideOn         : BOOL; // Leak inside the OPCPA with Carbide on
+        bLeakUnderTable             : BOOL; // Leak under the table
+        bLeakInsideRacks            : BOOL; // Leak inside the racks
+
+        // Temperature loop alarms
+        bChillerLoop01              : BOOL; // Temperature too high in loop 01
+        bChillerLoop02              : BOOL; // Temperature too high in loop 02
+        bChillerLoop03              : BOOL; // Temperature too high in loop 03
+        bChillerLoop04              : BOOL; // Temperature too high in loop 04
+        bChillerLoop05              : BOOL; // Temperature too high in loop 05
+
+        // Beam Errors
+        bAmphosBeam                 : BOOL; // Amphos beam error
+        bOpcpaBeam                  : BOOL; // OPCPA beam error
+        bMpcBeam                    : BOOL; // MPC beam error
+
+        (*
+        // Temperature monitors
+        bTempMon01 : BOOL; // Temperature too high at location 01
+        bTempMon02 : BOOL; // Temperature too high at location 02
+        bTempMon03 : BOOL; // Temperature too high at location 03
+        bTempMon04 : BOOL; // Temperature too high at location 04
+        bTempMon05 : BOOL; // Temperature too high at location 05
+        bTempMon06 : BOOL; // Temperature too high at location 06
+        bTempMon07 : BOOL; // Temperature too high at location 07
+        bTempMon08 : BOOL; // Temperature too high at location 08
+        *)
+
+        // Dump chiller
+        bDumpChiller                : BOOL; // Dump chiller error
+        bBaseplateChiller           : BOOL; // Baseplate chiller error
+
+        (*
+        // Amphos MRC
+        bAmphosMRC01 : BOOL; // Amphos MRC 01 Error
+        bAmphosMRC02 : BOOL; // Amphos MRC 01 Error
+        bAmphosMRC03 : BOOL; // Amphos MRC 01 Error
+        *)
+
+        // Hardware Failure
+        bHardwareFailure            : BOOL; // A component of the EPS has failed
+
+    END_STRUCT
+    END_TYPE
+
+
+
+
+ST_LaserSetpoints
+^^^^^^^^^^^^^^^^^
+
+::
+
+    // Setpoints for the lasers
+    TYPE ST_LaserSetpoints :
+    STRUCT
+        {attribute 'pytmc' := '
+            pv: MIN_VOLTAGE
+            io: io
+            field: EGU Volts
+        '}
+        nMinVoltage : LREAL; // Minimum voltage the laser will be allowed to operate at
+        {attribute 'pytmc' := '
+            pv: MIN_NOMINAL_VOLTAGE
+            io: io
+            field: EGU Volts
+        '}
+        nMinNominalVoltage : LREAL; // Minimum voltage for the laser to be operating nominally
+    END_STRUCT
+    END_TYPE
+
+
+
+
+ST_LeakBoundaries
+^^^^^^^^^^^^^^^^^
+
+::
+
+    // Boundaries indicating leak monitor locations
+    TYPE ST_LeakBoundaries :
+    STRUCT
+        {attribute 'pytmc' := '
+            pv: L_MIN01
+            io: io
+        '}
+        nLMin1 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MAX01
+            io: io
+        '}
+        nLMax1 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MIN02
+            io: io
+        '}
+        nLMin2 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MAX02
+            io: io
+        '}
+        nLMax2 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MIN03
+            io: io
+        '}
+        nLMin3 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MAX03
+            io: io
+        '}
+        nLMax3 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MIN04
+            io: io
+        '}
+        nLMin4 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MAX04
+            io: io
+        '}
+        nLMax4 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MIN05
+            io: io
+        '}
+        nLMin5 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MAX05
+            io: io
+        '}
+        nLMax5 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MIN06
+            io: io
+        '}
+        nLMin6 : UINT;
+        {attribute 'pytmc' := '
+            pv: L_MAX06
+            io: io
+        '}
+        nLMax6 : UINT;
+    END_STRUCT
+    END_TYPE
+
+
+
+
+ST_TemperatureMonitorSetpoints
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Setpoints for the temperature monitors
+    TYPE ST_TemperatureMonitorSetpoints :
+    STRUCT
+        {attribute 'pytmc' := '
+            pv: MAX_TEMP
+            io: io
+            field: EGU C
+        '}
+        fMaxTemperature : LREAL; // Maximum temperature in Celsius allowed before triggering error
+    END_STRUCT
+    END_TYPE
+
+
+
+
+GVLs
+----
+
+
+Global_Version
+^^^^^^^^^^^^^^
+
+::
+
+    {attribute 'TcGenerated'}
+    // This function has been automatically generated from the project information.
+    VAR_GLOBAL CONSTANT
+        {attribute 'const_non_replaced'}
+        {attribute 'linkalways'}
+        stLibVersion_EPS : ST_LibVersion := (iMajor := 0, iMinor := 0, iBuild := 0, iRevision := 0, sVersion := '0.0.0');
+    END_VAR
+
+
+
+
+GVL_EL3174
+^^^^^^^^^^
+
+::
+
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+        (* Analog scaling *)
+        fRawUpperLimit : LREAL := 16#7736; // Highest raw signal that can be read
+        fRawLowerLimit : LREAL := 16#0000; // Lowest raw signal that can be read
+        fScaleUpperLimit : LREAL := 10; // Upper limit in volts
+        fScaleLowerLimit : LREAL := 0; // Lower limit in volts
+    END_VAR
+
+
+
+
+GVL_IO
+^^^^^^
+
+::
+
+    // PLC IO from terminal modules
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+        (* CX2020 *)
+
+        (* Slot1 EL3174 *)
+        {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 1^Value'}
+        nOpcpaVoltageRaw AT %I* : INT; // Ch1
+
+        {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 2^Value'}
+        nAmphosVoltageRaw AT %I* : INT; // Ch2
+
+        {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 3^Value'}
+        nMpcVoltageRaw AT %I* : INT; // Ch3
+
+
+        (* Slot2 EL3174 *)
+
+
+        (* Slot3 EL9189 *)
+
+        (* Slot4 EL9184 *)
+
+        (*
+        (* Slot5 EL3174 *)
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E05_EL3174]^AI Standard Channel 1^Value'}
+        nTempMonRaw01 AT %I* : INT; // Ch1
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E05_EL3174]^AI Standard Channel 2^Value'}
+        nTempMonRaw02 AT %I* : INT; // Ch2
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E05_EL3174]^AI Standard Channel 3^Value'}
+        nTempMonRaw03 AT %I* : INT; // Ch3
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E05_EL3174]^AI Standard Channel 4^Value'}
+        nTempMonRaw04 AT %I* : INT; // Ch4
+
+        (* Slot6 EL3174 *)
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E06_EL3174]^AI Standard Channel 1^Value'}
+        nTempMonRaw05 AT %I* : INT; // Ch1
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E06_EL3174]^AI Standard Channel 2^Value'}
+        nTempMonRaw06 AT %I* : INT; // Ch2
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E06_EL3174]^AI Standard Channel 3^Value'}
+        nTempMonRaw07 AT %I* : INT; // Ch3
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E06_EL3174]^AI Standard Channel 4^Value'}
+        nTempMonRaw08 AT %I* : INT; // Ch4
+        *)
+
+        (* Slot7 EL1259 Inputs *)
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:AMPHOS:POWER_STATE
+            io: i
+            field: ZNAM "OFF"
+            field: ONAM "ON"
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 1^Status^Input state'}
+        bAmphosOn AT %I* : BOOL; // Ch1
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 2^Status^Input state'}
+        bLeakDetected AT %I* : BOOL; // Ch2
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 3^Status^Input state'}
+        bLoopTempSW01 AT %I* : BOOL; // Ch3 Loop 01 NC Temp switch
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 4^Status^Input state'}
+        bLoopTempSW02 AT %I* : BOOL; // Ch4 Loop 02 NC Temp switch
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 5^Status^Input state'}
+        bLoopTempSW03 AT %I* : BOOL; // Ch5 Loop 03 NC Temp switch
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 6^Status^Input state'}
+        bLoopTempSW04 AT %I* : BOOL; // Ch6 Loop 04 NC Temp switch
+
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 7^Status^Input state'}
+        bBaseplateChillerFlow AT %I* : BOOL; // Ch7 Baseplate chiller NC flow sensor
+
+
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 8^Status^Input state'}
+        bDumpChillerFlow AT %I* : BOOL; // Ch2 Dump chiller NC flow sensor
+
+
+        (* Slot7 EL1259 Outputs *)
+        (*
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:AMPHOS_ATTENUATOR:ENABLE
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM DISABLED
+            field: ONAM ENABLED
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E06]^Channel 1^Output'}
+        bAmphosAttenuatorEnable AT %Q* : BOOL; // Ch1
+
+
+        bAmphosAttenuatorEnableManualOperation AT %Q* : BOOL := TRUE;
+        *)
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM DISABLED
+            field: ONAM ENABLED
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E07_EL1259]^MTO Outputs 10x Channel 1^Ctrl^Manual output state'}
+        bAmphosShutterEnable AT %Q* : BOOL; // Ch1
+
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:AMPHOS:SHUTTER_CMD
+            io: io
+            field: ZNAM "OFF"
+            field: ONAM "ON"
+        '}
+        bAmphosShutterManualOverride : BOOL ; // CMD to Amphos for Shutter Operation
+
+        (* Slot8 EL9184 *)
+
+        (* Slot9 EL1259 *)
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E09_EL1259]^MTI Inputs 10x Channel 2^Status^Input state'}
+        bLoopTempSW05 AT %I* : BOOL; // Ch2 Loop 05 NC Temp switch (labelled TEMP SW04 on CAPTAR)
+
+        (* Slot10 EL9184 *)
+
+        (* Slot11 ES2624 *)
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM DISABLED
+            field: ONAM ENABLED
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E11_EL2624]^Channel 1^Output'}
+        bDumpChillerRelay AT %Q* : BOOL; // Ch1 Dump chiller NC relay
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM DISABLED
+            field: ONAM ENABLED
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E11_EL2624]^Channel 2^Output'}
+        bBaseplateChillerRelay AT %Q* : BOOL; // Ch2 Baseplate chiller NC relay
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:AMPHOS:ENABLE
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM DISABLED
+            field: ONAM ENABLED
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E11_EL2624]^Channel 3^Output'}
+        bAmphosRelay AT %Q* : BOOL; // Ch3 Amphos Interlock relay
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM DISABLED
+            field: ONAM ENABLED
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E11_EL2624]^Channel 4^Output'}
+        bCarbideShutterEnable AT %Q* : BOOL; // Ch4 HASS
+
+
+        bCarbideShutterEnableManualOperation AT %Q* : BOOL := TRUE;
+
+        (* Slot12 EL6022 *)
+
+        (* Slot13 EL9505 *)
+
+        (* Slot14 EL1124 *)
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:MPC:POWER_STATE
+            io: i
+            field: ZNAM "OFF"
+            field: ONAM "ON"
+        '}
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E14_EL1124]^Channel 1^Input'}
+        bCarbideOn AT %I* : BOOL; // Ch1
+
+
+        (*
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E14_EL1124]^Channel 2^Input'}
+        bAmphosMRC01 AT %I* : BOOL; // Ch2 NC Amphos MRC switch
+
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E14_EL1124]^Channel 3^Input'}
+        bAmphosMRC02 AT %I* : BOOL; // Ch3 NC Amphos MRC switch
+
+        {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E14_EL1124]^Channel 4^Input'}
+        bAmphosMRC03 AT %I* : BOOL; // Ch4 NC Amphos MRC switch
+        *)
+
+    END_VAR
+
+
+
+
+GVL_Laser
+^^^^^^^^^
+
+::
+
+    // Setpoints for lasers
+    {attribute 'qualified_only'}
+    VAR_GLOBAL PERSISTENT
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
+        stAmphosSP  : ST_LaserSetpoints; // Amphos setpoints
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:OPCPA'}
+        stOpcpaSP   : ST_LaserSetpoints; // OPCPA setpoints
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:MPC'}
+        stMpcSP   : ST_LaserSetpoints; // MPC setpoints
+    END_VAR
+
+
+Related:
+    * `ST_LaserSetpoints`_
+
+
+GVL_PLC
+^^^^^^^
+
+::
+
+    // PLC global variables
+    {attribute 'qualified_only'}
+    VAR_GLOBAL
+        AMSNetId AT %I* : AMSNETID;
+    END_VAR
+
+
+
+
+GVL_TemperatureMonitor
+^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Temperature monitor setpoints
+    {attribute 'qualified_only'}
+    VAR_GLOBAL PERSISTENT
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON01'}
+        stTempMonSP01 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON02'}
+        stTempMonSP02 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON03'}
+        stTempMonSP03 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON04'}
+        stTempMonSP04 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON05'}
+        stTempMonSP05 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON06'}
+        stTempMonSP06 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON07'}
+        stTempMonSP07 : ST_TemperatureMonitorSetpoints;
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON08'}
+        stTempMonSP08 : ST_TemperatureMonitorSetpoints;
+    END_VAR
+
+
+Related:
+    * `ST_TemperatureMonitorSetpoints`_
+
+
+GVL_TraceTek
+^^^^^^^^^^^^
+
+::
+
+    // Global variables for the TraceTek leak detector
+    {attribute 'qualified_only'}
+    VAR_GLOBAL CONSTANT
+        (* Modbus address *)
+        nModbusSlaveAddress : BYTE := 199; // Modbus slave address of the TraceTek device
+    END_VAR
+    VAR_GLOBAL PERSISTENT
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:LEAK'}
+        stLeakMonitorBoundaries : ST_LeakBoundaries; // Boundaries of possible leak locations
+    END_VAR
+
+
+Related:
+    * `ST_LeakBoundaries`_
+
+
+POUs
+----
+
+
+F_BaseplateChillerEnable
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Interlock logic for the Baseplate Chiller
+    FUNCTION F_BaseplateChillerEnable : BOOL
+    VAR_INPUT
+        bMasterOverride : BOOL; //Master manual override control input
+    END_VAR
+    VAR_IN_OUT CONSTANT
+        stErrors : ST_ErrorStates; // Currently detected errors
+    END_VAR
+    VAR
+    END_VAR
+    IF (stErrors.bHardwareFailure // Disable baseplate chiller if there is a hardware failure
+        (* OR stErrors.bLeakUnderTable *) OR stErrors.bLeakOpcpaCarbideOn) // Disable baseplate chiller if there is a leak under the table
+        AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+    THEN
+        F_BaseplateChillerEnable := FALSE;
+    ELSE
+        F_BaseplateChillerEnable := TRUE;
+    END_IF
+
+    END_FUNCTION
+
+
+Related:
+    * `ST_ErrorStates`_
+
+
+F_DumpChillerEnable
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Interlock logic for the Dump Chiller
+    FUNCTION F_DumpChillerEnable : BOOL
+    VAR_INPUT
+        bMasterOverride : BOOL; //Master manual override control input
+    END_VAR
+    VAR_IN_OUT CONSTANT
+        stErrors : ST_ErrorStates; // Currently detected errors
+    END_VAR
+    VAR
+    END_VAR
+    IF (stErrors.bHardwareFailure // Disable dump chiller if there's a hardware failure
+        OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpticalTableNoLaser (* OR stErrors.bLeakUnderTable *) ) // Disable dump chiller for these leak conditions
+        AND NOT bMasterOverride //if master override is TRUE, ignore all errors
+    THEN
+        F_DumpChillerEnable := FALSE;
+    ELSE
+        F_DumpChillerEnable := TRUE;
+    END_IF
+
+    END_FUNCTION
+
+
+Related:
+    * `ST_ErrorStates`_
+
+
+FB_BaseplateChiller
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+    // Monitors the baseplate chiller from the flow sensor
+    FUNCTION_BLOCK FB_BaseplateChiller
+    VAR_INPUT
+        bAmphosOn : BOOL; // Whether the amphos is turned on
+        bBaseplateChillerFlow : BOOL; // Signal from the flow sensor. Normally high.
+        bMasterLatchReset : BOOL; //Master latched error reset
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL; // Whether an error was detected. Should latch until reset
+    END_VAR
+    VAR
+    END_VAR
+    (* Latch error if the baseplate chiller flow detects an error *)
+    IF bAmphosOn AND NOT bBaseplateChillerFlow THEN
+        bError := TRUE;
+    END_IF
+
+    IF bMasterLatchReset THEN
+        bError := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
+
+    // Reset latched errors
+    METHOD Reset
+    VAR_INPUT
+    END_VAR
+    bError := FALSE;
+    END_METHOD
+
+
+
+
+FB_ChillerLoop
+^^^^^^^^^^^^^^
+
+::
+
+    // Monitors the chiller loop from the flow sensor
+    FUNCTION_BLOCK FB_ChillerLoop
+    VAR_INPUT
+        bLoopTempSW : BOOL; // NC Temperature switch. Indicates when temperature is too high
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL := FALSE; // Whether an error was detected. Goes back to normal on its own
+        {attribute 'pytmc' := '
+            pv: OVERRIDE
+            io: io
+            field: ZNAM "OFF"
+            field: ONAM "ON"
+        '}
+        bOperatorOverride : BOOL := FALSE; // If TRUE, allows the EPS to keep running despite the chiller loop error
+    END_VAR
+    (* Set error flag if loop temperature monitor detects an error *)
+    bError := NOT bLoopTempSW;
+
+    (* Reset the operator override if the system returns to normal tempreature range *)
+    IF bLoopTempSW THEN
+        bOperatorOverride := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
+
+
+
+
+FB_DumpChiller
+^^^^^^^^^^^^^^
+
+::
+
+    // Monitors the dump chiller from the flow sensor
+    FUNCTION_BLOCK FB_DumpChiller
+    VAR_INPUT
+        bAmphosOn : BOOL; // Whether the amphos is turned on
+        bDumpChillerFlow : BOOL; // Signal from the flow sensor. Normally high.
+        bMasterLatchReset : BOOL; //Master latched error reset
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL; // Whether an error was detected. Latches until reset
+    END_VAR
+    VAR
+    END_VAR
+    (* Latch error if the dump chiller flow detects an error and the amphos is on *)
+    IF bAmphosOn AND NOT bDumpChillerFlow THEN
+        bError := TRUE;
+    END_IF
+
+    IF bMasterLatchReset THEN
+        bError := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
+
+    // Reset latched errors
+    METHOD Reset
+    VAR_INPUT
+    END_VAR
+    bError := FALSE;
+    END_METHOD
+
+
+
+
+FB_EcatDiag
+^^^^^^^^^^^
+
+::
+
+    (*
+    Ecat bus diagnostic tool
+    2015-11-4 Alex Wallace
+    This function block checks the states of all slaves on the ecat bus network,
+    it could be modified to export the states of the slaves on an individual basis,
+    but for now it sets the output boolean true if all slaves are OP and false otherwise.
+    To start the block provide a falling edge on the first pass boolean input.
+
+    2018-05-05 Margaret Ghaly
+    Function block has been modified to retrieve the Device State of the Ethercat Master.
+    It also exports the states and information of each individual configured Slave.
+    And saves them in the array q_aEcConfSlaveInfo.
+
+    2019-08-28 Nathan Telles
+    Customized for EPS project using PyTMC. Export all states to a structure which is
+    linked to EPICS records. Remove unecessary diagnostics.
+    *)
+    {attribute 'call_after_init'}
+    FUNCTION_BLOCK FB_EcatDiag
+    VAR_INPUT
+        {attribute 'naming' := 'omit'}
+        AMSNetId : AMSNETID; //Link to the AMSNETID name in the ethercat master info.
+        //i_xFirstPass: BOOL; //Hook to system first pass boolean for proper intialization (must be true for the first cycle of the PLC)
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL;
+        {attribute 'pytmc' := '
+            pv: SLAVES_OK
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM ERROR
+            field: ONAM OK
+        '}
+        bAllSlaveStatesGood: BOOL; // Set to True if all Slaves are in OP State
+        {attribute 'pytmc' := '
+            pv: MASTER_OK
+            io: i
+            field: OSV NO_ALARM
+            field: ZSV MAJOR
+            field: ZNAM ERROR
+            field: ONAM OK
+        '}
+        bMasterStateGood : BOOL;
+    END_VAR
+    VAR
+        {attribute 'pytmc' := '
+            pv: MASTER_DEV_STATE
+            io: i
+        '}
+        nMasterDevState: WORD; // The Device State of the Master
+        {attribute 'pytmc' := '
+            pv: MASTER_STATE
+            io: i
+        '}
+        nMasterState: WORD; // The State of the Master
+        {attribute 'pytmc' := '
+            pv: AMS_ID
+            io: i
+        '}
+        sNetId: STRING(23); //NetId string
+
+        astTermStates: ARRAY[1..MAX_SLAVES] OF ST_EcSlaveState; //ECAT Slave States Buffer
+        astEcConfSlaveInfo: ARRAY[1..MAX_SLAVES] OF ST_EcSlaveConfigData; //ECAT Slave Configs Buffer
+
+        fbGetAllSlaveStates: FB_EcGetAllSlaveStates; //Acquires the ECAT Slave States puts them into astTermStates
+        fbGetMasterDevState: FB_EcGetMasterDevState; //Acquires ECAT Master State
+        fbGetMasterState: FB_EcGetMasterState; //Acquires ECAT Master State
+        fbGetConfSlaves: FB_EcGetConfSlaves; //Acquires the ECAT slave configuration of the bus (how many, what kind, etc)
+
+        {attribute 'naming' := 'omit'}
+        ftReset: F_TRIG; //Reset trigger sensor
+        {attribute 'naming' := 'omit'}
+        ftMasterDevReset: F_TRIG; //Retrigger sensor for GetMasterDevState
+        {attribute 'naming' := 'omit'}
+        ftMasterReset: F_TRIG; //Retrigger sensor for GetMasterState
+
+        {attribute 'pytmc' := 'pv: SLAVE01'}
+        stSlave01 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE02'}
+        stSlave02 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE03'}
+        stSlave03 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE04'}
+        stSlave04 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE05'}
+        stSlave05 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE06'}
+        stSlave06 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE07'}
+        stSlave07 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE08'}
+        stSlave08 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE09'}
+        stSlave09 : ST_DeviceDiagnostic;
+        {attribute 'pytmc' := 'pv: SLAVE10'}
+        stSlave10 : ST_DeviceDiagnostic;
+
+        aSlaves : ARRAY [1..MAX_SLAVES] OF POINTER TO ST_DeviceDiagnostic := [ADR(stSlave01),ADR(stSlave02),
+            ADR(stSlave03),ADR(stSlave04),ADR(stSlave05),ADR(stSlave06),ADR(stSlave07),ADR(stSlave08),
+            ADR(stSlave09), ADR(stSlave10)];
+
+        nIterator: UINT;
+        bInit : BOOL := TRUE;
+
+        {attribute 'pytmc' := '
+            pv: SLAVES_COUNT
+            io: i
+        '}
+        nSlaves : UINT;
+    END_VAR
+    VAR CONSTANT
+        MAX_SLAVES : UINT := 10;
+    END_VAR
+    sNetId := F_CreateAmsNetId(AMSNetId);
+
+    //Query the state of all terminals, collect in astTermStates
+    ftReset(CLK:=fbGetAllSlaveStates.bBusy OR bInit);
+    fbGetAllSlaveStates.bExecute := ftReset.Q;
+    fbGetAllSlaveStates(sNetId:=sNetId, pStateBuf := ADR(astTermStates), cbBufLen:=SIZEOF(astTermStates));
+    //Keep checking...
+
+
+    //Cycle through each entry in the array and check if we have anyone not in OP and that the link state is good.
+    // If so, then set our global IO bad boolean.
+    IF fbGetAllSlaveStates.nSlaves > 0 THEN
+        bAllSlaveStatesGood := TRUE;
+        FOR nIterator := 1 TO MAX_SLAVES DO
+            IF nIterator > fbGetAllSlaveStates.nSlaves // Slave is missing
+            OR NOT( (astTermStates[nIterator].deviceState = EC_DEVICE_STATE_OP) AND (astTermStates[nIterator].linkState = EC_LINK_STATE_OK))
+            THEN
+                bAllSlaveStatesGood := FALSE;
+            END_IF
+
+            IF nIterator <= fbGetAllSlaveStates.nSlaves THEN
+                aSlaves[nIterator]^.nDeviceState := astTermStates[nIterator].deviceState AND EC_DEVICE_STATE_MASK;
+                aSlaves[nIterator]^.nDeviceStateFlags := SHR(astTermStates[nIterator].deviceState, 4);
+                aSlaves[nIterator]^.nLinkStateFlags :=astTermStates[nIterator].linkState;
+            ELSE
+                // Missing slaves should be set to invalid
+                aSlaves[nIterator]^.nDeviceState := E_DeviceState.INVALID;
+            END_IF
+        END_FOR
+    END_IF
+
+    // Read the EtherCAT state of the master. If the call is successful,
+    //the State output variable of type WORD contains the requested status information.
+    ftMasterDevReset(CLK:=fbGetMasterDevState.bBusy OR bInit);
+    fbGetMasterDevState(sNetId:= sNetId, bExecute:=ftMasterDevReset.Q, nDevState => nMasterDevState);
+
+    ftMasterReset(CLK:=fbGetMasterState.bBusy OR bInit);
+    fbGetMasterState(sNetId:= sNetId, bExecute:=ftMasterDevReset.Q, state => nMasterState);
+
+    bMasterStateGood:= (fbGetMasterState.state = BYTE_TO_UINT(EC_DEVICE_STATE_OP) AND fbGetMasterDevState.nDevState = 0);
+
+    //This function is used to read a list of all configured slaves from the EtherCat master object Directory
+    //needs to run only once
+    fbGetConfSlaves(bExecute := bInit, sNetId :=sNetId, pArrEcConfSlaveInfo := ADR(astEcConfSlaveInfo),cbBufLen := SIZEOF(astEcConfSlaveInfo));
+    nSlaves:=fbGetConfSlaves.nSlaves;
+
+    IF  NOT (fbGetConfSlaves.bBusy) THEN
+        FOR nIterator := 1 TO MIN(MAX_SLAVES, fbGetConfSlaves.nSlaves) DO
+            IF nIterator > fbGetConfSlaves.nSlaves THEN // Missing terminal
+                aSlaves[nIterator]^.nAddr := 0;
+                aSlaves[nIterator]^.sName := '';
+                aSlaves[nIterator]^.sType := '';
+            ELSE
+                aSlaves[nIterator]^.nAddr :=astEcConfSlaveInfo[nIterator].nAddr;
+                aSlaves[nIterator]^.sName :=astEcConfSlaveInfo[nIterator].sName;
+                aSlaves[nIterator]^.sType :=astEcConfSlaveInfo[nIterator].sType;
+            END_IF
+        END_FOR
+        fbGetConfSlaves.bExecute := FALSE;
+    END_IF
+
+
+    bInit := FALSE;
+    bError := fbGetMasterDevState.bError OR fbGetMasterState.bError OR fbGetAllSlaveStates.bError OR
+        fbGetConfSlaves.bError OR NOT bAllSlaveStatesGood OR NOT bMasterStateGood;
+
+    END_FUNCTION_BLOCK
+
+
+Related:
+    * `E_DeviceState`_
+    * `ST_DeviceDiagnostic`_
+
+
+FB_ErrorTriggers
+^^^^^^^^^^^^^^^^
+
+::
+
+    // Detects rising-edge errors
+    FUNCTION_BLOCK FB_ErrorTriggers
+    VAR_INPUT
+        nLeakLocations : BYTE;
+    END_VAR
+    VAR_IN_OUT CONSTANT
+        stErrors : ST_ErrorStates; // Errors that have been detected
+    END_VAR
+    VAR_OUTPUT
+        stNewErrors : St_ErrorStates; // Rising-edge errors
+    END_VAR
+    VAR
+        // R_TRIG function blocks for detecting new errors
+        fbLeakTrig : R_TRIG;
+        fbLeakOpticalTableAmphosOnTrig : R_TRIG;
+        fbLeakOpticalTableNoLaserTrig : R_TRIG;
+        fbLeakOpcpaCarbideOnTrig : R_TRIG;
+        fbLeakUnderTableTrig : R_TRIG;
+        fbLeakInsideRacksTrig : R_TRIG;
+        fbAmphosBeamTrig : R_TRIG;
+        fbOpcpaBeamTrig : R_TRIG;
+        fbDumpChillerTrig : R_TRIG;
+        fbBaseplateChillerTrig : R_TRIG;
+    END_VAR
+    fbLeakTrig(
+        CLK := nLeakLocations <> E_LeakLocation.NO_LEAK,
+    );
+    fbLeakOpticalTableAmphosOnTrig(
+        CLK := stErrors.bLeakOpticalTableAmphosOn,
+        Q => stNewErrors.bLeakOpticalTableAmphosOn
+    );
+    fbLeakOpticalTableNoLaserTrig(
+        CLK := stErrors.bLeakOpticalTableNoLaser,
+        Q => stNewErrors.bLeakOpticalTableNoLaser
+    );
+    fbLeakOpcpaCarbideOnTrig(
+        CLK := stErrors.bLeakOpcpaCarbideOn,
+        Q => stNewErrors.bLeakOpcpaCarbideOn
+    );
+    fbLeakUnderTableTrig(
+        CLK := stErrors.bLeakUnderTable,
+        Q => stNewErrors.bLeakUnderTable
+    );
+    fbLeakInsideRacksTrig(
+        CLK := stErrors.bLeakInsideRacks,
+        Q => stNewErrors.bLeakInsideRacks
+    );
+
+    fbAmphosBeamTrig(
+        CLK := stErrors.bAmphosBeam,
+        Q => stNewErrors.bAmphosBeam
+    );
+    fbOpcpaBeamTrig(
+        CLK := stErrors.bOpcpaBeam,
+        Q => stNewErrors.bOpcpaBeam
+    );
+
+    fbDumpChillerTrig(
+        CLK := stErrors.bDumpChiller,
+        Q => stNewErrors.bDumpChiller
+    );
+    fbBaseplateChillerTrig(
+        CLK := stErrors.bBaseplateChiller,
+        Q => stNewErrors.bBaseplateChiller
+    );
+
+    END_FUNCTION_BLOCK
+
+    // Returns whether a rising-edge leak error has occured
+    METHOD NewLeakError : BOOL
+    VAR_INPUT
+    END_VAR
+    NewLeakError := fbLeakTrig.Q OR fbLeakOpticalTableAmphosOnTrig.Q OR fbLeakOpticalTableNoLaserTrig.Q OR fbLeakOpcpaCarbideOnTrig.Q OR fbLeakUnderTableTrig.Q OR fbLeakInsideRacksTrig.Q;
+    END_METHOD
+
+    // Reset latched amphos errors
+    METHOD ResetAmphosTrigger
+    VAR_INPUT
+    END_VAR
+    fbAmphosBeamTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bAmphosBeam
+    );
+    END_METHOD
+
+    METHOD ResetBaseplateChillerTrigger
+    VAR_INPUT
+    END_VAR
+    fbBaseplateChillerTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bBaseplateChiller
+    );
+    END_METHOD
+
+    METHOD ResetDumpChillerTrigger
+    VAR_INPUT
+    END_VAR
+    fbDumpChillerTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bDumpChiller
+    );
+    END_METHOD
+
+    // Reset latched leak errors
+    METHOD ResetLeakTriggers
+    VAR_INPUT
+    END_VAR
+    fbLeakOpticalTableAmphosOnTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bLeakOpticalTableAmphosOn
+    );
+    fbLeakOpticalTableNoLaserTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bLeakOpticalTableNoLaser
+    );
+    fbLeakOpcpaCarbideOnTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bLeakOpcpaCarbideOn
+    );
+    fbLeakUnderTableTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bLeakUnderTable
+    );
+    fbLeakInsideRacksTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bLeakInsideRacks
+    );
+    END_METHOD
+
+    // Reset latched OPCPA errors
+    METHOD ResetOpcpaTrigger
+    VAR_INPUT
+    END_VAR
+    fbOpcpaBeamTrig(
+        CLK := FALSE,
+        Q => stNewErrors.bOpcpaBeam
+    );
+    END_METHOD
+
+
+Related:
+    * `E_LeakLocation`_
+    * `ST_ErrorStates`_
+
+
+FB_LaserShutterInterlock
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+::
+
+    FUNCTION_BLOCK FB_LaserShutterInterlock
+    VAR_INPUT
+        //bAmphosOn : BOOL; // Whether the amphos is on
+        fOpcpaVoltage       : LREAL; // The voltage of the OPCPA
+        fAmphosVoltage      : LREAL; // The Amphos voltage
+        fMPCVoltage         : LREAL; // The MPC voltage
+        AmphosStatus        : BOOL; //Amphos Laser Shutter Status
+        bLoopTempOverride01 : BOOL; // Whether the chiller loop error is overriden
+        bLoopTempOverride02 : BOOL; // Whether the chiller loop error is overriden
+        bLoopTempOverride03 : BOOL; // Whether the chiller loop error is overriden
+        bLoopTempOverride04 : BOOL; // Whether the chiller loop error is overriden
+    //    bLoopTempOverride05 : BOOL; // Whether the chiller loop error is overriden
+    //    bShutterStatus      : BOOL; // Shutter Status
+    END_VAR
+
+    VAR_IN_OUT CONSTANT
+        stErrors            : ST_ErrorStates; // Currently detected errors
+        stOpcpaSetpoints    : ST_LaserSetpoints; // OPCPA setpoints
+        stAmphosSetpoints   : ST_LaserSetpoints; // The Amphos setpoints
+        stMPCSetpoints      : ST_LaserSetpoints; // The MPC setpoints
+    END_VAR
+
+    VAR_IN_OUT
+        Mode              : E_Mode; // Mode
+        bAmphosShutter   : BOOL; // Allowed Amphos Shutter state, point to NC Relay GVL
+    END_VAR
+
+    VAR
+        bChillerErrors      : BOOL; // Local logical sum of chiller error states
+        bTempSwitchErrors   : BOOL; // Local logical sum of temperature switch errors
+        bAmphosUnderVolt    : BOOL; // Local var for checking Amphos under MinVoltage
+        bOpcpaUnderVolt     : BOOL; // Local var for checking OPCPA under MinVoltage
+        bMpcUnderVolt       : BOOL; // Local var for checking MPC under MinVoltage
+    END_VAR
+
+    VAR_OUTPUT
+        bCarbideShutter  : BOOL; // Allowed Carbide Shutter state, point to NC Relay GVL
+    END_VAR
+    (*
+    The Amphos Shutter Enable function sends and Enable or Disable bit as an output to be used by the Amphos Shutter Command block
+    AmphosShutterEnable := TRUE := OPEN SHUTTER
+    AmphosShutterEnable := FALSE := CLOSE SHUTTER
+
+    Note : In master override modes, the Shutter state will hold the previous state value, unless manually forced
+    GVL_IO.bAmphosShutterEnable is the manual override PV for the shutter enable
+    *)
+
+    bChillerErrors := (
+                     (NOT bLoopTempOverride01 AND stErrors.bChillerLoop01) OR
+                     (NOT bLoopTempOverride02 AND stErrors.bChillerLoop02) OR
+                     (NOT bLoopTempOverride03 AND stErrors.bChillerLoop03) OR
+                     (NOT bLoopTempOverride04 AND stErrors.bChillerLoop04)
+    //                 OR (NOT bLoopTempOverride05 AND stErrors.bChillerLoop05)
+                     );
+    bTempSwitchErrors := (
+                         NOT GVL_IO.bLoopTempSW01 OR
+                         NOT GVL_IO.bLoopTempSW02 OR
+                         NOT GVL_IO.bLoopTempSW03 OR
+                         NOT GVL_IO.bLoopTempSW04 OR
+                         NOT GVL_IO.bLoopTempSW05
+                         );
+
+    bAmphosUnderVolt := fAmphosVoltage < stAmphosSetpoints.nMinVoltage;
+    bOpcpaUnderVolt := fOpcpaVoltage < stOpcpaSetpoints.nMinVoltage;
+    bMpcUnderVolt := fMPCVoltage < stMPCSetpoints.nMinVoltage;
+
+    CASE MODE OF
+        // With great overrides comes great responsibility, and burnt optics
+        E_Mode.MASTER_Override:
+    // Just pass and retain the previous Amphos Shutter State
+            bCarbideShutter := TRUE;
+            bAmphosShutter := GVL_IO.bAmphosShutterManualOverride;
+            GVL_IO.bAmphosRelay := TRUE;
+
+        E_Mode.Protection:
+            // Close shutter if there is a hardware failure
+            IF (stErrors.bHardwareFailure
+            // Close shutter if there is a leak on the optical table with the amphos on, a leak under the table, or a leak inside the OPCPA with Carbide on
+            (*OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable*)
+            //Close shutter if the amphos is on and the temperature is too high in any loop. Ignore if operator override is enabled
+             OR (bChillerErrors OR bTempSwitchErrors)
+            // Close shutter if in OPCPA beam error state and OPCPA voltage too low
+             OR (bOpcpaUnderVolt AND stErrors.bOpcpaBeam)
+            // Close the shutter if there is a Dump Chiller error
+             OR stErrors.bDumpChiller
+            )
+            // Check global IO for redundancy of Dump Chiller Errors
+            OR (NOT GVL_IO.bDumpChillerFlow)
+            OR (NOT GVL_IO.bBaseplateChillerFlow)
+            THEN
+                bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosRelay := FALSE;
+            ELSE
+                // If the Amphos trips, always disable it
+                IF bAmphosUnderVolt
+                THEN
+                    //GVL_IO.bAmphosShutterEnableManualOperation MUST be overwritten to update EPICS downstream
+                    bAmphosShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
+                    GVL_IO.bAmphosRelay:= FALSE;
+                ELSE
+                    bAmphosShutter := GVL_IO.bAmphosRelay := TRUE;
+                END_IF
+                // Only open the Amphos shutter if all 3 lasers are happy
+                IF (NOT(bAmphosUnderVolt OR bOpcpaUnderVolt OR bMpcUnderVolt))
+                THEN
+                    //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+                    bAmphosShutter := GVL_IO.bAmphosShutterManualOverride := TRUE;
+                ELSE
+                    //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+                    bAmphosShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
+                END_IF
+                // Carbide Shutter is weird, allows solo Carbide use explicitly
+                IF NOT (bAmphosUnderVolt OR bOpcpaUnderVolt OR bMpcUnderVolt)
+                    // This state is physically impossible
+                    OR (bAmphosUnderVolt AND NOT bOpcpaUnderVolt AND NOT bMpcUnderVolt)
+                    // But this state happens when the AMPHOS is powered down
+                    OR (bAmphosUnderVolt AND bOpcpaUnderVolt AND NOT bMpcUnderVolt)
+                THEN
+                    bCarbideShutter := TRUE;
+                ELSE
+                    bCarbideShutter := FALSE;
+                END_IF
+            END_IF
+
+        E_Mode.AMPHOS_Maintenance:
+        // Close shutter if there is a hardware failure
+            IF (stErrors.bHardwareFailure
+            // Close shutter if there is a leak on the optical table with the amphos on, a leak under the table, or a leak inside the OPCPA with Carbide on
+            (*OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable*)
+            //Close shutter if the amphos is on and the temperature is too high in any loop. Ignore if operator override is enabled
+             OR (bChillerErrors OR bTempSwitchErrors)
+            // Close the shutter if there is a Dump Chiller error
+             OR stErrors.bDumpChiller
+            )
+            // Check global IO for redundancy of Chiller Errors
+            OR (NOT GVL_IO.bDumpChillerFlow)
+            OR (NOT GVL_IO.bBaseplateChillerFlow)
+            THEN
+                //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+                bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
+                GVL_IO.bAmphosRelay := FALSE;
+            ELSE
+                // Just pass the Amphos shutter state and keep it enabled
+                //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+                GVL_IO.bAmphosRelay := TRUE;
+                bAmphosShutter := GVL_IO.bAmphosShutterManualOverride;
+            END_IF
+        // Close the carbide shutter if the MPC is unhappy
+        IF bMpcUnderVolt
+        THEN
+            bCarbideShutter := FALSE;
+        ELSE
+            bCarbideShutter := TRUE;
+        END_IF
+
+        // Undefined state, do not get here. Do not pass go, do not collect 200 dollars
+        ELSE
+        // If you get stuck here you deserve it
+            Mode := E_Mode.Protection;
+    END_CASE
+
+    END_FUNCTION_BLOCK
+
+
+Related:
+    * `E_Mode`_
+    * `GVL_IO`_
+    * `ST_ErrorStates`_
+    * `ST_LaserSetpoints`_
+
+
+FB_LaserTimer
+^^^^^^^^^^^^^
+
+::
+
+    // Monitors the lasers for under voltage events
+    FUNCTION_BLOCK FB_LaserTimer
+    VAR_INPUT
+        nVoltageRaw : INT; // The raw signal collected from the ADC
+        bAmphosOn : BOOL; // Whether the amphos is turned on
+        Timer : TON ; //Timer for reset
+        bMasterLatchReset : BOOL; //Master latched error reset
+        bCarbideOn : BOOL; // Whether Carbide is ON
+        Mode : E_Mode;
+    END_VAR
+    VAR_IN_OUT CONSTANT
+        stSetpoints : ST_LaserSetpoints; // Setpoints for the laser
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: VOLTAGE
+            io: i
+            field: HOPR 10.0
+            field: LOPR 0.0
+            field: LSV MINOR
+            field: LLSV MAJOR
+            field: EGU Volts
+        '}
+        fVoltage : LREAL; // Voltage calculated from the raw ADC input
+
+        {attribute 'pytmc' := '
+            pv: SCALED_PWR
+            io: i
+            field: EGU Watts
+        '}
+        fPower : LREAL;
+
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL; // Whether an error was detected. Latches until reset
+        bBelowNominal : BOOL; //fVoltage is below the nominal setpoint
+    END_VAR
+    (* Scale the analog signal to voltage *)
+    fVoltage := F_Scale(
+        fRawData := nVoltageRaw,
+        fRawDataLowerOffLimit := GVL_EL3174.fRawLowerLimit,
+        fRawDataUpperOffLimit := GVL_EL3174.fRawUpperLimit,
+        fScaleDataLowerOffLimit := GVL_EL3174.fScaleLowerLimit,
+        fScaleDataUpperOffLimit := GVL_EL3174.fScaleUpperLimit);
+
+    fPower := fVoltage; //Value is scaled by user set ASLO and AOFF fields (for display only)
+
+    (* Set error if amphos is below nominal voltage *)
+    IF  (bAmphosOn AND fVoltage < stSetpoints.nMinVoltage) THEN
+        Timer(IN:=TRUE, PT:=T#500ms); //500ms SEC Timer
+        IF Timer.Q THEN
+            bError := TRUE;
+            Timer(IN:=FALSE);
+        END_IF;
+    ELSE
+        Timer(IN:=FALSE);
+    END_IF
+
+    IF bAmphosOn AND (fVoltage < stSetpoints.nMinNominalVoltage) THEN
+        bBelowNominal := TRUE;
+    END_IF
+
+    IF bMasterLatchReset THEN
+        bBelowNominal := FALSE;
+        bError := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
+
+    // Reset latched errors
+    METHOD Reset
+    VAR_INPUT
+    END_VAR
+    bError := FALSE;
+    END_METHOD
+
+
+Related:
+    * `E_Mode`_
+    * `GVL_EL3174`_
+    * `ST_LaserSetpoints`_
+
+
+FB_LaserTimer_MPC
+^^^^^^^^^^^^^^^^^
+
+::
+
+    // Monitors the lasers for under voltage events
+    FUNCTION_BLOCK FB_LaserTimer_MPC
+    VAR_INPUT
+        nVoltageRaw : INT; // The raw signal collected from the ADC
+        bCarbideOn : BOOL; // Whether the amphos is turned on
+        Timer : TON ; //Timer for reset
+        bMasterLatchReset : BOOL; //Master latched error reset
+    END_VAR
+    VAR_IN_OUT CONSTANT
+        stSetpoints : ST_LaserSetpoints; // Setpoints for the laser
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: VOLTAGE
+            io: i
+            field: HOPR 10.0
+            field: LOPR 0.0
+            field: LSV MINOR
+            field: LLSV MAJOR
+            field: EGU Volts
+        '}
+        fVoltage : LREAL; // Voltage calculated from the raw ADC input
+
+        {attribute 'pytmc' := '
+            pv: SCALED_PWR
+            io: i
+            field: EGU Watts
+        '}
+        fPower : LREAL;
+
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL; // Whether an error was detected. Latches until reset
+        bBelowNominal : BOOL; //fVoltage is below the nominal setpoint
+    END_VAR
+    (* Scale the analog signal to voltage *)
+    fVoltage := F_Scale(
+        fRawData := nVoltageRaw,
+        fRawDataLowerOffLimit := GVL_EL3174.fRawLowerLimit,
+        fRawDataUpperOffLimit := GVL_EL3174.fRawUpperLimit,
+        fScaleDataLowerOffLimit := GVL_EL3174.fScaleLowerLimit,
+        fScaleDataUpperOffLimit := GVL_EL3174.fScaleUpperLimit);
+
+    fPower := fVoltage; //Value is scaled by user set ASLO and AOFF fields (for display only)
+
+    (* Set error if amphos is below nominal voltage *)
+    IF  (bCarbideOn AND fVoltage < stSetpoints.nMinVoltage) THEN
+        Timer(IN:=TRUE, PT:=T#500ms); //500ms SEC timer
+        IF Timer.Q THEN
+            bError := TRUE;
+            Timer(IN:=FALSE); // Reset Timer
+        END_IF;
+    ELSE
+        Timer(IN:=FALSE);
+    END_IF
+
+    IF bCarbideOn AND (fVoltage < stSetpoints.nMinNominalVoltage) THEN
+        bBelowNominal := TRUE;
+    END_IF
+
+    IF bMasterLatchReset THEN
+        bBelowNominal := FALSE;
+        bError := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
+
+    // Reset latched errors
+    METHOD Reset : BOOL
+    VAR_INPUT
+    END_VAR
+    bError := FALSE;
+    END_METHOD
+
+
+Related:
+    * `GVL_EL3174`_
+    * `ST_LaserSetpoints`_
+
+
+FB_LeakMonitor
+^^^^^^^^^^^^^^
+
+::
+
+    // Detect leaks and leak locations
+    FUNCTION_BLOCK FB_LeakMonitor
+    VAR_INPUT
+        bLeakDetected : BOOL; // Whether a leak was detected
+        bAmphosOn : BOOL; // Whether the Amphos is on
+        bCarbideOn : BOOL; // Whether the Carbide is on
+        nLocationResistance: UINT; // Used for calculating the location of the leak
+        bMasterLatchReset : BOOL; //Master latched error reset
+    END_VAR
+    VAR_IN_OUT CONSTANT
+        stBound : ST_LeakBoundaries; // Setpoints for calculating leak locations from location resistance
+    END_VAR
+    VAR_OUTPUT
+
+        {attribute 'pytmc' := '
+            pv: LOW_RES
+            io: i
+        '}
+        bLowResistance : BOOL := FALSE;
+
+        {attribute 'pytmc' := '
+            pv: LEAKS
+            io: i
+        '}
+        nLeakLocations : BYTE := E_LeakLocation.NO_LEAK; // Locations of leaks
+        {attribute 'pytmc' := '
+            pv: LOTAO_ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bLeakOpticalTableAmphosOn : BOOL := FALSE; // Leak on the optical table with Amphos on
+        {attribute 'pytmc' := '
+            pv: LOTNL_ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bLeakOpticalTableNoLaser : BOOL := FALSE; // Leak on the optical table with no laser on
+        {attribute 'pytmc' := '
+            pv: LOCO_ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bLeakOpcpaCarbideOn : BOOL := FALSE; // Leak inside the OPCPA with Carbide on
+        {attribute 'pytmc' := '
+            pv: LUT_ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bLeakUnderTable : BOOL := FALSE; // Leak under the table
+        {attribute 'pytmc' := '
+            pv: LIR_ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bLeakInsideRacks : BOOL := FALSE; // Leak inside the racks
+    END_VAR
+    IF (nLocationResistance < 200) THEN
+        bLowResistance := TRUE;
+    ELSE
+        bLowResistance := FALSE;
+    END_IF
+
+    IF (bLeakDetected OR bLowResistance) THEN
+        (* Find leak location for PV. Stays until reset *)
+        IF stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1 THEN
+            nLeakLocations := nLeakLocations OR E_LeakLocation.LOC1;
+        END_IF
+
+        IF stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax2 THEN
+            nLeakLocations := nLeakLocations OR E_LeakLocation.LOC2;
+        END_IF
+
+        IF stBound.nLMin3 <= nLocationResistance AND nLocationResistance < stBound.nLMax3 THEN
+            nLeakLocations := nLeakLocations OR E_LeakLocation.LOC3;
+        END_IF
+
+        IF stBound.nLMin4 <= nLocationResistance AND nLocationResistance < stBound.nLMax4 THEN
+            nLeakLocations := nLeakLocations OR E_LeakLocation.LOC4;
+        END_IF
+
+        IF stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5 THEN
+            nLeakLocations := nLeakLocations OR E_LeakLocation.LOC5;
+        END_IF
+
+        IF stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6 THEN
+            nLeakLocations := nLeakLocations OR E_LeakLocation.LOC6;
+        END_IF
+
+        //CURRENT SETUP : LOC1 = OPCPA, LOC2 = rest of optical table (values decrease toward higher LOC#)
+        (* Latch Optical table leak errors *)
+        IF (stBound.nLMin2 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
+            IF bAmphosOn THEN
+                bLeakOpticalTableAmphosOn := TRUE;
+            ELSIF NOT bCarbideOn THEN
+                bLeakOpticalTableNoLaser := TRUE;
+            END_IF
+        END_IF
+
+        (* Latch carbide leak errors *)
+        IF (bCarbideOn AND stBound.nLMin1 <= nLocationResistance AND nLocationResistance < stBound.nLMax1) THEN
+            bLeakOpcpaCarbideOn := TRUE;
+        END_IF
+
+        (* Latch leak under table errors *)
+        IF (stBound.nLMin5 <= nLocationResistance AND nLocationResistance < stBound.nLMax5) THEN
+            bLeakUnderTable := TRUE;
+        END_IF
+
+        (* Latch leak inside rack errors *)
+        IF (stBound.nLMin6 <= nLocationResistance AND nLocationResistance < stBound.nLMax6) THEN
+            bLeakInsideRacks := TRUE;
+        END_IF
+
+    END_IF
+
+    IF bMasterLatchReset THEN
+        nLeakLocations              := E_LeakLocation.NO_LEAK;
+        bLeakOpticalTableAmphosOn   := FALSE;
+        bLeakOpcpaCarbideOn         := FALSE;
+        bLeakOpticalTableNoLaser    := FALSE;
+        bLeakUnderTable             := FALSE;
+        bLeakInsideRacks            := FALSE;
+    END_IF
+
+    END_FUNCTION_BLOCK
+
+    // Reset latched errors
+    METHOD Reset
+    VAR_INPUT
+    END_VAR
+    nLeakLocations := E_LeakLocation.NO_LEAK;
+    bLeakOpticalTableAmphosOn := FALSE;
+    bLeakOpticalTableNoLaser := FALSE;
+    bLeakOpcpaCarbideOn := FALSE;
+    bLeakUnderTable := FALSE;
+    bLeakInsideRacks := FALSE;
+    END_METHOD
+
+
+Related:
+    * `E_LeakLocation`_
+    * `ST_LeakBoundaries`_
+
+
+FB_TraceTekModbus
+^^^^^^^^^^^^^^^^^
+
+::
+
+    // Communicates with the TraceTek TTSIM-1A hardware over Modbus to get more information about a leak
+    FUNCTION_BLOCK FB_TraceTekModbus
+    VAR_INPUT
+        nModbusSlaveAddress : BYTE; // Modbus address of slave to be read from
+        bLeakDetected : BOOL; // Whether a leak has been detected
+        bResetError : BOOL; // Reset signal for error
+    END_VAR
+    VAR_OUTPUT
+        {attribute 'pytmc' := '
+            pv: LOC_RES
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        nLocationResistance: UINT; // Resistance measured in the detection wire
+        {attribute 'pytmc' := '
+            pv: ERROR
+            io: i
+            field: OSV MAJOR
+            field: ZSV NO_ALARM
+            field: ZNAM OK
+            field: ONAM ERROR
+        '}
+        bError : BOOL := FALSE; // Flag for Modbus communication errors
+        nErrorId : MODBUS_ERRORS := MODBUS_ERRORS.MODBUSERROR_NO_ERROR; // Description of Modbus error
+    END_VAR
+    VAR
+        aModbusBuffer : WORD := 16#FFFF;  // "Infinite" until real value is read from device
+        fbModbusMaster : ModbusRtuMaster_KL6x22B := (
+            Quantity := 1,
+            MBAddr := 1,
+            cbLength := SIZEOF(aModbusBuffer),
+            pMemoryAddr := ADR(aModbusBuffer),
+            Timeout := T#5S
+        );
+        fbPoll : TON := (PT := T#0S); // Poll rate for reading modbus. Start at 0 so that modbus is read on first call
+    END_VAR
+    VAR_STAT
+        tPollRate : TIME := T#500MS;
+    END_VAR
+    // Advance poll rate timer
+    fbPoll(IN := TRUE);
+
+    // Update modbus status
+    fbModbusMaster.Execute := FALSE;
+    fbModbusMaster.ReadInputRegs();
+
+    IF bResetError THEN // Reset modbus error
+        bError := FALSE;
+        nErrorId := MODBUS_ERRORS.MODBUSERROR_NO_ERROR;
+    ELSIF fbModbusMaster.Error OR NOT fbModbusMaster.BUSY THEN
+        // Allow fb error state to go back to normal by checking modbus error state after reading has finished
+        bError := fbModbusMaster.Error;
+        nErrorId := fbModbusMaster.ErrorId;
+    END_IF
+
+    (* If the modbus interface isn't busy and there is a leak, try reading
+    the leak location from the TraceTek. Even if there is no leak, maintain
+    the modbus connection by checking every few seconds using the fbPoll rate *)
+    IF NOT fbModbusMaster.BUSY AND (bLeakDetected OR fbPoll.Q) THEN
+        fbPoll(IN := FALSE, PT := tPollRate);
+        fbModbusMaster.UnitID := nModbusSlaveAddress;
+        fbModbusMaster.Execute := TRUE;
+        fbModbusMaster.ReadInputRegs();
+    END_IF
+
+    // Copy the location resitance from the buffer to the FB output
+    nLocationResistance := WORD_TO_UINT(aModbusBuffer);
+
+    END_FUNCTION_BLOCK
+
+
+
+
+MAIN
+^^^^
+
+::
+
+    PROGRAM MAIN
+    VAR
+        stErrors : ST_ErrorStates; // Triggered error states
+        fbErrorTriggers : FB_ErrorTriggers; // Brand new errors this cycle
+
+        // Leak Monitor
+        {attribute 'pytmc' := 'pv: @(PREFIX):TTSIM:DEV01'}
+        fbTraceTekModbus : FB_TraceTekModbus; // Modbus connection to TraceTek
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:LEAK:RESET'}
+        bLeakMonitorReset : BOOL; // Leak monitor reset flag
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:LEAK'}
+        fbLeakMonitor : FB_LeakMonitor; // Leak detection
+
+        // Chiller Loop temperature monitors
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP01'}
+        fbChillerLoop01 : FB_ChillerLoop; // Chiller loop 01
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP02'}
+        fbChillerLoop02 : FB_ChillerLoop; // Chiller loop 02
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP03'}
+        fbChillerLoop03 : FB_ChillerLoop; // Chiller loop 03
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP04'}
+        fbChillerLoop04 : FB_ChillerLoop; // Chiller loop 04
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP05'}
+        fbChillerLoop05 : FB_ChillerLoop; // Chiller loop 05
+
+
+        // Laser monitors
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
+        fbAmphos : FB_LaserTimer; // Amphos laser
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:AMPHOS:RESET
+            io: o
+        '}
+        bAmphosReset : BOOL; // Amphos laser error unlatch flag
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:OPCPA'}
+        fbOpcpa : FB_LaserTimer; // OPCPA laser
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:OPCPA:RESET
+            io: o
+        '}
+        bOpcpaReset : BOOL; // OPCPA laser error unlatch flag
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:MPC'}
+        fbMpc : FB_LaserTimer_MPC; // MPC laser
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:MPC:RESET
+            io: o
+        '}
+        bMpcReset : BOOL; // MPC laser error unlatch flag
+
+
+        (*
+        // Temperature monitors
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON01'}
+        fbTempMon01 : FB_TemperatureMonitor; // System temperature monitor 01
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON02'}
+        fbTempMon02 : FB_TemperatureMonitor; // System temperature monitor 02
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON03'}
+        fbTempMon03 : FB_TemperatureMonitor; // System temperature monitor 03
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON04'}
+        fbTempMon04 : FB_TemperatureMonitor; // System temperature monitor 04
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON05'}
+        fbTempMon05 : FB_TemperatureMonitor; // System temperature monitor 05
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON06'}
+        fbTempMon06 : FB_TemperatureMonitor; // System temperature monitor 06
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON07'}
+        fbTempMon07 : FB_TemperatureMonitor; // System temperature monitor 07
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMPMON08'}
+        fbTempMon08 : FB_TemperatureMonitor; // System temperature monitor 08
+        *)
+
+        // Chillers
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:DUMP_CHILLER'}
+        fbDumpChiller : FB_DumpChiller; // Flow sensor monitor for the dump chiller
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:DUMP_CHILLER:RESET
+            io: o
+        '}
+        bDumpChillerReset : BOOL; // Dump chiller error unlatch flag
+
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:BASEPLATE_CHILLER'}
+        fbBaseplateChiller : FB_BaseplateChiller; // Flow sensor monitor for the baseplate chiller
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:BASEPLATE_CHILLER:RESET
+            io: o
+        '}
+        bBaseplateChillerReset : BOOL; // Baseplate chiller error unlatch flag
+
+        (*
+        // Amphos MRCs
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS_MRC01'}
+        fbAmphosMRC01 : FB_AmphosMRC; // MRC monitor 01
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS_MRC02'}
+        fbAmphosMRC02 : FB_AmphosMRC; // MRC monitor 02
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS_MRC03'}
+        fbAmphosMRC03 : FB_AmphosMRC; // MRC monitor 03
+        *)
+
+        (*
+        This is the map of the Mode Int to the defintion
+        MODE = 1 ==> Master Override
+        MODE = 2 ==> Protection
+        MODE = 3 ==> Amphos Maintenance
+        Any other mode is invalid.
+        *)
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:MODE
+            io: io
+            field: NOBT 3
+        '}
+        Mode_LPS : E_Mode; // Mode Definition
+
+        fbLaserShutterInterlocks : FB_LaserShutterInterlock; // Laser shutter interlock handler
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:MASTER_OVERRIDE
+            io: o
+        '}
+        bMasterOverride : BOOL := TRUE; // Master override control for safety system.
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:MASTER_AMP_SHUTTER
+            io: o
+        '}
+        bAmpShutterClosed : BOOL; // Master Amphos Shutter control
+
+        {attribute 'pytmc' := '
+            pv: @(PREFIX):LPS:MASTER_LATCH_RESET
+            io: o
+        '}
+        bMasterLatchReset : BOOL; //Master release of latched error conditions
+
+        bLatchStart : BOOL := FALSE; //Latch at start of loop.
+
+        {attribute 'pytmc' := 'pv: @(PREFIX):LPS:PLC'}
+        fbDiag : FB_EcatDiag; // Ethercat diagnostics
+    END_VAR
+    (* Ensure master latch is TRUE for at least one full cycle of the PLC logic *)
+    IF bMasterLatchReset AND NOT bLatchStart THEN
+        bLatchStart := TRUE;
+    END_IF
+
+    (*******************************************************************
+            Update diagnostics. Check for hardware failures
+    *******************************************************************)
+    (* Check PLC hardware for failures *)
+    fbDiag(AMSNetId := GVL_PLC.AMSNetId);
+    stErrors.bHardwareFailure := (fbDiag.bError OR fbTraceTekModbus.bError) AND NOT bMasterOverride;
+
+    (*******************************************************************
+    Feed each device function block inputs from the PLC IO. Collect error states detected
+    by the function blocks into stErrors. These collected errors are then used later for
+    making decisions in the interlock logic.
+    *******************************************************************)
+    (* Detects leaks using the location resitance from the TraceTek *)
+    fbLeakMonitor(
+        nLocationResistance             := fbTraceTekModbus.nLocationResistance,
+        bAmphosOn                       := GVL_IO.bAmphosOn,
+        bCarbideOn                      := GVL_IO.bCarbideOn,
+        bLeakDetected                   := GVL_IO.bLeakDetected,
+        stBound                         := GVL_TraceTek.stLeakMonitorBoundaries,
+        bLeakOpticalTableAmphosOn       => stErrors.bLeakOpticalTableAmphosOn,
+        bLeakOpticaltableNoLaser        => stErrors.bLeakOpticalTableNoLaser,
+        bLeakOpcpaCarbideOn             => stErrors.bLeakOpcpaCarbideOn,
+        bLeakUnderTable                 => stErrors.bLeakUnderTable,
+        bLeakInsideRacks                => stErrors.bLeakInsideRacks,
+        bMasterLatchReset               := bMasterLatchReset
+    );
+
+    (* Monitors for error events on chiller loop 1 *)
+    fbChillerLoop01(
+        bLoopTempSW     := GVL_IO.bLoopTempSW01,
+        bError          => stErrors.bChillerLoop01
+    );
+
+    (* Monitors for error events on chiller loop 2 *)
+    fbChillerLoop02(
+        bLoopTempSW     := GVL_IO.bLoopTempSW02,
+        bError          => stErrors.bChillerLoop02
+    );
+
+    (* Monitors for error events on chiller loop 3 *)
+    fbChillerLoop03(
+        bLoopTempSW     := GVL_IO.bLoopTempSW03,
+        bError          => stErrors.bChillerLoop03
+    );
+
+    (* Monitors for error events on chiller loop 4 *)
+    fbChillerLoop04(
+        bLoopTempSW     := GVL_IO.bLoopTempSW04,
+        bError          => stErrors.bChillerLoop04
+    );
+
+    (* Monitors for error events on chiller loop 5 *)
+    fbChillerLoop05(
+        bLoopTempSW     := GVL_IO.bLoopTempSW05,
+        bError          => stErrors.bChillerLoop05
+    );
+
+    (* Monitors the Amphos laser *)
+    fbAmphos(
+        nVoltageRaw         := GVL_IO.nAmphosVoltageRaw,
+        bAmphosOn           := GVL_IO.bAmphosOn,
+        stSetpoints         := GVL_Laser.stAmphosSP,
+        bError              => stErrors.bAmphosBeam,
+        bMasterLatchReset   := bMasterLatchReset
+    );
+
+    (* Monitors the OPCPA laser *)
+    fbOpcpa(
+        nVoltageRaw         := GVL_IO.nOpcpaVoltageRaw,
+        bAmphosOn           := GVL_IO.bAmphosOn,
+        stSetpoints         := GVL_Laser.stOpcpaSP,
+        bError              => stErrors.bOpcpaBeam,
+        bMasterLatchReset   := bMasterLatchReset
+    );
+
+    fbMpc(
+        nVoltageRaw         := GVL_IO.nMpcVoltageRaw,
+        bCarbideOn           := GVL_IO.bAmphosOn,
+        stSetpoints         := GVL_Laser.stMpcSP,
+        bError              => stErrors.bMpcBeam,
+        bMasterLatchReset   := bMasterLatchReset
+    );
+
+
+    (*
+    (* Monitors system temperature from sensor 1 *)
+    fbTempMon01(
+        nTempMonRaw := GVL_IO.nTempMonRaw01,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP01,
+        bError => stErrors.bTempMon01
+    );
+
+    (* Monitors system temperature from sensor 2 *)
+    fbTempMon02(
+        nTempMonRaw := GVL_IO.nTempMonRaw02,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP02,
+        bError => stErrors.bTempMon02
+    );
+
+    (* Monitors system temperature from sensor 3 *)
+    fbTempMon03(
+        nTempMonRaw := GVL_IO.nTempMonRaw03,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP03,
+        bError => stErrors.bTempMon03
+    );
+
+    (* Monitors system temperature from sensor 4 *)
+    fbTempMon04(
+        nTempMonRaw := GVL_IO.nTempMonRaw04,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP04,
+        bError => stErrors.bTempMon04
+    );
+
+    (* Monitors system temperature from sensor 5 *)
+    fbTempMon05(
+        nTempMonRaw := GVL_IO.nTempMonRaw05,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP05,
+        bError => stErrors.bTempMon05
+    );
+
+    (* Monitors system temperature from sensor 6 *)
+    fbTempMon06(
+        nTempMonRaw := GVL_IO.nTempMonRaw06,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP06,
+        bError => stErrors.bTempMon06
+    );
+
+    (* Monitors system temperature from sensor 7 *)
+    fbTempMon07(
+        nTempMonRaw := GVL_IO.nTempMonRaw07,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP07,
+        bError => stErrors.bTempMon07
+    );
+
+    (* Monitors system temperature from sensor 8 *)
+    fbTempMon08(
+        nTempMonRaw := GVL_IO.nTempMonRaw08,
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stSetpoints := GVL_TemperatureMonitor.stTempMonSP08,
+        bError => stErrors.bTempMon08
+    );
+    *)
+
+    (* Flow sensor monitor for the dump chiller *)
+    fbDumpChiller(
+        bAmphosOn           := GVL_IO.bAmphosOn,
+        bDumpChillerFlow    := GVL_IO.bDumpChillerFlow,
+        bError              => stErrors.bDumpChiller,
+        bMasterLatchReset   := bMasterLatchReset
+    );
+
+    (* Flow sensor monitor for the baseplate chiller *)
+    fbBaseplateChiller(
+        bAmphosOn               := GVL_IO.bAmphosOn,
+        bBaseplateChillerFlow   := GVL_IO.bBaseplateChillerFlow,
+        bError                  => stErrors.bBaseplateChiller,
+        bMasterLatchReset       := bMasterLatchReset
+    );
+
+    (*
+    (* Detects problems with MRC 1 *)
+    fbAmphosMRC01(
+        bAmphosOn := GVL_IO.bAmphosOn,
+        bMRC := GVL_IO.bAmphosMRC01,
+        bError => stErrors.bAmphosMRC01
+    );
+
+    (* Detects problems with MRC 2 *)
+    fbAmphosMRC02(
+        bAmphosOn := GVL_IO.bAmphosOn,
+        bMRC := GVL_IO.bAmphosMRC02,
+        bError => stErrors.bAmphosMRC02
+    );
+
+    (* Detects problems with MRC 3 *)
+    fbAmphosMRC03(
+        bAmphosOn := GVL_IO.bAmphosOn,
+        bMRC := GVL_IO.bAmphosMRC03,
+        bError => stErrors.bAmphosMRC03
+    );
+    *)
+
+    (*******************************************************************
+    Now that each of the input signals have been checked and errors stored,
+    run the interlock logic.
+    *******************************************************************)
+    (* Enable Amphos attenuator if interlock logic passes *)
+    (*
+    GVL_IO.bAmphosAttenuatorEnable := F_AmphosAttenuatorEnable(
+        bAmphosOn := GVL_IO.bAmphosOn,
+        stErrors := stErrors
+    );
+    Deprecated Logic -- Not Currently Used*)
+
+    fbLaserShutterInterlocks(
+        fOpcpaVoltage 			:= fbOpcpa.fVoltage,
+        fAmphosVoltage			:= fbAmphos.fVoltage,
+        fMPCVoltage				:= fbMPC.fVoltage,
+        AmphosStatus			:= GVL_IO.bAmphosOn,
+        bLoopTempOverride01 	:= fbChillerLoop01.bOperatorOverride,
+        bLoopTempOverride02 	:= fbChillerLoop02.bOperatorOverride,
+        bLoopTempOverride03 	:= fbChillerLoop03.bOperatorOverride,
+        bLoopTempOverride04 	:= fbChillerLoop04.bOperatorOverride,
+        stOpcpaSetpoints    	:= GVL_Laser.stOpcpaSP,
+        stAmphosSetpoints 		:= GVL_Laser.stAmphosSP,
+        stMpcSetpoints			:= GVL_Laser.stMpcSP,
+        stErrors            	:= stErrors,
+        Mode					:= Mode_LPS,
+        bAmphosShutter			:= GVL_IO.bAmphosShutterEnable,
+        bCarbideShutter			=> GVL_IO.bCarbideShutterEnable
+    );
+
+    (*
+    (* Enable Amphos shutter if interlock logic passes *)
+    GVL_IO.bAmphosShutterEnable := F_AmphosShutterEnable(
+        bAmphosOn           := GVL_IO.bAmphosOn,
+        fOpcpaVoltage       := fbOpcpa.fVoltage,
+        bLoopTempOverride01 := fbChillerLoop01.bOperatorOverride,
+        bLoopTempOverride02 := fbChillerLoop02.bOperatorOverride,
+        bLoopTempOverride03 := fbChillerLoop03.bOperatorOverride,
+        bLoopTempOverride04 := fbChillerLoop04.bOperatorOverride,
+        stOpcpaSetpoints    := GVL_Laser.stOpcpaSP,
+        stErrors            := stErrors,
+        bMasterOverride     := bMasterOverride,
+        bAmpShutterClosed   := bAmpShutterClosed
+    );
+    *)
+
+    (*
+    (* Enable Carbide shutter if interlock logic passes *)
+    GVL_IO.bCarbideShutterEnable := F_CarbideShutterEnable(
+        stErrors            := stErrors,
+        bMasterOverride     := bMasterOverride
+    );
+    *)
+
+    (* Enable Dump chiller if interlock logic passes *)
+    GVL_IO.bDumpChillerRelay := F_DumpChillerEnable(
+        stErrors            := stErrors,
+        bMasterOverride     := bMasterOverride
+    );
+
+    (* Enable Baseplate chiller if interlock logic passes *)
+    GVL_IO.bBaseplateChillerRelay := F_BaseplateChillerEnable(
+        stErrors        := stErrors,
+        bMasterOverride := bMasterOverride
+    );
+
+    (* Enable Amphos if interlock logic passes *)
+    (*GVL_IO.bAmphosRelay := F_AmphosEnable(
+        fAmphosVoltage      := fbAmphos.fVoltage,
+        bEnabled            := GVL_IO.bAmphosRelay,
+        stAmphosSetpoints   := GVL_Laser.stAmphosSP,
+        stErrors            := stErrors,
+        bMasterOverride     := bMasterOverride
+    );
+    *)
+
+    (*******************************************************************
+    Safety related tasks have now been finished. Now try slower tasks such as
+    communicating with external hardware.
+    *******************************************************************)
+    (* Read from TraceTek hardware to get leak details. Errors are
+    handled later when diagnostics are run *)
+    fbTraceTekModbus(
+        nModbusSlaveAddress := GVL_TraceTek.nModbusSlaveAddress,
+        bLeakDetected       := GVL_IO.bLeakDetected
+    );
+
+    (*******************************************************************
+    As per the specification, the reset PV is not checked until after the EPS has taken action.
+    Check the reset flags to see if they have been set and the errors can be unlatched.
+    *******************************************************************)
+    (* Check for rising-edge errors *)
+    fbErrorTriggers(stErrors := stErrors, nLeakLocations := fbLeakMonitor.nLeakLocations);
+
+    (* Check for new leak errors *)
+    IF fbErrorTriggers.NewLeakError() THEN
+        bLeakMonitorReset := FALSE; // If there is a new error turn off reset
+    ELSIF bLeakMonitorReset THEN
+        // If there are no new errors and reset is on, reset the errors
+        fbLeakMonitor.Reset();
+        fbErrorTriggers.ResetLeakTriggers();
+    END_IF
+
+    (* Check for new Amphos beam errors *)
+    IF fbErrorTriggers.stNewErrors.bAmphosBeam THEN
+        bAmphosReset := FALSE; // If there is a new error turn off reset
+    ELSIF bAmphosReset THEN
+        // If there are no new errors and reset is on, reset the errors
+        fbAmphos.Reset();
+        fbErrorTriggers.ResetAmphosTrigger();
+    END_IF
+
+    (* Check for new OPCPA errors *)
+    IF fbErrorTriggers.stNewErrors.bOpcpaBeam THEN
+        bOpcpaReset := FALSE; // If there is a new error turn off reset
+    ELSIF bOpcpaReset THEN
+        // If there are no new errors and reset is on, reset the errors
+        fbOpcpa.Reset();
+        fbErrorTriggers.ResetOpcpaTrigger();
+    END_IF
+
+    (* Check for new Beam Dump chiller errors *)
+    IF fbErrorTriggers.stNewErrors.bDumpChiller THEN
+        bDumpChillerReset := FALSE; // If there is a new error turn off reset
+    ELSIF bDumpChillerReset THEN
+        fbDumpChiller.Reset();
+        fbErrorTriggers.ResetDumpChillerTrigger();
+    END_IF
+
+    (* Check for new Baseplate chiller errors *)
+    IF fbErrorTriggers.stNewErrors.bBaseplateChiller THEN
+        bBaseplateChillerReset := FALSE; // If there is a new error turn off reset
+    ELSIF bBaseplateChillerReset THEN
+        // If there are no new errors and reset is on, reset the errors
+        fbBaseplateChiller.Reset();
+        fbErrorTriggers.ResetBaseplateChillerTrigger();
+    END_IF
+
+    (* Remove Master Latch Reset after one scan *)
+    IF bMasterLatchReset AND bLatchStart THEN
+        bMasterLatchReset := FALSE;
+        bLatchStart := FALSE;
+    END_IF
+
+    END_PROGRAM
+
+
+Related:
+    * `E_Mode`_
+    * `FB_BaseplateChiller`_
+    * `FB_ChillerLoop`_
+    * `FB_DumpChiller`_
+    * `FB_EcatDiag`_
+    * `FB_ErrorTriggers`_
+    * `FB_LaserShutterInterlock`_
+    * `FB_LaserTimer`_
+    * `FB_LaserTimer_MPC`_
+    * `FB_LeakMonitor`_
+    * `FB_TraceTekModbus`_
+    * `F_BaseplateChillerEnable`_
+    * `F_DumpChillerEnable`_
+    * `GVL_IO`_
+    * `GVL_Laser`_
+    * `GVL_PLC`_
+    * `GVL_TemperatureMonitor`_
+    * `GVL_TraceTek`_
+    * `ST_ErrorStates`_
+

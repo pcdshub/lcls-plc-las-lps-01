@@ -5,21 +5,21 @@
 TYPE ST_ErrorStates :
 STRUCT
     // Leak Alarms
-    bLeakOpticalTableAmphosOn : BOOL; // Leak on the optical table with Amphos on
-    bLeakOpticalTableNoLaser : BOOL; // Leak on the optical table with no laser on
-    bLeakOpcpaCarbideOn : BOOL; // Leak inside the OPCPA with Carbide on
-    bLeakUnderTable : BOOL; // Leak under the table
-    bLeakInsideRacks : BOOL; // Leak inside the racks
+    bLeakOpticalTableAmphosOn   : BOOL; // Leak on the optical table with Amphos on
+    bLeakOpticalTableNoLaser    : BOOL; // Leak on the optical table with no laser on
+    bLeakOpcpaCarbideOn         : BOOL; // Leak inside the OPCPA with Carbide on
+    bLeakUnderTable             : BOOL; // Leak under the table
+    bLeakInsideRacks            : BOOL; // Leak inside the racks
 
     // Temperature loop alarms
-    bChillerLoop01 : BOOL; // Temperature too high in loop 01
-    bChillerLoop02 : BOOL; // Temperature too high in loop 02
-    bChillerLoop03 : BOOL; // Temperature too high in loop 03
-    bChillerLoop04 : BOOL; // Temperature too high in loop 04
+    bChillerLoop01              : BOOL; // Temperature too high in loop 01
+    bChillerLoop02              : BOOL; // Temperature too high in loop 02
+    bChillerLoop03              : BOOL; // Temperature too high in loop 03
+    bChillerLoop04              : BOOL; // Temperature too high in loop 04
 
     // Beam Errors
-    bAmphosBeam : BOOL; // Amphos beam error
-    bOpcpaBeam : BOOL; // OPCPA beam error
+    bAmphosBeam                 : BOOL; // Amphos beam error
+    bOpcpaBeam                  : BOOL; // OPCPA beam error
 
     (*
     // Temperature monitors
@@ -34,8 +34,8 @@ STRUCT
     *)
 
     // Dump chiller
-    bDumpChiller : BOOL; // Dump chiller error
-    bBaseplateChiller : BOOL; // Baseplate chiller error
+    bDumpChiller                : BOOL; // Dump chiller error
+    bBaseplateChiller           : BOOL; // Baseplate chiller error
 
     (*
     // Amphos MRC
@@ -45,7 +45,7 @@ STRUCT
     *)
 
     // Hardware Failure
-    bHardwareFailure : BOOL; // A component of the EPS has failed
+    bHardwareFailure            : BOOL; // A component of the EPS has failed
 
 END_STRUCT
 END_TYPE

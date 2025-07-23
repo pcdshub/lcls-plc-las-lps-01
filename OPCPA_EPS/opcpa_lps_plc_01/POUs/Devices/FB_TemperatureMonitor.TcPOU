@@ -36,9 +36,9 @@ END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[(* Scale the analog signal to voltage *)
 fMonitorVoltage := F_Scale(
-    fRawData := nTempMonRaw,
-    fRawDataLowerOffLimit := GVL_EL3174.fRawLowerLimit,
-    fRawDataUpperOffLimit := GVL_EL3174.fRawUpperLimit,
+    fRawData                := nTempMonRaw,
+    fRawDataLowerOffLimit   := GVL_EL3174.fRawLowerLimit,
+    fRawDataUpperOffLimit   := GVL_EL3174.fRawUpperLimit,
     fScaleDataLowerOffLimit := GVL_EL3174.fScaleLowerLimit,
     fScaleDataUpperOffLimit := GVL_EL3174.fScaleUpperLimit);
 
@@ -48,5 +48,9 @@ fTemperature := fMonitorVoltage * 100;
 bError := fTemperature > stSetpoints.fMaxTemperature AND bAmphosOn;
 ]]></ST>
     </Implementation>
+    <LineIds Name="FB_TemperatureMonitor">
+      <LineId Id="3" Count="11" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

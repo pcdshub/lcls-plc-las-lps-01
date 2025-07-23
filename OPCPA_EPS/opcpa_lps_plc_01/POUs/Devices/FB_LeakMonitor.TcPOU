@@ -134,12 +134,12 @@ IF (bLeakDetected OR bLowResistance) THEN
 END_IF
 
 IF bMasterLatchReset THEN
-    nLeakLocations := E_LeakLocation.NO_LEAK;
-    bLeakOpticalTableAmphosOn := FALSE;
-    bLeakOpcpaCarbideOn := FALSE;
-    bLeakOpticalTableNoLaser := FALSE;
-    bLeakUnderTable := FALSE;
-    bLeakInsideRacks := FALSE;
+    nLeakLocations              := E_LeakLocation.NO_LEAK;
+    bLeakOpticalTableAmphosOn   := FALSE;
+    bLeakOpcpaCarbideOn         := FALSE;
+    bLeakOpticalTableNoLaser    := FALSE;
+    bLeakUnderTable             := FALSE;
+    bLeakInsideRacks            := FALSE;
 END_IF
 ]]></ST>
     </Implementation>
@@ -158,5 +158,13 @@ bLeakUnderTable := FALSE;
 bLeakInsideRacks := FALSE;]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="FB_LeakMonitor">
+      <LineId Id="3" Count="66" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LeakMonitor.Reset">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

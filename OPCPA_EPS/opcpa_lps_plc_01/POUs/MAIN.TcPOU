@@ -23,6 +23,7 @@ VAR
     fbChillerLoop03 : FB_ChillerLoop; // Chiller loop 03
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP04'}
     fbChillerLoop04 : FB_ChillerLoop; // Chiller loop 04
+	
 
     // Laser monitors
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
@@ -94,6 +95,22 @@ VAR
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS_MRC03'}
     fbAmphosMRC03 : FB_AmphosMRC; // MRC monitor 03
     *)
+	
+	(*
+    This is the map of the Mode Int to the defintion
+    MODE = 1 ==> Master Override
+    MODE = 2 ==> Protection
+    MODE = 3 ==> Amphos Maintenance
+    Any other mode is invalid.
+	*)
+	{attribute 'pytmc' := '
+        pv: @(PREFIX):LPS:MODE
+        io: io
+        field: NOBT 3
+    '}
+    Mode_LPS : E_Mode; // Mode Definition
+	
+	fbLaserShutterInterlocks : FB_LaserShutterInterlock; // Laser shutter interlock handler
 
     {attribute 'pytmc' := '
         pv: @(PREFIX):LPS:MASTER_OVERRIDE
@@ -320,6 +337,25 @@ GVL_IO.bAmphosAttenuatorEnable := F_AmphosAttenuatorEnable(
 );
 Deprecated Logic -- Not Currently Used*)
 
+fbLaserShutterInterlocks(
+	fOpcpaVoltage 			:= fbOpcpa.fVoltage,
+	fAmphosVoltage			:= fbAmphos.fVoltage,
+	fMPCVoltage				:= fbMPC.fVoltage,
+	AmphosStatus			:= GVL_IO.bAmphosOn,
+	bLoopTempOverride01 	:= fbChillerLoop01.bOperatorOverride,
+    bLoopTempOverride02 	:= fbChillerLoop02.bOperatorOverride,
+    bLoopTempOverride03 	:= fbChillerLoop03.bOperatorOverride,
+    bLoopTempOverride04 	:= fbChillerLoop04.bOperatorOverride,
+	stOpcpaSetpoints    	:= GVL_Laser.stOpcpaSP,
+	stAmphosSetpoints 		:= GVL_Laser.stAmphosSP,
+	stMpcSetpoints			:= GVL_Laser.stMpcSP,
+    stErrors            	:= stErrors,
+	Mode					:= Mode_LPS,
+	bAmphosShutter			:= GVL_IO.bAmphosShutterEnable,
+	bCarbideShutter			=> GVL_IO.bCarbideShutterEnable
+);
+
+(*
 (* Enable Amphos shutter if interlock logic passes *)
 GVL_IO.bAmphosShutterEnable := F_AmphosShutterEnable(
     bAmphosOn           := GVL_IO.bAmphosOn,
@@ -333,12 +369,15 @@ GVL_IO.bAmphosShutterEnable := F_AmphosShutterEnable(
     bMasterOverride     := bMasterOverride,
     bAmpShutterClosed   := bAmpShutterClosed
 );
+*)
 
+(*
 (* Enable Carbide shutter if interlock logic passes *)
 GVL_IO.bCarbideShutterEnable := F_CarbideShutterEnable(
     stErrors            := stErrors,
     bMasterOverride     := bMasterOverride
 );
+*)
 
 (* Enable Dump chiller if interlock logic passes *)
 GVL_IO.bDumpChillerRelay := F_DumpChillerEnable(
@@ -433,7 +472,25 @@ END_IF]]></ST>
       <LineId Id="3" Count="72" />
       <LineId Id="419" Count="7" />
       <LineId Id="418" Count="0" />
-      <LineId Id="76" Count="224" />
+      <LineId Id="76" Count="116" />
+      <LineId Id="556" Count="4" />
+      <LineId Id="588" Count="0" />
+      <LineId Id="564" Count="2" />
+      <LineId Id="563" Count="0" />
+      <LineId Id="568" Count="0" />
+      <LineId Id="570" Count="1" />
+      <LineId Id="569" Count="0" />
+      <LineId Id="589" Count="0" />
+      <LineId Id="593" Count="0" />
+      <LineId Id="592" Count="0" />
+      <LineId Id="590" Count="0" />
+      <LineId Id="555" Count="0" />
+      <LineId Id="554" Count="0" />
+      <LineId Id="194" Count="12" />
+      <LineId Id="545" Count="1" />
+      <LineId Id="207" Count="6" />
+      <LineId Id="544" Count="0" />
+      <LineId Id="214" Count="86" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

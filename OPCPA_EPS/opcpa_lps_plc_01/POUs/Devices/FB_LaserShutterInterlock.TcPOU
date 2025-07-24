@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <POU Name="FB_LaserShutterInterlock" Id="{0b22c05a-6c8c-41da-9a1b-33d4957b6fc8}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION_BLOCK FB_LaserInterlock
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LaserShutterInterlock
 VAR_INPUT
     //bAmphosOn : BOOL; // Whether the amphos is on
     fOpcpaVoltage       : LREAL; // The voltage of the OPCPA
@@ -12,7 +12,7 @@ VAR_INPUT
     bLoopTempOverride02 : BOOL; // Whether the chiller loop error is overriden
     bLoopTempOverride03 : BOOL; // Whether the chiller loop error is overriden
     bLoopTempOverride04 : BOOL; // Whether the chiller loop error is overriden
-    bLoopTempOverride05 : BOOL; // Whether the chiller loop error is overriden
+//    bLoopTempOverride05 : BOOL; // Whether the chiller loop error is overriden
 //    bShutterStatus      : BOOL; // Shutter Status
 END_VAR
 
@@ -53,8 +53,8 @@ bChillerErrors := (
                  (NOT bLoopTempOverride01 AND stErrors.bChillerLoop01) OR
                  (NOT bLoopTempOverride02 AND stErrors.bChillerLoop02) OR
                  (NOT bLoopTempOverride03 AND stErrors.bChillerLoop03) OR
-                 (NOT bLoopTempOverride04 AND stErrors.bChillerLoop04) OR
-                 (NOT bLoopTempOverride05 AND stErrors.bChillerLoop05)
+                 (NOT bLoopTempOverride04 AND stErrors.bChillerLoop04)
+//                 OR (NOT bLoopTempOverride05 AND stErrors.bChillerLoop05)
                  );
 bTempSwitchErrors := (
                      NOT GVL_IO.bLoopTempSW01 OR

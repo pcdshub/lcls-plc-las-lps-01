@@ -620,7 +620,7 @@
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0,0,0">
+         <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,0,0,0,0,0,0">
           <property name="spacing">
            <number>6</number>
           </property>
@@ -933,6 +933,80 @@
               </property>
               <property name="text">
                <string>OPCPA 1030 Beam Dump</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <item>
+             <widget class="PyDMByteIndicator" name="PyDMByteIndicator_5">
+              <property name="minimumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="channel" stdset="0">
+               <string>ca://${P}:LPS:TEMP05:ERROR_RBV</string>
+              </property>
+              <property name="onColor" stdset="0">
+               <color>
+                <red>255</red>
+                <green>0</green>
+                <blue>0</blue>
+               </color>
+              </property>
+              <property name="offColor" stdset="0">
+               <color>
+                <red>0</red>
+                <green>255</green>
+                <blue>0</blue>
+               </color>
+              </property>
+              <property name="showLabels" stdset="0">
+               <bool>false</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="PyDMLabel" name="PyDMLabel_25">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>Loop 05:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="PyDMLabel" name="PyDMLabel_26">
+              <property name="toolTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>LSS MPC BTS Shutter</string>
               </property>
              </widget>
             </item>
@@ -2134,141 +2208,114 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_7">
              <item>
+              <widget class="PyDMLabel" name="PyDMLabel_32">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>12</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                 <underline>true</underline>
+                </font>
+               </property>
+               <property name="toolTip">
+                <string/>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-color: rgb(255, 0, 0);
+color: rgb(255, 0, 0);</string>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::Box</enum>
+               </property>
+               <property name="lineWidth">
+                <number>2</number>
+               </property>
+               <property name="text">
+                <string>WARNING: LPS:MODE IN AN UNDEFINED STATE</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+               <property name="rules" stdset="0">
+                <string>[{&quot;name&quot;: &quot;Bad state detected&quot;, &quot;property&quot;: &quot;Visible&quot;, &quot;initial_value&quot;: &quot;False&quot;, &quot;expression&quot;: &quot;ch[0] &gt; 3&quot;, &quot;channels&quot;: [{&quot;channel&quot;: &quot;ca://${P}:LPS:MODE&quot;, &quot;trigger&quot;: true, &quot;use_enum&quot;: true}], &quot;notes&quot;: &quot;&quot;}]</string>
+               </property>
+               <property name="precision" stdset="0">
+                <number>0</number>
+               </property>
+               <property name="showUnits" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="precisionFromPV" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="alarmSensitiveContent" stdset="0">
+                <bool>false</bool>
+               </property>
+               <property name="alarmSensitiveBorder" stdset="0">
+                <bool>true</bool>
+               </property>
+               <property name="PyDMToolTip" stdset="0">
+                <string/>
+               </property>
+               <property name="channel" stdset="0">
+                <string/>
+               </property>
+               <property name="enableRichText" stdset="0">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <property name="sizeConstraint">
+                <enum>QLayout::SetDefaultConstraint</enum>
+               </property>
                <item>
                 <widget class="PyDMLabel" name="PyDMLabel_11">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
                  <property name="toolTip">
                   <string/>
                  </property>
                  <property name="text">
-                  <string>Master Override</string>
+                  <string>Current Mode :</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="PyDMPushButton" name="PyDMPushButton">
-                 <property name="font">
-                  <font>
-                   <pointsize>11</pointsize>
-                  </font>
-                 </property>
+                <widget class="PyDMLabel" name="PyDMLabel_31">
                  <property name="toolTip">
                   <string/>
                  </property>
-                 <property name="text">
-                  <string>On</string>
+                 <property name="precision" stdset="0">
+                  <number>0</number>
                  </property>
-                 <property name="checkable">
+                 <property name="showUnits" stdset="0">
                   <bool>false</bool>
                  </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                 <property name="channel" stdset="0">
-                  <string>ca://${P}:LPS:MASTER_OVERRIDE</string>
-                 </property>
-                 <property name="passwordProtected" stdset="0">
-                  <bool>false</bool>
-                 </property>
-                 <property name="showConfirmDialog" stdset="0">
+                 <property name="precisionFromPV" stdset="0">
                   <bool>true</bool>
                  </property>
-                 <property name="confirmMessage" stdset="0">
-                  <string>Are you sure you want to override the laser protection system?</string>
-                 </property>
-                 <property name="pressValue" stdset="0">
-                  <string>1</string>
-                 </property>
-                 <property name="releaseValue" stdset="0">
-                  <string>None</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="PyDMPushButton" name="PyDMPushButton_4">
-                 <property name="font">
-                  <font>
-                   <pointsize>11</pointsize>
-                  </font>
-                 </property>
-                 <property name="toolTip">
-                  <string/>
-                 </property>
-                 <property name="text">
-                  <string>Off</string>
-                 </property>
-                 <property name="channel" stdset="0">
-                  <string>ca://${P}:LPS:MASTER_OVERRIDE</string>
-                 </property>
-                 <property name="showConfirmDialog" stdset="0">
-                  <bool>true</bool>
-                 </property>
-                 <property name="confirmMessage" stdset="0">
-                  <string>Are you sure you want to disable master override?</string>
-                 </property>
-                 <property name="pressValue" stdset="0">
-                  <string>0</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_7">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="sizeIncrement">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string/>
+                 <property name="alarmSensitiveContent" stdset="0">
+                  <bool>false</bool>
                  </property>
                  <property name="alarmSensitiveBorder" stdset="0">
-                  <bool>false</bool>
+                  <bool>true</bool>
+                 </property>
+                 <property name="PyDMToolTip" stdset="0">
+                  <string/>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://${P}:LPS:MASTER_OVERRIDE_RBV</string>
+                  <string>ca://${P}:LPS:MODE</string>
                  </property>
-                 <property name="onColor" stdset="0">
-                  <color>
-                   <red>0</red>
-                   <green>255</green>
-                   <blue>0</blue>
-                  </color>
-                 </property>
-                 <property name="offColor" stdset="0">
-                  <color>
-                   <red>255</red>
-                   <green>0</green>
-                   <blue>0</blue>
-                  </color>
-                 </property>
-                 <property name="showLabels" stdset="0">
-                  <bool>false</bool>
-                 </property>
-                 <property name="circles" stdset="0">
+                 <property name="enableRichText" stdset="0">
                   <bool>false</bool>
                  </property>
                 </widget>
@@ -2276,86 +2323,167 @@
               </layout>
              </item>
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <layout class="QVBoxLayout" name="verticalLayout_14">
                <item>
-                <widget class="PyDMLabel" name="PyDMLabel_9">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
+                <widget class="PyDMPushButton" name="PyDMPushButton_3">
                  <property name="toolTip">
                   <string/>
                  </property>
-                 <property name="text">
-                  <string>Amphos Shutter</string>
+                 <property name="alarmSensitiveContent" stdset="0">
+                  <bool>false</bool>
                  </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="PyDMPushButton" name="PyDMPushButton_5">
-                 <property name="font">
-                  <font>
-                   <pointsize>11</pointsize>
-                  </font>
+                 <property name="alarmSensitiveBorder" stdset="0">
+                  <bool>true</bool>
                  </property>
-                 <property name="toolTip">
+                 <property name="PyDMToolTip" stdset="0">
                   <string/>
                  </property>
-                 <property name="text">
-                  <string>Open</string>
+                 <property name="monitorDisp" stdset="0">
+                  <bool>false</bool>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://${P}:LPS:MASTER_AMP_SHUTTER</string>
+                  <string>ca://${P}:LPS:MODE</string>
+                 </property>
+                 <property name="PyDMIcon" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="passwordProtected" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="password" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="protectedPassword" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="showConfirmDialog" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                 <property name="confirmMessage" stdset="0">
+                  <string>Are you sure you want to proceed to MASTER OVERRIDE Mode?</string>
                  </property>
                  <property name="pressValue" stdset="0">
                   <string>0</string>
                  </property>
+                 <property name="releaseValue" stdset="0">
+                  <string>None</string>
+                 </property>
+                 <property name="relativeChange" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="writeWhenRelease" stdset="0">
+                  <bool>false</bool>
+                 </property>
                 </widget>
                </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_15">
                <item>
-                <widget class="PyDMPushButton" name="PyDMPushButton_2">
-                 <property name="font">
-                  <font>
-                   <pointsize>11</pointsize>
-                  </font>
-                 </property>
+                <widget class="PyDMPushButton" name="PyDMPushButton_4">
                  <property name="toolTip">
                   <string/>
                  </property>
-                 <property name="text">
-                  <string>Close</string>
+                 <property name="alarmSensitiveContent" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="alarmSensitiveBorder" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                 <property name="PyDMToolTip" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="monitorDisp" stdset="0">
+                  <bool>false</bool>
                  </property>
                  <property name="channel" stdset="0">
-                  <string>ca://${P}:LPS:MASTER_AMP_SHUTTER</string>
+                  <string>ca://${P}:LPS:MODE</string>
+                 </property>
+                 <property name="PyDMIcon" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="passwordProtected" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="password" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="protectedPassword" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="showConfirmDialog" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                 <property name="confirmMessage" stdset="0">
+                  <string>Are you sure you want to proceed to Protection Mode?</string>
                  </property>
                  <property name="pressValue" stdset="0">
                   <string>1</string>
                  </property>
+                 <property name="releaseValue" stdset="0">
+                  <string>None</string>
+                 </property>
+                 <property name="relativeChange" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="writeWhenRelease" stdset="0">
+                  <bool>false</bool>
+                 </property>
                 </widget>
                </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_16">
                <item>
-                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
-                 <property name="maximumSize">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
+                <widget class="PyDMPushButton" name="PyDMPushButton_7">
                  <property name="toolTip">
                   <string/>
                  </property>
+                 <property name="alarmSensitiveContent" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="alarmSensitiveBorder" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                 <property name="PyDMToolTip" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="monitorDisp" stdset="0">
+                  <bool>false</bool>
+                 </property>
                  <property name="channel" stdset="0">
-                  <string>ca://${P}:LPS:AMPHOS_SHUTTER:ENABLE_RBV</string>
+                  <string>ca://${P}:LPS:MODE</string>
                  </property>
-                 <property name="offColor" stdset="0">
-                  <color>
-                   <red>255</red>
-                   <green>0</green>
-                   <blue>0</blue>
-                  </color>
+                 <property name="PyDMIcon" stdset="0">
+                  <string/>
                  </property>
-                 <property name="showLabels" stdset="0">
+                 <property name="passwordProtected" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="password" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="protectedPassword" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="showConfirmDialog" stdset="0">
+                  <bool>true</bool>
+                 </property>
+                 <property name="confirmMessage" stdset="0">
+                  <string>Are you sure you want to proceed to Maintenance Mode?</string>
+                 </property>
+                 <property name="pressValue" stdset="0">
+                  <string>2</string>
+                 </property>
+                 <property name="releaseValue" stdset="0">
+                  <string>None</string>
+                 </property>
+                 <property name="relativeChange" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="writeWhenRelease" stdset="0">
                   <bool>false</bool>
                  </property>
                 </widget>
@@ -2387,6 +2515,181 @@
                 </widget>
                </item>
               </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="PyDMByteIndicator" name="PyDMByteIndicator_6">
+                 <property name="maximumSize">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
+                 <property name="channel" stdset="0">
+                  <string>ca://${P}:LPS:AMPHOS_SHUTTER:ENABLE_RBV</string>
+                 </property>
+                 <property name="offColor" stdset="0">
+                  <color>
+                   <red>255</red>
+                   <green>0</green>
+                   <blue>0</blue>
+                  </color>
+                 </property>
+                 <property name="showLabels" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="PyDMLabel" name="PyDMLabel_9">
+                 <property name="font">
+                  <font>
+                   <pointsize>9</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Amphos Shutter</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="PyDMPushButton" name="PyDMPushButton_5">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Open</string>
+                 </property>
+                 <property name="alarmSensitiveContent" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="alarmSensitiveBorder" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="PyDMToolTip" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="monitorDisp" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="channel" stdset="0">
+                  <string>ca://${P}:LPS:AMPHOS_SHUTTER:ENABLE</string>
+                 </property>
+                 <property name="PyDMIcon" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="passwordProtected" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="password" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="protectedPassword" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="showConfirmDialog" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="confirmMessage" stdset="0">
+                  <string>Are you sure you want to proceed?</string>
+                 </property>
+                 <property name="pressValue" stdset="0">
+                  <string>0</string>
+                 </property>
+                 <property name="releaseValue" stdset="0">
+                  <string>None</string>
+                 </property>
+                 <property name="relativeChange" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="writeWhenRelease" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="PyDMPushButton" name="PyDMPushButton_2">
+                 <property name="font">
+                  <font>
+                   <pointsize>11</pointsize>
+                  </font>
+                 </property>
+                 <property name="toolTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Close</string>
+                 </property>
+                 <property name="alarmSensitiveContent" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="alarmSensitiveBorder" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="PyDMToolTip" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="monitorDisp" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="channel" stdset="0">
+                  <string>ca://${P}:LPS:AMPHOS_SHUTTER:ENABLE</string>
+                 </property>
+                 <property name="PyDMIcon" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="passwordProtected" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="password" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="protectedPassword" stdset="0">
+                  <string/>
+                 </property>
+                 <property name="showConfirmDialog" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="confirmMessage" stdset="0">
+                  <string>Are you sure you want to proceed?</string>
+                 </property>
+                 <property name="pressValue" stdset="0">
+                  <string>1</string>
+                 </property>
+                 <property name="releaseValue" stdset="0">
+                  <string>None</string>
+                 </property>
+                 <property name="relativeChange" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                 <property name="writeWhenRelease" stdset="0">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="text">
+                <string>DO NOT OPERATE AMPHOS SHUTTER FROM AMPHOS SOFTWARE ON PROTECTION MODE</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>

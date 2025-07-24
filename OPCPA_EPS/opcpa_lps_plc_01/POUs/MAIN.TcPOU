@@ -26,21 +26,21 @@ VAR
 
     // Laser monitors
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:AMPHOS'}
-    fbAmphos : FB_Laser; // Amphos laser
+    fbAmphos : FB_LaserTimer; // Amphos laser
     {attribute 'pytmc' := '
         pv: @(PREFIX):LPS:AMPHOS:RESET
         io: o
     '}
     bAmphosReset : BOOL; // Amphos laser error unlatch flag
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:OPCPA'}
-    fbOpcpa : FB_Laser; // OPCPA laser
+    fbOpcpa : FB_LaserTimer; // OPCPA laser
     {attribute 'pytmc' := '
         pv: @(PREFIX):LPS:OPCPA:RESET
         io: o
     '}
     bOpcpaReset : BOOL; // OPCPA laser error unlatch flag
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:MPC'}
-    fbMpc : FB_Laser; // MPC laser
+    fbMpc : FB_LaserTimer_MPC; // MPC laser
     {attribute 'pytmc' := '
         pv: @(PREFIX):LPS:MPC:RESET
         io: o

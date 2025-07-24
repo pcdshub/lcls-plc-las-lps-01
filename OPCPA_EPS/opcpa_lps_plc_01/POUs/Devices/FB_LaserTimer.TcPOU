@@ -2,7 +2,7 @@
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
   <POU Name="FB_LaserTimer" Id="{6b6e0a2c-a634-488b-b528-40d715279b8d}" SpecialFunc="None">
     <Declaration><![CDATA[// Monitors the lasers for under voltage events
-FUNCTION_BLOCK FB_Laser_Timer
+FUNCTION_BLOCK FB_LaserTimer
 VAR_INPUT
     nVoltageRaw : INT; // The raw signal collected from the ADC
     bAmphosOn : BOOL; // Whether the amphos is turned on

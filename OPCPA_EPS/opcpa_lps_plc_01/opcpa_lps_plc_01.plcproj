@@ -21,6 +21,9 @@
     </CompilerVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\E_Mode.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\E_LeakLocation.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -85,6 +88,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Devices\FB_AmphosMRC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Devices\FB_LaserShutterInterlock.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Devices\FB_LaserTimer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Devices\FB_LaserTimer_MPC.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Devices\FB_TemperatureMonitor.TcPOU">

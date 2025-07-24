@@ -75,9 +75,22 @@ IF bMasterLatchReset THEN
 END_IF
 ]]></ST>
     </Implementation>
+    <Method Name="Reset" Id="{2c3e630e-e58d-4088-b228-81f980d5e79e}">
+      <Declaration><![CDATA[// Reset latched errors
+METHOD Reset : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[bError := FALSE;]]></ST>
+      </Implementation>
+    </Method>
     <LineIds Name="FB_LaserTimer_MPC">
       <LineId Id="51" Count="28" />
       <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="FB_LaserTimer_MPC.Reset">
+      <LineId Id="5" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

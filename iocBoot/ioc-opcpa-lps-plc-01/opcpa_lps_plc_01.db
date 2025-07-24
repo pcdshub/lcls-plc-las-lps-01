@@ -9,6 +9,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS:POWER_STATE_RBV") {
   field(ONAM, "ON")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:AMPHOS_RELAY:ENABLE_RBV") {
@@ -24,6 +25,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS_RELAY:ENABLE_RBV") {
   field(ONAM, "ENABLED")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE_RBV") {
@@ -39,6 +41,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE_RBV") {
   field(ONAM, "ENABLED")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV") {
@@ -54,6 +57,7 @@ record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV") {
   field(ONAM, "ENABLED")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:OPCPA:POWER_STATE_RBV") {
@@ -67,6 +71,7 @@ record(bi, "$(PREFIX):LPS:OPCPA:POWER_STATE_RBV") {
   field(ONAM, "ON")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV") {
@@ -82,6 +87,7 @@ record(bi, "$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV") {
   field(ONAM, "ENABLED")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE_RBV") {
@@ -97,6 +103,7 @@ record(bi, "$(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE_RBV") {
   field(ONAM, "ENABLED")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ai, "$(PREFIX):LPS:AMPHOS:MIN_NOMINAL_VOLTAGE_RBV") {
@@ -110,6 +117,7 @@ record(ai, "$(PREFIX):LPS:AMPHOS:MIN_NOMINAL_VOLTAGE_RBV") {
   field(EGU, "Volts")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:AMPHOS:MIN_NOMINAL_VOLTAGE") {
@@ -134,6 +142,7 @@ record(ai, "$(PREFIX):LPS:AMPHOS:MIN_VOLTAGE_RBV") {
   field(EGU, "Volts")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:AMPHOS:MIN_VOLTAGE") {
@@ -141,6 +150,56 @@ record(ao, "$(PREFIX):LPS:AMPHOS:MIN_VOLTAGE") {
   field(DTYP, "asynFloat64")
   field(UDFS, "0")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Laser.stAmphosSP.nMinVoltage=")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:MIN_NOMINAL_VOLTAGE_RBV") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinNominalVoltage")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Laser.stMpcSP.nMinNominalVoltage?")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ao, "$(PREFIX):LPS:MPC:MIN_NOMINAL_VOLTAGE") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinNominalVoltage")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Laser.stMpcSP.nMinNominalVoltage=")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:MIN_VOLTAGE_RBV") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinVoltage")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Laser.stMpcSP.nMinVoltage?")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ao, "$(PREFIX):LPS:MPC:MIN_VOLTAGE") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinVoltage")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Laser.stMpcSP.nMinVoltage=")
   field(PREC, "3")
   field(EGU, "Volts")
   info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
@@ -158,6 +217,7 @@ record(ai, "$(PREFIX):LPS:OPCPA:MIN_NOMINAL_VOLTAGE_RBV") {
   field(EGU, "Volts")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:OPCPA:MIN_NOMINAL_VOLTAGE") {
@@ -182,6 +242,7 @@ record(ai, "$(PREFIX):LPS:OPCPA:MIN_VOLTAGE_RBV") {
   field(EGU, "Volts")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:OPCPA:MIN_VOLTAGE") {
@@ -207,6 +268,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON01:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON01:MAX_TEMP") {
@@ -233,6 +295,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON02:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON02:MAX_TEMP") {
@@ -259,6 +322,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON03:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON03:MAX_TEMP") {
@@ -285,6 +349,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON04:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON04:MAX_TEMP") {
@@ -311,6 +376,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON05:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON05:MAX_TEMP") {
@@ -337,6 +403,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON06:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON06:MAX_TEMP") {
@@ -363,6 +430,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON07:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON07:MAX_TEMP") {
@@ -389,6 +457,7 @@ record(ai, "$(PREFIX):LPS:TEMPMON08:MAX_TEMP_RBV") {
   field(EGU, "C")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ao, "$(PREFIX):LPS:TEMPMON08:MAX_TEMP") {
@@ -413,6 +482,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MAX01_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMax1?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MAX01") {
@@ -435,6 +505,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MAX02_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMax2?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MAX02") {
@@ -457,6 +528,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MAX03_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMax3?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MAX03") {
@@ -479,6 +551,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MAX04_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMax4?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MAX04") {
@@ -501,6 +574,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MAX05_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMax5?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MAX05") {
@@ -523,6 +597,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MAX06_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMax6?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MAX06") {
@@ -545,6 +620,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MIN01_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMin1?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MIN01") {
@@ -567,6 +643,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MIN02_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMin2?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MIN02") {
@@ -589,6 +666,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MIN03_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMin3?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MIN03") {
@@ -611,6 +689,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MIN04_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMin4?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MIN04") {
@@ -633,6 +712,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MIN05_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMin5?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MIN05") {
@@ -655,6 +735,7 @@ record(longin, "$(PREFIX):LPS:LEAK:L_MIN06_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_TraceTek.stLeakMonitorBoundaries.nLMin6?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longout, "$(PREFIX):LPS:LEAK:L_MIN06") {
@@ -678,6 +759,7 @@ record(bi, "$(PREFIX):LPS:MASTER_AMP_SHUTTER_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:MASTER_AMP_SHUTTER") {
@@ -702,6 +784,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS:RESET_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:AMPHOS:RESET") {
@@ -726,6 +809,7 @@ record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER:RESET_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:BASEPLATE_CHILLER:RESET") {
@@ -750,6 +834,7 @@ record(bi, "$(PREFIX):LPS:DUMP_CHILLER:RESET_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:DUMP_CHILLER:RESET") {
@@ -774,6 +859,7 @@ record(bi, "$(PREFIX):LPS:LEAK:RESET_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:LEAK:RESET") {
@@ -798,6 +884,7 @@ record(bi, "$(PREFIX):LPS:MASTER_LATCH_RESET_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:MASTER_LATCH_RESET") {
@@ -822,6 +909,7 @@ record(bi, "$(PREFIX):LPS:MASTER_OVERRIDE_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:MASTER_OVERRIDE") {
@@ -829,6 +917,31 @@ record(bo, "$(PREFIX):LPS:MASTER_OVERRIDE") {
   field(DTYP, "asynInt32")
   field(UDFS, "0")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.bMasterOverride=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "$(PREFIX):LPS:MPC:RESET_RBV") {
+  field(DESC, "MAIN.bMpcReset")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.bMpcReset?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bo, "$(PREFIX):LPS:MPC:RESET") {
+  field(DESC, "MAIN.bMpcReset")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.bMpcReset=")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
@@ -846,6 +959,7 @@ record(bi, "$(PREFIX):LPS:OPCPA:RESET_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:OPCPA:RESET") {
@@ -872,6 +986,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ai, "$(PREFIX):LPS:AMPHOS:SCALED_PWR_RBV") {
@@ -885,6 +1000,7 @@ record(ai, "$(PREFIX):LPS:AMPHOS:SCALED_PWR_RBV") {
   field(EGU, "Watts")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ai, "$(PREFIX):LPS:AMPHOS:VOLTAGE_RBV") {
@@ -902,6 +1018,7 @@ record(ai, "$(PREFIX):LPS:AMPHOS:VOLTAGE_RBV") {
   field(LSV, "MINOR")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER:ERROR_RBV") {
@@ -917,6 +1034,7 @@ record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:TEMP01:ERROR_RBV") {
@@ -932,6 +1050,7 @@ record(bi, "$(PREFIX):LPS:TEMP01:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:TEMP01:OVERRIDE_RBV") {
@@ -945,6 +1064,7 @@ record(bi, "$(PREFIX):LPS:TEMP01:OVERRIDE_RBV") {
   field(ONAM, "ON")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:TEMP01:OVERRIDE") {
@@ -971,6 +1091,7 @@ record(bi, "$(PREFIX):LPS:TEMP02:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:TEMP02:OVERRIDE_RBV") {
@@ -984,6 +1105,7 @@ record(bi, "$(PREFIX):LPS:TEMP02:OVERRIDE_RBV") {
   field(ONAM, "ON")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:TEMP02:OVERRIDE") {
@@ -1010,6 +1132,7 @@ record(bi, "$(PREFIX):LPS:TEMP03:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:TEMP03:OVERRIDE_RBV") {
@@ -1023,6 +1146,7 @@ record(bi, "$(PREFIX):LPS:TEMP03:OVERRIDE_RBV") {
   field(ONAM, "ON")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:TEMP03:OVERRIDE") {
@@ -1049,6 +1173,7 @@ record(bi, "$(PREFIX):LPS:TEMP04:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:TEMP04:OVERRIDE_RBV") {
@@ -1062,6 +1187,7 @@ record(bi, "$(PREFIX):LPS:TEMP04:OVERRIDE_RBV") {
   field(ONAM, "ON")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bo, "$(PREFIX):LPS:TEMP04:OVERRIDE") {
@@ -1088,6 +1214,7 @@ record(bi, "$(PREFIX):LPS:PLC:SLAVES_OK_RBV") {
   field(ONAM, "OK")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:PLC:ERROR_RBV") {
@@ -1103,6 +1230,7 @@ record(bi, "$(PREFIX):LPS:PLC:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:PLC:MASTER_OK_RBV") {
@@ -1118,6 +1246,7 @@ record(bi, "$(PREFIX):LPS:PLC:MASTER_OK_RBV") {
   field(ONAM, "OK")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:MASTER_DEV_STATE_RBV") {
@@ -1129,6 +1258,7 @@ record(longin, "$(PREFIX):LPS:PLC:MASTER_DEV_STATE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.nMasterDevState?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:MASTER_STATE_RBV") {
@@ -1140,6 +1270,7 @@ record(longin, "$(PREFIX):LPS:PLC:MASTER_STATE_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.nMasterState?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVES_COUNT_RBV") {
@@ -1151,6 +1282,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVES_COUNT_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.nSlaves?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:AMS_ID_RBV") {
@@ -1166,6 +1298,7 @@ record(waveform, "$(PREFIX):LPS:PLC:AMS_ID_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE01:ADDRESS_RBV") {
@@ -1177,6 +1310,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE01:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE01:DEVICE_STATE_RBV") {
@@ -1208,6 +1342,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE01:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE01:DEVICE_STATE_FLAGS_RBV") {
@@ -1219,6 +1354,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE01:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE01:LINK_STATE_FLAGS_RBV") {
@@ -1230,6 +1366,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE01:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave01.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:NAME_RBV") {
@@ -1245,6 +1382,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:TYPE_RBV") {
@@ -1260,6 +1398,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE01:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE02:ADDRESS_RBV") {
@@ -1271,6 +1410,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE02:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE02:DEVICE_STATE_RBV") {
@@ -1302,6 +1442,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE02:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE02:DEVICE_STATE_FLAGS_RBV") {
@@ -1313,6 +1454,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE02:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE02:LINK_STATE_FLAGS_RBV") {
@@ -1324,6 +1466,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE02:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave02.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:NAME_RBV") {
@@ -1339,6 +1482,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:TYPE_RBV") {
@@ -1354,6 +1498,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE02:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE03:ADDRESS_RBV") {
@@ -1365,6 +1510,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE03:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE03:DEVICE_STATE_RBV") {
@@ -1396,6 +1542,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE03:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE03:DEVICE_STATE_FLAGS_RBV") {
@@ -1407,6 +1554,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE03:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE03:LINK_STATE_FLAGS_RBV") {
@@ -1418,6 +1566,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE03:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave03.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:NAME_RBV") {
@@ -1433,6 +1582,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:TYPE_RBV") {
@@ -1448,6 +1598,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE03:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE04:ADDRESS_RBV") {
@@ -1459,6 +1610,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE04:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE04:DEVICE_STATE_RBV") {
@@ -1490,6 +1642,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE04:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE04:DEVICE_STATE_FLAGS_RBV") {
@@ -1501,6 +1654,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE04:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE04:LINK_STATE_FLAGS_RBV") {
@@ -1512,6 +1666,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE04:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave04.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:NAME_RBV") {
@@ -1527,6 +1682,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:TYPE_RBV") {
@@ -1542,6 +1698,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE04:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE05:ADDRESS_RBV") {
@@ -1553,6 +1710,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE05:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE05:DEVICE_STATE_RBV") {
@@ -1584,6 +1742,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE05:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE05:DEVICE_STATE_FLAGS_RBV") {
@@ -1595,6 +1754,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE05:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE05:LINK_STATE_FLAGS_RBV") {
@@ -1606,6 +1766,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE05:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave05.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:NAME_RBV") {
@@ -1621,6 +1782,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:TYPE_RBV") {
@@ -1636,6 +1798,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE05:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE06:ADDRESS_RBV") {
@@ -1647,6 +1810,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE06:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE06:DEVICE_STATE_RBV") {
@@ -1678,6 +1842,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE06:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE06:DEVICE_STATE_FLAGS_RBV") {
@@ -1689,6 +1854,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE06:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE06:LINK_STATE_FLAGS_RBV") {
@@ -1700,6 +1866,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE06:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave06.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:NAME_RBV") {
@@ -1715,6 +1882,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:TYPE_RBV") {
@@ -1730,6 +1898,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE06:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE07:ADDRESS_RBV") {
@@ -1741,6 +1910,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE07:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE07:DEVICE_STATE_RBV") {
@@ -1772,6 +1942,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE07:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE07:DEVICE_STATE_FLAGS_RBV") {
@@ -1783,6 +1954,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE07:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE07:LINK_STATE_FLAGS_RBV") {
@@ -1794,6 +1966,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE07:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave07.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:NAME_RBV") {
@@ -1809,6 +1982,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:TYPE_RBV") {
@@ -1824,6 +1998,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE07:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE08:ADDRESS_RBV") {
@@ -1835,6 +2010,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE08:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE08:DEVICE_STATE_RBV") {
@@ -1866,6 +2042,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE08:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE08:DEVICE_STATE_FLAGS_RBV") {
@@ -1877,6 +2054,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE08:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE08:LINK_STATE_FLAGS_RBV") {
@@ -1888,6 +2066,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE08:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave08.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:NAME_RBV") {
@@ -1903,6 +2082,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:TYPE_RBV") {
@@ -1918,6 +2098,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE08:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE09:ADDRESS_RBV") {
@@ -1929,6 +2110,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE09:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE09:DEVICE_STATE_RBV") {
@@ -1960,6 +2142,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE09:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE09:DEVICE_STATE_FLAGS_RBV") {
@@ -1971,6 +2154,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE09:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE09:LINK_STATE_FLAGS_RBV") {
@@ -1982,6 +2166,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE09:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave09.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:NAME_RBV") {
@@ -1997,6 +2182,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:TYPE_RBV") {
@@ -2012,6 +2198,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE09:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE10:ADDRESS_RBV") {
@@ -2023,6 +2210,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE10:ADDRESS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.nAddr?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(mbbi, "$(PREFIX):LPS:PLC:SLAVE10:DEVICE_STATE_RBV") {
@@ -2054,6 +2242,7 @@ record(mbbi, "$(PREFIX):LPS:PLC:SLAVE10:DEVICE_STATE_RBV") {
   field(UNSV, "MAJOR")
   info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE10:DEVICE_STATE_FLAGS_RBV") {
@@ -2065,6 +2254,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE10:DEVICE_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.nDeviceStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:PLC:SLAVE10:LINK_STATE_FLAGS_RBV") {
@@ -2076,6 +2266,7 @@ record(longin, "$(PREFIX):LPS:PLC:SLAVE10:LINK_STATE_FLAGS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbDiag.stSlave10.nLinkStateFlags?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:NAME_RBV") {
@@ -2091,6 +2282,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:NAME_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:TYPE_RBV") {
@@ -2106,6 +2298,7 @@ record(waveform, "$(PREFIX):LPS:PLC:SLAVE10:TYPE_RBV") {
   field(APST, "On Change")
   info(autosaveFields_pass0, "DESC DISS SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:DUMP_CHILLER:ERROR_RBV") {
@@ -2121,6 +2314,7 @@ record(bi, "$(PREFIX):LPS:DUMP_CHILLER:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:LEAK:LIR_ERROR_RBV") {
@@ -2136,6 +2330,7 @@ record(bi, "$(PREFIX):LPS:LEAK:LIR_ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:LEAK:LOCO_ERROR_RBV") {
@@ -2151,6 +2346,7 @@ record(bi, "$(PREFIX):LPS:LEAK:LOCO_ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:LEAK:LOTAO_ERROR_RBV") {
@@ -2167,6 +2363,7 @@ record(bi, "$(PREFIX):LPS:LEAK:LOTAO_ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:LEAK:LOTNL_ERROR_RBV") {
@@ -2183,6 +2380,7 @@ record(bi, "$(PREFIX):LPS:LEAK:LOTNL_ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:LEAK:LUT_ERROR_RBV") {
@@ -2198,6 +2396,7 @@ record(bi, "$(PREFIX):LPS:LEAK:LUT_ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:LEAK:LOW_RES_RBV") {
@@ -2211,6 +2410,7 @@ record(bi, "$(PREFIX):LPS:LEAK:LOW_RES_RBV") {
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):LPS:LEAK:LEAKS_RBV") {
@@ -2222,6 +2422,55 @@ record(longin, "$(PREFIX):LPS:LEAK:LEAKS_RBV") {
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbLeakMonitor.nLeakLocations?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bi, "$(PREFIX):LPS:MPC:ERROR_RBV") {
+  field(DESC, "MAIN.fbMpc.bError")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMpc.bError?")
+  field(ZSV, "NO_ALARM")
+  field(OSV, "MAJOR")
+  field(ZNAM, "OK")
+  field(ONAM, "ERROR")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:SCALED_PWR_RBV") {
+  field(DESC, "MAIN.fbMpc.fPower")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMpc.fPower?")
+  field(PREC, "3")
+  field(EGU, "Watts")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:VOLTAGE_RBV") {
+  field(DESC, "MAIN.fbMpc.fVoltage")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMpc.fVoltage?")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  field(HOPR, "10.0")
+  field(LOPR, "0.0")
+  field(LLSV, "MAJOR")
+  field(LSV, "MINOR")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):LPS:OPCPA:ERROR_RBV") {
@@ -2237,6 +2486,7 @@ record(bi, "$(PREFIX):LPS:OPCPA:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ai, "$(PREFIX):LPS:OPCPA:SCALED_PWR_RBV") {
@@ -2250,6 +2500,7 @@ record(ai, "$(PREFIX):LPS:OPCPA:SCALED_PWR_RBV") {
   field(EGU, "Watts")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(ai, "$(PREFIX):LPS:OPCPA:VOLTAGE_RBV") {
@@ -2267,6 +2518,7 @@ record(ai, "$(PREFIX):LPS:OPCPA:VOLTAGE_RBV") {
   field(LSV, "MINOR")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(bi, "$(PREFIX):TTSIM:DEV01:ERROR_RBV") {
@@ -2282,6 +2534,7 @@ record(bi, "$(PREFIX):TTSIM:DEV01:ERROR_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }
 
 record(longin, "$(PREFIX):TTSIM:DEV01:LOC_RES_RBV") {
@@ -2298,4 +2551,5 @@ record(longin, "$(PREFIX):TTSIM:DEV01:LOC_RES_RBV") {
   field(ONAM, "ERROR")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
   info(archive, "VAL")
+  field(ASG, "NO_WRITE")
 }

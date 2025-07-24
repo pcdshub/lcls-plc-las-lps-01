@@ -39,6 +39,13 @@ VAR
         io: o
     '}
     bOpcpaReset : BOOL; // OPCPA laser error unlatch flag
+    {attribute 'pytmc' := 'pv: @(PREFIX):LPS:MPC'}
+    fbMpc : FB_Laser; // MPC laser
+    {attribute 'pytmc' := '
+        pv: @(PREFIX):LPS:MPC:RESET
+        io: o
+    '}
+    bMpcReset : BOOL; // MPC laser error unlatch flag
 
 
     (*
@@ -186,6 +193,15 @@ fbOpcpa(
     bError              => stErrors.bOpcpaBeam,
     bMasterLatchReset   := bMasterLatchReset
 );
+
+fbMpc(
+    nVoltageRaw         := GVL_IO.nMpcVoltageRaw,
+    bAmphosOn           := GVL_IO.bAmphosOn,
+    stSetpoints         := GVL_Laser.stMpcSP,
+    bError              => stErrors.bMpcBeam,
+    bMasterLatchReset   := bMasterLatchReset
+);
+
 
 (*
 (* Monitors system temperature from sensor 1 *)
@@ -414,7 +430,10 @@ IF bMasterLatchReset AND bLatchStart THEN
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="3" Count="297" />
+      <LineId Id="3" Count="72" />
+      <LineId Id="419" Count="7" />
+      <LineId Id="418" Count="0" />
+      <LineId Id="76" Count="224" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

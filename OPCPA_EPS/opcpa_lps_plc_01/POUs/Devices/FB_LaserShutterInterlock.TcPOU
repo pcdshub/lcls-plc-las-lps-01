@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_LaserShutterInterlock" Id="{0b22c05a-6c8c-41da-9a1b-33d4957b6fc8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_LaserInterlock
+VAR_INPUT
+    //bAmphosOn : BOOL; // Whether the amphos is on
+    fOpcpaVoltage       : LREAL; // The voltage of the OPCPA
+    fAmphosVoltage      : LREAL; // The Amphos voltage
+    fMPCVoltage         : LREAL; // The MPC voltage
+    AmphosStatus        : BOOL; //Amphos Laser Shutter Status
+    bLoopTempOverride01 : BOOL; // Whether the chiller loop error is overriden
+    bLoopTempOverride02 : BOOL; // Whether the chiller loop error is overriden
+    bLoopTempOverride03 : BOOL; // Whether the chiller loop error is overriden
+    bLoopTempOverride04 : BOOL; // Whether the chiller loop error is overriden
+    bLoopTempOverride05 : BOOL; // Whether the chiller loop error is overriden
+//    bShutterStatus      : BOOL; // Shutter Status
+END_VAR
+
+VAR_IN_OUT CONSTANT
+    stErrors            : ST_ErrorStates; // Currently detected errors
+    stOpcpaSetpoints    : ST_LaserSetpoints; // OPCPA setpoints
+    stAmphosSetpoints   : ST_LaserSetpoints; // The Amphos setpoints
+    stMPCSetpoints      : ST_LaserSetpoints; // The MPC setpoints
+END_VAR
+
+VAR_IN_OUT
+    Mode              : E_Mode; // Mode
+    bAmphosShutter   : BOOL; // Allowed Amphos Shutter state, point to NC Relay GVL
+END_VAR
+
+VAR
+    bChillerErrors      : BOOL; // Local logical sum of chiller error states
+    bTempSwitchErrors   : BOOL; // Local logical sum of temperature switch errors
+    bAmphosUnderVolt    : BOOL; // Local var for checking Amphos under MinVoltage
+    bOpcpaUnderVolt     : BOOL; // Local var for checking OPCPA under MinVoltage
+    bMpcUnderVolt       : BOOL; // Local var for checking MPC under MinVoltage
+END_VAR
+
+VAR_OUTPUT
+    bCarbideShutter  : BOOL; // Allowed Carbide Shutter state, point to NC Relay GVL
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*
+The Amphos Shutter Enable function sends and Enable or Disable bit as an output to be used by the Amphos Shutter Command block
+AmphosShutterEnable := TRUE := OPEN SHUTTER
+AmphosShutterEnable := FALSE := CLOSE SHUTTER
+
+Note : In master override modes, the Shutter state will hold the previous state value, unless manually forced
+GVL_IO.bAmphosShutterEnable is the manual override PV for the shutter enable
+*)
+
+bChillerErrors := (
+                 (NOT bLoopTempOverride01 AND stErrors.bChillerLoop01) OR
+                 (NOT bLoopTempOverride02 AND stErrors.bChillerLoop02) OR
+                 (NOT bLoopTempOverride03 AND stErrors.bChillerLoop03) OR
+                 (NOT bLoopTempOverride04 AND stErrors.bChillerLoop04) OR
+                 (NOT bLoopTempOverride05 AND stErrors.bChillerLoop05)
+                 );
+bTempSwitchErrors := (
+                     NOT GVL_IO.bLoopTempSW01 OR
+                     NOT GVL_IO.bLoopTempSW02 OR
+                     NOT GVL_IO.bLoopTempSW03 OR
+                     NOT GVL_IO.bLoopTempSW04 OR
+                     NOT GVL_IO.bLoopTempSW05
+                     );
+
+bAmphosUnderVolt := fAmphosVoltage < stAmphosSetpoints.nMinVoltage;
+bOpcpaUnderVolt := fOpcpaVoltage < stOpcpaSetpoints.nMinVoltage;
+bMpcUnderVolt := fMPCVoltage < stMPCSetpoints.nMinVoltage;
+
+CASE MODE OF
+    // With great overrides comes great responsibility, and burnt optics
+    E_Mode.MASTER_Override:
+// Just pass and retain the previous Amphos Shutter State
+        bCarbideShutter := TRUE;
+        bAmphosShutter := GVL_IO.bAmphosShutterEnable;
+
+    E_Mode.Protection:
+        // Close shutter if there is a hardware failure
+        IF (stErrors.bHardwareFailure
+        // Close shutter if there is a leak on the optical table with the amphos on, a leak under the table, or a leak inside the OPCPA with Carbide on
+        (*OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable*)
+        //Close shutter if the amphos is on and the temperature is too high in any loop. Ignore if operator override is enabled
+         OR (bChillerErrors OR bTempSwitchErrors)
+        // Close shutter if in OPCPA beam error state and OPCPA voltage too low
+         OR (bOpcpaUnderVolt AND stErrors.bOpcpaBeam)
+        // Close the shutter if there is a Dump Chiller error
+         OR stErrors.bDumpChiller
+        )
+        // Check global IO for redundancy of Dump Chiller Errors
+        OR (NOT GVL_IO.bDumpChillerFlow)
+        OR (NOT GVL_IO.bBaseplateChillerFlow)
+        THEN
+            bAmphosShutter := bCarbideShutter := FALSE;
+        ELSE
+            // If the Amphos trips, always disable it
+            IF bAmphosUnderVolt
+            THEN
+                //GVL_IO.bAmphosShutterEnableManualOperation MUST be overwritten to update EPICS downstream
+                bAmphosShutter := GVL_IO.bAmphosShutterEnable:= FALSE;
+            ELSE
+                bAmphosShutter := TRUE;
+            END_IF
+            // Only open the Amphos shutter if all 3 lasers are happy
+            IF (NOT(bAmphosUnderVolt OR bOpcpaUnderVolt OR bMpcUnderVolt))
+            THEN
+                //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+                bAmphosShutter := GVL_IO.bAmphosShutterEnable:= TRUE;
+            ELSE
+                //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+                bAmphosShutter := GVL_IO.bAmphosShutterEnable:= FALSE;
+            END_IF
+            // Carbide Shutter is weird, allows solo Carbide use explicitly
+            IF NOT (bAmphosUnderVolt OR bOpcpaUnderVolt OR bMpcUnderVolt)
+                // This state is physically impossible
+                OR (bAmphosUnderVolt AND NOT bOpcpaUnderVolt AND NOT bMpcUnderVolt)
+                // But this state happens when the AMPHOS is powered down
+                OR (bAmphosUnderVolt AND bOpcpaUnderVolt AND NOT bMpcUnderVolt)
+            THEN
+                bCarbideShutter := TRUE;
+            ELSE
+                bCarbideShutter := FALSE;
+            END_IF
+        END_IF
+
+    E_Mode.AMPHOS_Maintenance:
+    // Close shutter if there is a hardware failure
+        IF (stErrors.bHardwareFailure
+        // Close shutter if there is a leak on the optical table with the amphos on, a leak under the table, or a leak inside the OPCPA with Carbide on
+        (*OR stErrors.bLeakOpticalTableAmphosOn OR stErrors.bLeakOpcpaCarbideOn OR stErrors.bLeakUnderTable*)
+        //Close shutter if the amphos is on and the temperature is too high in any loop. Ignore if operator override is enabled
+         OR (bChillerErrors OR bTempSwitchErrors)
+        // Close the shutter if there is a Dump Chiller error
+         OR stErrors.bDumpChiller
+        )
+        // Check global IO for redundancy of Chiller Errors
+        OR (NOT GVL_IO.bDumpChillerFlow)
+        OR (NOT GVL_IO.bBaseplateChillerFlow)
+        THEN
+            //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+            bAmphosShutter := bCarbideShutter := FALSE;
+        ELSE
+            // Just pass the Amphos shutter state and keep it enabled
+            //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+            bAmphosShutter := GVL_IO.bAmphosShutterEnable;
+        END_IF
+    // Close the carbide shutter if the MPC is unhappy
+    IF bMpcUnderVolt
+    THEN
+        bCarbideShutter := FALSE;
+    ELSE
+        bCarbideShutter := TRUE;
+    END_IF
+
+    // Undefined state, do not get here. Do not pass go, do not collect 200 dollars
+    ELSE
+    // If you get stuck here you deserve it
+        Mode := E_Mode.Protection;
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_LaserShutterInterlock">
+      <LineId Id="47" Count="31" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="82" Count="67" />
+      <LineId Id="151" Count="15" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

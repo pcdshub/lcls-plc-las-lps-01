@@ -13,6 +13,8 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 2^Value'}
     nAmphosVoltageRaw AT %I* : INT; // Ch2
 
+    {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 3^Value'}
+    nMpcVoltageRaw AT %I* : INT; // Ch3
 
 
     (* Slot2 EL3174 *)
@@ -110,6 +112,8 @@ VAR_GLOBAL
     (* Slot8 EL9184 *)
 
     (* Slot9 EL1259 *)
+    {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E09_EL1259]^MTI Inputs 10x Channel 2^Status^Input state'}
+    bLoopTempSW05 AT %I* : BOOL; // Ch2 Loop 05 NC Temp switch (labelled TEMP SW04 on CAPTAR)
 
     (* Slot10 EL9184 *)
 

@@ -65,7 +65,7 @@
         <string/>
        </property>
        <property name="text">
-        <string>OPCPA Equipment Protection System</string>
+        <string>OPCPA Equipment Protection System - BAY 3</string>
        </property>
        <property name="displayFormat" stdset="0">
         <enum>PyDMLabel::Default</enum>

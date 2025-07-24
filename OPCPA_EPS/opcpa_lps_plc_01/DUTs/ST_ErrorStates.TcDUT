@@ -16,6 +16,7 @@ STRUCT
     bChillerLoop02              : BOOL; // Temperature too high in loop 02
     bChillerLoop03              : BOOL; // Temperature too high in loop 03
     bChillerLoop04              : BOOL; // Temperature too high in loop 04
+    bChillerLoop05              : BOOL; // Temperature too high in loop 05
 
     // Beam Errors
     bAmphosBeam                 : BOOL; // Amphos beam error

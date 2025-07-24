@@ -59,10 +59,10 @@ fPower := fVoltage; //Value is scaled by user set ASLO and AOFF fields (for disp
 (* Set error if amphos is below nominal voltage *)
 IF  (bAmphosOn AND fVoltage < stSetpoints.nMinVoltage) THEN
     Timer(IN:=TRUE, PT:=T#500ms); //500ms SEC Timer
-        IF Timer.Q THEN
-            bError := TRUE;
-            Timer(IN:=FALSE);
-        END_IF;
+    IF Timer.Q THEN
+        bError := TRUE;
+        Timer(IN:=FALSE);
+    END_IF;
 ELSE
     Timer(IN:=FALSE);
 END_IF

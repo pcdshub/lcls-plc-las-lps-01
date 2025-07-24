@@ -156,6 +156,56 @@ record(ao, "$(PREFIX):LPS:AMPHOS:MIN_VOLTAGE") {
   info(archive, "VAL")
 }
 
+record(ai, "$(PREFIX):LPS:MPC:MIN_NOMINAL_VOLTAGE_RBV") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinNominalVoltage")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Laser.stMpcSP.nMinNominalVoltage?")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ao, "$(PREFIX):LPS:MPC:MIN_NOMINAL_VOLTAGE") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinNominalVoltage")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Laser.stMpcSP.nMinNominalVoltage=")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:MIN_VOLTAGE_RBV") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinVoltage")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_Laser.stMpcSP.nMinVoltage?")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ao, "$(PREFIX):LPS:MPC:MIN_VOLTAGE") {
+  field(DESC, "GVL_Laser.stMpcSP.nMinVoltage")
+  field(DTYP, "asynFloat64")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_Laser.stMpcSP.nMinVoltage=")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  info(autosaveFields_pass0, "DESC DISS DRVH DRVL HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS VAL")
+  info(archive, "VAL")
+}
+
 record(ai, "$(PREFIX):LPS:OPCPA:MIN_NOMINAL_VOLTAGE_RBV") {
   field(DESC, "GVL_Laser.stOpcpaSP.nMinNominalVoltage")
   field(SCAN, "I/O Intr")
@@ -698,6 +748,41 @@ record(longout, "$(PREFIX):LPS:LEAK:L_MIN06") {
   info(archive, "VAL")
 }
 
+record(mbbi, "$(PREFIX):LPS:MODE_RBV") {
+  field(DESC, "MAIN.Mode_LPS")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(NOBT, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.Mode_LPS?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(ZRST, "MASTER_Override")
+  field(ONST, "Protection")
+  field(TWST, "AMPHOS_Maintenance")
+  info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(mbbo, "$(PREFIX):LPS:MODE") {
+  field(DESC, "MAIN.Mode_LPS")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(NOBT, "3")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(ZRST, "MASTER_Override")
+  field(ONST, "Protection")
+  field(TWST, "AMPHOS_Maintenance")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.Mode_LPS=")
+  info(autosaveFields_pass0, "COSV DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV VAL ZRSV")
+  info(archive, "VAL")
+}
+
 record(bi, "$(PREFIX):LPS:MASTER_AMP_SHUTTER_RBV") {
   field(DESC, "MAIN.bAmpShutterClosed")
   field(SCAN, "I/O Intr")
@@ -867,6 +952,31 @@ record(bo, "$(PREFIX):LPS:MASTER_OVERRIDE") {
   field(DTYP, "asynInt32")
   field(UDFS, "0")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.bMasterOverride=")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "$(PREFIX):LPS:MPC:RESET_RBV") {
+  field(DESC, "MAIN.bMpcReset")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.bMpcReset?")
+  field(ZNAM, "FALSE")
+  field(ONAM, "TRUE")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bo, "$(PREFIX):LPS:MPC:RESET") {
+  field(DESC, "MAIN.bMpcReset")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.bMpcReset=")
   field(ZNAM, "FALSE")
   field(ONAM, "TRUE")
   info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
@@ -2346,6 +2456,54 @@ record(longin, "$(PREFIX):LPS:LEAK:LEAKS_RBV") {
   field(DTYP, "asynInt32")
   field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbLeakMonitor.nLeakLocations?")
   info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bi, "$(PREFIX):LPS:MPC:ERROR_RBV") {
+  field(DESC, "MAIN.fbMpc.bError")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMpc.bError?")
+  field(ZSV, "NO_ALARM")
+  field(OSV, "MAJOR")
+  field(ZNAM, "OK")
+  field(ONAM, "ERROR")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:SCALED_PWR_RBV") {
+  field(DESC, "MAIN.fbMpc.fPower")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMpc.fPower?")
+  field(PREC, "3")
+  field(EGU, "Watts")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(ai, "$(PREFIX):LPS:MPC:VOLTAGE_RBV") {
+  field(DESC, "MAIN.fbMpc.fVoltage")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbMpc.fVoltage?")
+  field(PREC, "3")
+  field(EGU, "Volts")
+  field(HOPR, "10.0")
+  field(LOPR, "0.0")
+  field(LLSV, "MAJOR")
+  field(LSV, "MINOR")
+  info(autosaveFields_pass0, "DESC DISS HHSV HIGH HIHI HSV LLSV LOLO LOW LSV PREC SIMS UDFS")
   info(archive, "VAL")
   field(ASG, "NO_WRITE")
 }

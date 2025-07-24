@@ -234,13 +234,18 @@
 							<Type GUID="{5BEACB64-8490-46B4-B636-A0EB00630394}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
 						</Var>
 						<Var>
-							<Name>GVL_IO.nOpcpaVoltageRaw</Name>
+							<Name>GVL_IO.bAmphosOn</Name>
 							<Comment><![CDATA[ Ch1]]></Comment>
-							<Type>INT</Type>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL_PLC.AMSNetId</Name>
 							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.nOpcpaVoltageRaw</Name>
+							<Comment><![CDATA[ Ch1]]></Comment>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.nAmphosVoltageRaw</Name>
@@ -248,9 +253,9 @@
 							<Type>INT</Type>
 						</Var>
 						<Var>
-							<Name>GVL_IO.bAmphosOn</Name>
-							<Comment><![CDATA[ Ch1]]></Comment>
-							<Type>BOOL</Type>
+							<Name>GVL_IO.nMpcVoltageRaw</Name>
+							<Comment><![CDATA[ Ch3]]></Comment>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.bLeakDetected</Name>
@@ -279,12 +284,17 @@
 						</Var>
 						<Var>
 							<Name>GVL_IO.bBaseplateChillerFlow</Name>
-							<Comment><![CDATA[ Ch7 Baseplate chiller NC flow sensor	]]></Comment>
+							<Comment><![CDATA[ Ch7 Baseplate chiller NC flow sensor]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.bDumpChillerFlow</Name>
 							<Comment><![CDATA[ Ch2 Dump chiller NC flow sensor]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.bLoopTempSW05</Name>
+							<Comment><![CDATA[ Ch2 Loop 05 NC Temp switch (labelled TEMP SW04 on CAPTAR)]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -10567,6 +10577,7 @@ Bit1: Value smaller than Limit2]]></Comment>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E01_EL3174">
 				<Link VarA="PlcTask Inputs^GVL_IO.nAmphosVoltageRaw" VarB="AI Standard Channel 2^Value"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.nMpcVoltageRaw" VarB="AI Standard Channel 3^Value" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_IO.nOpcpaVoltageRaw" VarB="AI Standard Channel 1^Value"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E07_EL1259">
@@ -10581,6 +10592,7 @@ Bit1: Value smaller than Limit2]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL_IO.bAmphosShutterEnable" VarB="MTO Outputs 10x Channel 1^Ctrl^Manual output state" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^LPS_PLC_E09_EL1259">
+				<Link VarA="PlcTask Inputs^GVL_IO.bLoopTempSW05" VarB="MTI Inputs 10x Channel 2^Status^Input state" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_IO.bAmphosShutterEnable" VarB="MTO Outputs 10x Channel 1^Ctrl^Manual output state"/>
 				<Link VarA="PlcTask Outputs^GVL_IO.bAmphosShutterEnableManualOperation" VarB="MTO Outputs 10x Channel 1^Ctrl^Enable manual operation"/>
 				<Link VarA="PlcTask Outputs^GVL_IO.bCarbideShutterEnable" VarB="MTO Outputs 10x Channel 2^Ctrl^Manual output state"/>

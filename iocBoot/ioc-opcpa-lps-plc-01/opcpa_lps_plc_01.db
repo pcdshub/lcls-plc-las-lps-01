@@ -748,6 +748,41 @@ record(longout, "$(PREFIX):LPS:LEAK:L_MIN06") {
   info(archive, "VAL")
 }
 
+record(mbbi, "$(PREFIX):LPS:MODE_RBV") {
+  field(DESC, "MAIN.Mode_LPS")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(NOBT, "3")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.Mode_LPS?")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(ZRST, "MASTER_Override")
+  field(ONST, "Protection")
+  field(TWST, "AMPHOS_Maintenance")
+  info(autosaveFields_pass0, "DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV ZRSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(mbbo, "$(PREFIX):LPS:MODE") {
+  field(DESC, "MAIN.Mode_LPS")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(NOBT, "3")
+  field(ZRVL, "1")
+  field(ONVL, "2")
+  field(TWVL, "3")
+  field(ZRST, "MASTER_Override")
+  field(ONST, "Protection")
+  field(TWST, "AMPHOS_Maintenance")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.Mode_LPS=")
+  info(autosaveFields_pass0, "COSV DESC DISS EISV ELSV FFSV FRSV FTSV FVSV NISV ONSV SIMS SVSV SXSV TESV THSV TTSV TVSV TWSV UDFS UNSV VAL ZRSV")
+  info(archive, "VAL")
+}
+
 record(bi, "$(PREFIX):LPS:MASTER_AMP_SHUTTER_RBV") {
   field(DESC, "MAIN.bAmpShutterClosed")
   field(SCAN, "I/O Intr")

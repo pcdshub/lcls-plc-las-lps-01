@@ -196,7 +196,7 @@ fbOpcpa(
 
 fbMpc(
     nVoltageRaw         := GVL_IO.nMpcVoltageRaw,
-    bAmphosOn           := GVL_IO.bAmphosOn,
+    bCarbideOn           := GVL_IO.bAmphosOn,
     stSetpoints         := GVL_Laser.stMpcSP,
     bError              => stErrors.bMpcBeam,
     bMasterLatchReset   := bMasterLatchReset

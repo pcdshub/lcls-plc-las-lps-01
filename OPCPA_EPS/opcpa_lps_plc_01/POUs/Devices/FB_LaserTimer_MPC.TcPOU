@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="FB_LaserTimer_MPC" Id="{7fa33312-beb2-4e22-98f6-2f7a7e27cf13}" SpecialFunc="None">
+    <Declaration><![CDATA[// Monitors the lasers for under voltage events
+FUNCTION_BLOCK FB_Laser_Timer_MPC
+VAR_INPUT
+    nVoltageRaw : INT; // The raw signal collected from the ADC
+    bCarbideOn : BOOL; // Whether the amphos is turned on
+    Timer : TON ; //Timer for reset
+    bMasterLatchReset : BOOL; //Master latched error reset
+END_VAR
+VAR_IN_OUT CONSTANT
+    stSetpoints : ST_LaserSetpoints; // Setpoints for the laser
+END_VAR
+VAR_OUTPUT
+    {attribute 'pytmc' := '
+        pv: VOLTAGE
+        io: i
+        field: HOPR 10.0
+        field: LOPR 0.0
+        field: LSV MINOR
+        field: LLSV MAJOR
+        field: EGU Volts
+    '}
+    fVoltage : LREAL; // Voltage calculated from the raw ADC input
+
+    {attribute 'pytmc' := '
+        pv: SCALED_PWR
+        io: i
+        field: EGU Watts
+    '}
+    fPower : LREAL;
+
+    {attribute 'pytmc' := '
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    '}
+    bError : BOOL; // Whether an error was detected. Latches until reset
+    bBelowNominal : BOOL; //fVoltage is below the nominal setpoint
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Scale the analog signal to voltage *)
+fVoltage := F_Scale(
+    fRawData := nVoltageRaw,
+    fRawDataLowerOffLimit := GVL_EL3174.fRawLowerLimit,
+    fRawDataUpperOffLimit := GVL_EL3174.fRawUpperLimit,
+    fScaleDataLowerOffLimit := GVL_EL3174.fScaleLowerLimit,
+    fScaleDataUpperOffLimit := GVL_EL3174.fScaleUpperLimit);
+
+fPower := fVoltage; //Value is scaled by user set ASLO and AOFF fields (for display only)
+
+(* Set error if amphos is below nominal voltage *)
+IF  (bCarbideOn AND fVoltage < stSetpoints.nMinVoltage) THEN
+    Timer(IN:=TRUE, PT:=T#500ms); //1 SEC Timer
+    IF Timer.Q THEN
+        bError := TRUE;
+        Timer(IN:=FALSE);   // Reset Timer
+    END_IF;
+ELSE
+    Timer(IN:=FALSE);
+END_IF
+
+IF bCarbideOn AND (fVoltage < stSetpoints.nMinNominalVoltage) THEN
+    bBelowNominal := TRUE;
+END_IF
+
+IF bMasterLatchReset THEN
+    bBelowNominal := FALSE;
+    bError := FALSE;
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="FB_LaserTimer_MPC">
+      <LineId Id="51" Count="28" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

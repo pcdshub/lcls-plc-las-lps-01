@@ -118,8 +118,17 @@
               <property name="toolTip">
                <string/>
               </property>
+              <property name="alarmSensitiveContent" stdset="0">
+               <bool>false</bool>
+              </property>
+              <property name="alarmSensitiveBorder" stdset="0">
+               <bool>true</bool>
+              </property>
+              <property name="PyDMToolTip" stdset="0">
+               <string/>
+              </property>
               <property name="channel" stdset="0">
-               <string>ca://${P}:LPS:AMPHOS:SHUTTER_CMD_RBV</string>
+               <string>ca://${P}:LPS:AMPHOS:SHUTTER_ENABLE_RBV</string>
               </property>
               <property name="onColor" stdset="0">
                <color>
@@ -138,8 +147,22 @@
               <property name="showLabels" stdset="0">
                <bool>false</bool>
               </property>
+              <property name="bigEndian" stdset="0">
+               <bool>false</bool>
+              </property>
               <property name="circles" stdset="0">
                <bool>false</bool>
+              </property>
+              <property name="numBits" stdset="0">
+               <number>1</number>
+              </property>
+              <property name="shift" stdset="0">
+               <number>0</number>
+              </property>
+              <property name="labels" stdset="0">
+               <stringlist>
+                <string>Bit 0</string>
+               </stringlist>
               </property>
              </widget>
             </item>
@@ -179,8 +202,17 @@
               <property name="toolTip">
                <string/>
               </property>
+              <property name="alarmSensitiveContent" stdset="0">
+               <bool>false</bool>
+              </property>
+              <property name="alarmSensitiveBorder" stdset="0">
+               <bool>true</bool>
+              </property>
+              <property name="PyDMToolTip" stdset="0">
+               <string/>
+              </property>
               <property name="channel" stdset="0">
-               <string>ca://${P}:LPS:CARBIDE_SHUTTER:ENABLE_RBV</string>
+               <string>ca://${P}:LPS:CARBIDE:SHUTTER_ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -192,8 +224,22 @@
               <property name="showLabels" stdset="0">
                <bool>false</bool>
               </property>
+              <property name="bigEndian" stdset="0">
+               <bool>false</bool>
+              </property>
               <property name="circles" stdset="0">
                <bool>false</bool>
+              </property>
+              <property name="numBits" stdset="0">
+               <number>1</number>
+              </property>
+              <property name="shift" stdset="0">
+               <number>0</number>
+              </property>
+              <property name="labels" stdset="0">
+               <stringlist>
+                <string>Bit 0</string>
+               </stringlist>
               </property>
              </widget>
             </item>

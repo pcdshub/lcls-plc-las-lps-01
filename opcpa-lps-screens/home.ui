@@ -2529,7 +2529,7 @@ color: rgb(255, 0, 0);</string>
                     <string/>
                    </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_ENABLE_RBV</string>
+                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_CMD</string>
                    </property>
                    <property name="onColor" stdset="0">
                     <color>

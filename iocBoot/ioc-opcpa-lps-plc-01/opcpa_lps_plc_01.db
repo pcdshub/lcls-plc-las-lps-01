@@ -28,31 +28,6 @@ record(bi, "$(PREFIX):LPS:AMPHOS:ENABLE_RBV") {
   field(ASG, "NO_WRITE")
 }
 
-record(bi, "$(PREFIX):LPS:AMPHOS:SHUTTER_CMD_RBV") {
-  field(DESC, "GVL_IO.bAmphosShutterCMD")
-  field(SCAN, "I/O Intr")
-  field(PINI, "1")
-  field(TSE, "-2")
-  field(DTYP, "asynInt32")
-  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bAmphosShutterCMD?")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
-  info(archive, "VAL")
-  field(ASG, "NO_WRITE")
-}
-
-record(bo, "$(PREFIX):LPS:AMPHOS:SHUTTER_CMD") {
-  field(DESC, "GVL_IO.bAmphosShutterCMD")
-  field(DTYP, "asynInt32")
-  field(UDFS, "0")
-  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_IO.bAmphosShutterCMD=")
-  field(ZNAM, "OFF")
-  field(ONAM, "ON")
-  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
-  info(archive, "VAL")
-}
-
 record(bi, "$(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE_RBV") {
   field(DESC, "GVL_IO.bAmphosShutterEnable")
   field(SCAN, "I/O Intr")
@@ -67,6 +42,31 @@ record(bi, "$(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE_RBV") {
   info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
   info(archive, "VAL")
   field(ASG, "NO_WRITE")
+}
+
+record(bi, "$(PREFIX):LPS:AMPHOS:SHUTTER_CMD_RBV") {
+  field(DESC, "GVL_IO.bAmphosShutterManualOverride")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/GVL_IO.bAmphosShutterManualOverride?")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bo, "$(PREFIX):LPS:AMPHOS:SHUTTER_CMD") {
+  field(DESC, "GVL_IO.bAmphosShutterManualOverride")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/GVL_IO.bAmphosShutterManualOverride=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
 }
 
 record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV") {

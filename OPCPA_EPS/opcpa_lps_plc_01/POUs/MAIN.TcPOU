@@ -400,13 +400,14 @@ GVL_IO.bBaseplateChillerRelay := F_BaseplateChillerEnable(
 );
 
 (* Enable Amphos if interlock logic passes *)
-GVL_IO.bAmphosRelay := F_AmphosEnable(
+(*GVL_IO.bAmphosRelay := F_AmphosEnable(
     fAmphosVoltage      := fbAmphos.fVoltage,
     bEnabled            := GVL_IO.bAmphosRelay,
     stAmphosSetpoints   := GVL_Laser.stAmphosSP,
     stErrors            := stErrors,
     bMasterOverride     := bMasterOverride
 );
+*)
 
 (*******************************************************************
 Safety related tasks have now been finished. Now try slower tasks such as
@@ -501,7 +502,9 @@ END_IF]]></ST>
       <LineId Id="545" Count="1" />
       <LineId Id="207" Count="6" />
       <LineId Id="544" Count="0" />
-      <LineId Id="214" Count="86" />
+      <LineId Id="214" Count="19" />
+      <LineId Id="872" Count="0" />
+      <LineId Id="234" Count="66" />
       <LineId Id="2" Count="0" />
     </LineIds>
   </POU>

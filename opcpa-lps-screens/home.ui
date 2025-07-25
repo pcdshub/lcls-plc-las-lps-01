@@ -212,7 +212,7 @@
                <string/>
               </property>
               <property name="channel" stdset="0">
-               <string>ca://${P}:LPS:CARBIDE:SHUTTER_ENABLE_RBV</string>
+               <string>ca://${P}:LPS:CARBIDE_SHUTTER:ENABLE_RBV</string>
               </property>
               <property name="offColor" stdset="0">
                <color>
@@ -2522,8 +2522,14 @@ color: rgb(255, 0, 0);</string>
                    <property name="alarmSensitiveContent" stdset="0">
                     <bool>false</bool>
                    </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>true</bool>
+                   </property>
+                   <property name="PyDMToolTip" stdset="0">
+                    <string/>
+                   </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:LPS:AMPHOS_SHUTTER:ENABLE_RBV</string>
+                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_ENABLE_RBV</string>
                    </property>
                    <property name="onColor" stdset="0">
                     <color>
@@ -2541,6 +2547,23 @@ color: rgb(255, 0, 0);</string>
                    </property>
                    <property name="showLabels" stdset="0">
                     <bool>false</bool>
+                   </property>
+                   <property name="bigEndian" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="circles" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="numBits" stdset="0">
+                    <number>1</number>
+                   </property>
+                   <property name="shift" stdset="0">
+                    <number>0</number>
+                   </property>
+                   <property name="labels" stdset="0">
+                    <stringlist>
+                     <string>Bit 0</string>
+                    </stringlist>
                    </property>
                   </widget>
                  </item>
@@ -2573,8 +2596,23 @@ color: rgb(255, 0, 0);</string>
                    <property name="text">
                     <string>OPEN</string>
                    </property>
+                   <property name="alarmSensitiveContent" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="PyDMToolTip" stdset="0">
+                    <string/>
+                   </property>
+                   <property name="monitorDisp" stdset="0">
+                    <bool>false</bool>
+                   </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_ENABLE</string>
+                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_CMD</string>
+                   </property>
+                   <property name="PyDMIcon" stdset="0">
+                    <string/>
                    </property>
                    <property name="PyDMIconColor" stdset="0">
                     <color>
@@ -2582,6 +2620,15 @@ color: rgb(255, 0, 0);</string>
                      <green>54</green>
                      <blue>54</blue>
                     </color>
+                   </property>
+                   <property name="passwordProtected" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="password" stdset="0">
+                    <string/>
+                   </property>
+                   <property name="protectedPassword" stdset="0">
+                    <string/>
                    </property>
                    <property name="showConfirmDialog" stdset="0">
                     <bool>true</bool>
@@ -2591,6 +2638,15 @@ color: rgb(255, 0, 0);</string>
                    </property>
                    <property name="pressValue" stdset="0">
                     <string>1</string>
+                   </property>
+                   <property name="releaseValue" stdset="0">
+                    <string>None</string>
+                   </property>
+                   <property name="relativeChange" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="writeWhenRelease" stdset="0">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>
@@ -2602,8 +2658,32 @@ color: rgb(255, 0, 0);</string>
                    <property name="text">
                     <string>CLOSE</string>
                    </property>
+                   <property name="alarmSensitiveContent" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="alarmSensitiveBorder" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="PyDMToolTip" stdset="0">
+                    <string/>
+                   </property>
+                   <property name="monitorDisp" stdset="0">
+                    <bool>false</bool>
+                   </property>
                    <property name="channel" stdset="0">
-                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_ENABLE</string>
+                    <string>ca://${P}:LPS:AMPHOS:SHUTTER_CMD</string>
+                   </property>
+                   <property name="PyDMIcon" stdset="0">
+                    <string/>
+                   </property>
+                   <property name="passwordProtected" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="password" stdset="0">
+                    <string/>
+                   </property>
+                   <property name="protectedPassword" stdset="0">
+                    <string/>
                    </property>
                    <property name="showConfirmDialog" stdset="0">
                     <bool>true</bool>
@@ -2613,6 +2693,15 @@ color: rgb(255, 0, 0);</string>
                    </property>
                    <property name="pressValue" stdset="0">
                     <string>0</string>
+                   </property>
+                   <property name="releaseValue" stdset="0">
+                    <string>None</string>
+                   </property>
+                   <property name="relativeChange" stdset="0">
+                    <bool>false</bool>
+                   </property>
+                   <property name="writeWhenRelease" stdset="0">
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>

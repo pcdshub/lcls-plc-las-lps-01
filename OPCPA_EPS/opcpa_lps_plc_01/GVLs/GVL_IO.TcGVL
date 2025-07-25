@@ -109,11 +109,7 @@ VAR_GLOBAL
         field: ZNAM "OFF"
         field: ONAM "ON"
     '}
-    bAmphosShutterCMD : BOOL ; // CMD to Amphos for Shutter Operation
-
-
-
-
+    bAmphosShutterManualOverride : BOOL ; // CMD to Amphos for Shutter Operation
 
     (* Slot8 EL9184 *)
 

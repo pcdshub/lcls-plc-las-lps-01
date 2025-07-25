@@ -359,7 +359,7 @@ fbLaserShutterInterlocks(
 	stMpcSetpoints			:= GVL_Laser.stMpcSP,
     stErrors            	:= stErrors,
 	Mode					:= Mode_LPS,
-	bAmphosShutter			:= GVL_IO.bAmphosShutterCMD,
+	bAmphosShutter			:= GVL_IO.bAmphosShutterEnable,
 	bCarbideShutter			=> GVL_IO.bCarbideShutterEnable
 );
 

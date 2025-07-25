@@ -4,8 +4,8 @@
 #         Project: SLAC_OPCPA_EPS.tsproj
 #        PLC name: opcpa_lps_plc_01 (opcpa_lps_plc_01 Instance)
 # Generated using: pytmc 2.17.0
-# Project version: 16ccf33
-#    Project hash: 16ccf33c7e22f360bde87ab741335771c82948e4
+# Project version: b11c2c3
+#    Project hash: b11c2c3145974093fdfbd960128d44d348c64624
 #     PLC IP/host: 172.21.160.250
 #      PLC Net ID: 172.21.160.250.1.1
 #  ** Production mode IOC **
@@ -86,7 +86,7 @@ dbLoadRecords("caPutLog.db", "IOC=$(IOC)")
 dbLoadRecords("TwinCAT_TaskInfo.db", "PORT=$(ASYN_PORT),PREFIX=PLC:LAS:OPCPA:01,IDX=1")
 dbLoadRecords("TwinCAT_AppInfo.db", "PORT=$(ASYN_PORT), PREFIX=PLC:LAS:OPCPA:01")
 
-dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:LAS:OPCPA:01,PROJECT=SLAC_OPCPA_EPS.tsproj,HASH=16ccf33,VERSION=16ccf33,PYTMC=2.17.0,PLC_HOST=172.21.160.250")
+dbLoadRecords("TwinCAT_Project.db", "PREFIX=PLC:LAS:OPCPA:01,PROJECT=SLAC_OPCPA_EPS.tsproj,HASH=b11c2c3,VERSION=b11c2c3,PYTMC=2.17.0,PLC_HOST=172.21.160.250")
 
 #   Tc2_BABasic: * -> 3.1.1.0 (Beckhoff Automation GmbH)
 dbLoadRecords("TwinCAT_Dependency.db", "PREFIX=PLC:LAS:OPCPA:01,DEPENDENCY=Tc2_BABasic,VERSION=3.1.1.0,VENDOR=Beckhoff Automation GmbH")

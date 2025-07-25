@@ -92,7 +92,7 @@ VAR_GLOBAL
     *)
 
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE
+        pv: @(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE
         io: i
         field: OSV NO_ALARM
         field: ZSV MAJOR
@@ -141,7 +141,7 @@ VAR_GLOBAL
     bBaseplateChillerRelay AT %Q* : BOOL; // Ch2 Baseplate chiller NC relay
 
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:AMPHOS_RELAY:ENABLE
+        pv: @(PREFIX):LPS:AMPHOS:ENABLE
         io: i
         field: OSV NO_ALARM
         field: ZSV MAJOR
@@ -152,7 +152,7 @@ VAR_GLOBAL
     bAmphosRelay AT %Q* : BOOL; // Ch3 Amphos Interlock relay
 
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
+        pv: @(PREFIX):LPS:CARBIDE:SHUTTER_ENABLE
         io: i
         field: OSV NO_ALARM
         field: ZSV MAJOR
@@ -171,7 +171,7 @@ VAR_GLOBAL
 
     (* Slot14 EL1124 *)
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:OPCPA:POWER_STATE
+        pv: @(PREFIX):LPS:MPC:POWER_STATE
         io: i
         field: ZNAM "OFF"
         field: ONAM "ON"

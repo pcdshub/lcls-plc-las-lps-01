@@ -23,6 +23,8 @@ VAR
     fbChillerLoop03 : FB_ChillerLoop; // Chiller loop 03
     {attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP04'}
     fbChillerLoop04 : FB_ChillerLoop; // Chiller loop 04
+	{attribute 'pytmc' := 'pv: @(PREFIX):LPS:TEMP05'}
+    fbChillerLoop05 : FB_ChillerLoop; // Chiller loop 05
 	
 
     // Laser monitors
@@ -191,6 +193,12 @@ fbChillerLoop03(
 fbChillerLoop04(
     bLoopTempSW     := GVL_IO.bLoopTempSW04,
     bError          => stErrors.bChillerLoop04
+);
+
+(* Monitors for error events on chiller loop 5 *)
+fbChillerLoop05(
+    bLoopTempSW     := GVL_IO.bLoopTempSW05,
+    bError          => stErrors.bChillerLoop05
 );
 
 (* Monitors the Amphos laser *)
@@ -469,7 +477,10 @@ IF bMasterLatchReset AND bLatchStart THEN
 END_IF]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="3" Count="72" />
+      <LineId Id="3" Count="54" />
+      <LineId Id="731" Count="4" />
+      <LineId Id="730" Count="0" />
+      <LineId Id="58" Count="17" />
       <LineId Id="419" Count="7" />
       <LineId Id="418" Count="0" />
       <LineId Id="76" Count="116" />

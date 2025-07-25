@@ -12,7 +12,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS:POWER_STATE_RBV") {
   field(ASG, "NO_WRITE")
 }
 
-record(bi, "$(PREFIX):LPS:AMPHOS_RELAY:ENABLE_RBV") {
+record(bi, "$(PREFIX):LPS:AMPHOS:ENABLE_RBV") {
   field(DESC, "GVL_IO.bAmphosRelay")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -28,7 +28,7 @@ record(bi, "$(PREFIX):LPS:AMPHOS_RELAY:ENABLE_RBV") {
   field(ASG, "NO_WRITE")
 }
 
-record(bi, "$(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE_RBV") {
+record(bi, "$(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE_RBV") {
   field(DESC, "GVL_IO.bAmphosShutterEnable")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -60,7 +60,7 @@ record(bi, "$(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE_RBV") {
   field(ASG, "NO_WRITE")
 }
 
-record(bi, "$(PREFIX):LPS:OPCPA:POWER_STATE_RBV") {
+record(bi, "$(PREFIX):LPS:MPC:POWER_STATE_RBV") {
   field(DESC, "GVL_IO.bCarbideOn")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -74,7 +74,7 @@ record(bi, "$(PREFIX):LPS:OPCPA:POWER_STATE_RBV") {
   field(ASG, "NO_WRITE")
 }
 
-record(bi, "$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV") {
+record(bi, "$(PREFIX):LPS:CARBIDE:SHUTTER_ENABLE_RBV") {
   field(DESC, "GVL_IO.bCarbideShutterEnable")
   field(SCAN, "I/O Intr")
   field(PINI, "1")
@@ -1230,6 +1230,47 @@ record(bo, "$(PREFIX):LPS:TEMP04:OVERRIDE") {
   field(DTYP, "asynInt32")
   field(UDFS, "0")
   field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbChillerLoop04.bOperatorOverride=")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")
+  info(archive, "VAL")
+}
+
+record(bi, "$(PREFIX):LPS:TEMP05:ERROR_RBV") {
+  field(DESC, "MAIN.fbChillerLoop05.bError")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbChillerLoop05.bError?")
+  field(ZSV, "NO_ALARM")
+  field(OSV, "MAJOR")
+  field(ZNAM, "OK")
+  field(ONAM, "ERROR")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bi, "$(PREFIX):LPS:TEMP05:OVERRIDE_RBV") {
+  field(DESC, "MAIN.fbChillerLoop05.bOperatorOverride")
+  field(SCAN, "I/O Intr")
+  field(PINI, "1")
+  field(TSE, "-2")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(PORT),0,1)ADSPORT=851/POLL_RATE=1/MAIN.fbChillerLoop05.bOperatorOverride?")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
+  info(autosaveFields_pass0, "DESC DISS OSV SIMS UDFS ZSV")
+  info(archive, "VAL")
+  field(ASG, "NO_WRITE")
+}
+
+record(bo, "$(PREFIX):LPS:TEMP05:OVERRIDE") {
+  field(DESC, "MAIN.fbChillerLoop05.bOperatorOverride")
+  field(DTYP, "asynInt32")
+  field(UDFS, "0")
+  field(OUT, "@asyn($(PORT),0,1)ADSPORT=851/MAIN.fbChillerLoop05.bOperatorOverride=")
   field(ZNAM, "OFF")
   field(ONAM, "ON")
   info(autosaveFields_pass0, "COSV DESC DISS OSV SIMS UDFS VAL ZSV")

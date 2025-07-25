@@ -74,6 +74,7 @@ CASE MODE OF
 // Just pass and retain the previous Amphos Shutter State
         bCarbideShutter := TRUE;
         bAmphosShutter := GVL_IO.bAmphosShutterManualOverride;
+		GVL_IO.bAmphosRelay := TRUE;
 
     E_Mode.Protection:
         // Close shutter if there is a hardware failure
@@ -91,15 +92,15 @@ CASE MODE OF
         OR (NOT GVL_IO.bDumpChillerFlow)
         OR (NOT GVL_IO.bBaseplateChillerFlow)
         THEN
-            bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
+            bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosRelay := FALSE;
         ELSE
             // If the Amphos trips, always disable it
             IF bAmphosUnderVolt
             THEN
                 //GVL_IO.bAmphosShutterEnableManualOperation MUST be overwritten to update EPICS downstream
-                bAmphosShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
+                bAmphosShutter := GVL_IO.bAmphosShutterManualOverride := GVL_IO.bAmphosRelay:= FALSE;
             ELSE
-                bAmphosShutter := TRUE;
+                bAmphosShutter := GVL_IO.bAmphosRelay := TRUE;
             END_IF
             // Only open the Amphos shutter if all 3 lasers are happy
             IF (NOT(bAmphosUnderVolt OR bOpcpaUnderVolt OR bMpcUnderVolt))
@@ -138,10 +139,11 @@ CASE MODE OF
         OR (NOT GVL_IO.bBaseplateChillerFlow)
         THEN
             //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
-            bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
+            bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosRelay := GVL_IO.bAmphosShutterManualOverride := FALSE;
         ELSE
             // Just pass the Amphos shutter state and keep it enabled
             //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
+			GVL_IO.bAmphosRelay := TRUE;
             bAmphosShutter := GVL_IO.bAmphosShutterManualOverride;
         END_IF
     // Close the carbide shutter if the MPC is unhappy
@@ -162,8 +164,12 @@ END_CASE
     <LineIds Name="FB_LaserShutterInterlock">
       <LineId Id="47" Count="31" />
       <LineId Id="80" Count="0" />
-      <LineId Id="82" Count="67" />
-      <LineId Id="151" Count="15" />
+      <LineId Id="82" Count="0" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="83" Count="66" />
+      <LineId Id="151" Count="0" />
+      <LineId Id="205" Count="0" />
+      <LineId Id="152" Count="14" />
       <LineId Id="9" Count="0" />
     </LineIds>
   </POU>

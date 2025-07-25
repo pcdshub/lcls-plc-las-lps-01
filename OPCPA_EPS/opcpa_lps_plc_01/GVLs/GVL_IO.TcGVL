@@ -158,7 +158,7 @@ VAR_GLOBAL
     bAmphosRelay AT %Q* : BOOL; // Ch3 Amphos Interlock relay
 
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:CARBIDE:SHUTTER_ENABLE
+        pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
         io: i
         field: OSV NO_ALARM
         field: ZSV MAJOR

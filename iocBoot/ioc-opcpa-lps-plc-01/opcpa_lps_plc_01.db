@@ -99,7 +99,7 @@ record(bi, "$(PREFIX):LPS:MPC:POWER_STATE_RBV") {
   field(ASG, "NO_WRITE")
 }
 
-record(bi, "$(PREFIX):LPS:CARBIDE:SHUTTER_ENABLE_RBV") {
+record(bi, "$(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE_RBV") {
   field(DESC, "GVL_IO.bCarbideShutterEnable")
   field(SCAN, "I/O Intr")
   field(PINI, "1")

@@ -103,7 +103,13 @@ VAR_GLOBAL
     bAmphosShutterEnable AT %Q* : BOOL; // Ch1
 
 
-    bAmphosShutterEnableManualOperation AT %Q* : BOOL := TRUE;
+    {attribute 'pytmc' := '
+        pv: @(PREFIX):LPS:AMPHOS:SHUTTER_CMD
+        io: io
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    '}
+    bAmphosShutterCMD : BOOL ; // CMD to Amphos for Shutter Operation
 
 
 

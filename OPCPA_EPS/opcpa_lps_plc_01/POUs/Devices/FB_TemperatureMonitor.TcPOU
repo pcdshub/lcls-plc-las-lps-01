@@ -48,9 +48,5 @@ fTemperature := fMonitorVoltage * 100;
 bError := fTemperature > stSetpoints.fMaxTemperature AND bAmphosOn;
 ]]></ST>
     </Implementation>
-    <LineIds Name="FB_TemperatureMonitor">
-      <LineId Id="3" Count="11" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

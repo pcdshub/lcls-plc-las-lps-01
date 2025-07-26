@@ -87,12 +87,5 @@ END_VAR
         <ST><![CDATA[bError := FALSE;]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_LaserTimer">
-      <LineId Id="53" Count="28" />
-      <LineId Id="9" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LaserTimer.Reset">
-      <LineId Id="5" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

@@ -74,7 +74,7 @@ CASE MODE OF
 // Just pass and retain the previous Amphos Shutter State
         bCarbideShutter := TRUE;
         bAmphosShutter := GVL_IO.bAmphosShutterManualOverride;
-		GVL_IO.bAmphosRelay := TRUE;
+        GVL_IO.bAmphosRelay := TRUE;
 
     E_Mode.Protection:
         // Close shutter if there is a hardware failure
@@ -99,7 +99,7 @@ CASE MODE OF
             THEN
                 //GVL_IO.bAmphosShutterEnableManualOperation MUST be overwritten to update EPICS downstream
                 bAmphosShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
-				GVL_IO.bAmphosRelay:= FALSE;
+                GVL_IO.bAmphosRelay:= FALSE;
             ELSE
                 bAmphosShutter := GVL_IO.bAmphosRelay := TRUE;
             END_IF
@@ -141,11 +141,11 @@ CASE MODE OF
         THEN
             //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
             bAmphosShutter := bCarbideShutter := GVL_IO.bAmphosShutterManualOverride := FALSE;
-			GVL_IO.bAmphosRelay := FALSE;
+            GVL_IO.bAmphosRelay := FALSE;
         ELSE
             // Just pass the Amphos shutter state and keep it enabled
             //GVL_IO.bAmphosShutterEnable MUST be overwritten to update EPICS downstream
-			GVL_IO.bAmphosRelay := TRUE;
+            GVL_IO.bAmphosRelay := TRUE;
             bAmphosShutter := GVL_IO.bAmphosShutterManualOverride;
         END_IF
     // Close the carbide shutter if the MPC is unhappy
@@ -163,20 +163,5 @@ CASE MODE OF
 END_CASE
 ]]></ST>
     </Implementation>
-    <LineIds Name="FB_LaserShutterInterlock">
-      <LineId Id="47" Count="31" />
-      <LineId Id="80" Count="0" />
-      <LineId Id="82" Count="0" />
-      <LineId Id="204" Count="0" />
-      <LineId Id="83" Count="23" />
-      <LineId Id="207" Count="0" />
-      <LineId Id="107" Count="40" />
-      <LineId Id="208" Count="0" />
-      <LineId Id="148" Count="1" />
-      <LineId Id="151" Count="0" />
-      <LineId Id="205" Count="0" />
-      <LineId Id="152" Count="14" />
-      <LineId Id="9" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

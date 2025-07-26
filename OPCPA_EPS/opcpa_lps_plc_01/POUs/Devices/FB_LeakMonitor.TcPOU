@@ -158,13 +158,5 @@ bLeakUnderTable := FALSE;
 bLeakInsideRacks := FALSE;]]></ST>
       </Implementation>
     </Method>
-    <LineIds Name="FB_LeakMonitor">
-      <LineId Id="3" Count="66" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
-    <LineIds Name="FB_LeakMonitor.Reset">
-      <LineId Id="3" Count="4" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

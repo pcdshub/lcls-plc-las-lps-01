@@ -239,6 +239,10 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL_PLC.AMSNetId</Name>
+							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
+						</Var>
+						<Var>
 							<Name>GVL_IO.nOpcpaVoltageRaw</Name>
 							<Comment><![CDATA[ Ch1]]></Comment>
 							<Type>INT</Type>
@@ -297,10 +301,6 @@
 							<Name>GVL_IO.bCarbideOn</Name>
 							<Comment><![CDATA[ Ch1]]></Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL_PLC.AMSNetId</Name>
-							<Type GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">

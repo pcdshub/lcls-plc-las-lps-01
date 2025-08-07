@@ -1,0 +1,1784 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings &mdash; pcdshub/lcls-plc-las-lps-01  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/tree.css?v=837a00b9" />
+      <link rel="stylesheet" type="text/css" href="_static/width.css?v=ab210c7a" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/docs-versions-menu.js?v=3d6a1aea"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Types" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_epics.html" />
+    <link rel="prev" title="Links" href="SLAC_OPCPA_EPS_links.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pcdshub/lcls-plc-las-lps-01
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">SLAC_OPCPA_EPS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_pragmas.html">Pragmas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_nc.html">NC Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_ethercat.html">EtherCAT Terminals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_boxes.html">Boxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_links.html">Links</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">opcpa_lps_plc_01</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#pragmas">Pragmas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#symbols">Symbols</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fb-tracetekmodbus">FB_TraceTekModbus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-variables">Global_Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-version">Global_Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-el3174">GVL_EL3174</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-io">GVL_IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-laser">GVL_Laser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-plc">GVL_PLC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-temperaturemonitor">GVL_TemperatureMonitor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gvl-tracetek">GVL_TraceTek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main">MAIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#twincat-licenseinfovarlist">TwinCAT_LicenseInfoVarList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#twincat-systeminfovarlist">TwinCAT_SystemInfoVarList</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_epics.html">Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_epics.html#database-records">Database Records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html">DUTs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html#gvls">GVLs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_source.html#pous">POUs</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pcdshub/lcls-plc-las-lps-01</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Settings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/SLAC_OPCPA_EPS_opcpa_lps_plc_01_summary.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="settings">
+<h1>Settings<a class="headerlink" href="#settings" title="Link to this heading"></a></h1>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AMS Net ID</p></td>
+<td><p>172.21.160.250.1.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Target IP address</p></td>
+<td><p>172.21.160.250</p></td>
+<td><p>Based on AMS Net ID by convention</p></td>
+</tr>
+<tr class="row-even"><td><p>AMS Port</p></td>
+<td><p>851</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pragmas">
+<span id="opcpa-lps-plc-01-pragmas"></span><h1>Pragmas<a class="headerlink" href="#pragmas" title="Link to this heading"></a></h1>
+<p>Total pragmas found: 160
+Total linter errors: 0</p>
+</section>
+<section id="libraries">
+<h1>Libraries<a class="headerlink" href="#libraries" title="Link to this heading"></a></h1>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>Vendor</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Tc2_BABasic</p></td>
+<td><p>Beckhoff Automation GmbH</p></td>
+<td><p>Unset</p></td>
+<td><p>3.1.1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tc2_EtherCAT</p></td>
+<td><p>Beckhoff Automation GmbH</p></td>
+<td><p>Unset</p></td>
+<td><p>3.3.12.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Tc2_ModbusRTU</p></td>
+<td><p>Beckhoff Automation GmbH</p></td>
+<td><p>Unset</p></td>
+<td><p>3.4.2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tc2_Standard</p></td>
+<td><p>Beckhoff Automation GmbH</p></td>
+<td><p>Unset</p></td>
+<td><p>3.3.2.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Tc2_System</p></td>
+<td><p>Beckhoff Automation GmbH</p></td>
+<td><p>Unset</p></td>
+<td><p>3.4.24.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tc3_Module</p></td>
+<td><p>Beckhoff Automation GmbH</p></td>
+<td><p>Unset</p></td>
+<td><p>3.3.21.0</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="symbols">
+<h1>Symbols<a class="headerlink" href="#symbols" title="Link to this heading"></a></h1>
+<section id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Constants.bFPUSupport</p></td>
+<td><p>BOOL</p></td>
+<td><p>3127872 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constants.bLittleEndian</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126704 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Constants.bMulticoreSupport</p></td>
+<td><p>BOOL</p></td>
+<td><p>3127880 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constants.bSimulationMode</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126712 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Constants.CompilerVersion</p></td>
+<td><p>VERSION</p></td>
+<td><p>3127776 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constants.CompilerVersionNumeric</p></td>
+<td><p>DWORD</p></td>
+<td><p>3127936 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Constants.nPackMode</p></td>
+<td><p>UINT</p></td>
+<td><p>3127856 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constants.nRegisterSize</p></td>
+<td><p>WORD</p></td>
+<td><p>3127840 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Constants.RuntimeVersion</p></td>
+<td><p>VERSION</p></td>
+<td><p>3127712 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constants.RuntimeVersionNumeric</p></td>
+<td><p>DWORD</p></td>
+<td><p>3127904 (32)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fb-tracetekmodbus">
+<h2>FB_TraceTekModbus<a class="headerlink" href="#fb-tracetekmodbus" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FB_TraceTekModbus.tPollRate</p></td>
+<td><p>TIME</p></td>
+<td><p>3086880 (32)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="global-variables">
+<h2>Global_Variables<a class="headerlink" href="#global-variables" title="Link to this heading"></a></h2>
+<details>
+    <summary>260 Symbols</summary><table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_DEVICE_DATA</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073664 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_IOIMAGE_CLEARI</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073568 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_IOIMAGE_CLEARO</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073600 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_IOIMAGE_RISIZE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073440 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_IOIMAGE_ROSIZE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073536 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_IOIMAGE_RWIB</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073376 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_IOIMAGE_RWIOB</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073632 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_IOIMAGE_RWIX</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073408 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_IOIMAGE_RWOB</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073472 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_IOIMAGE_RWOX</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073504 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYM_DOWNLOAD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073248 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYM_HNDBYNAME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073024 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYM_INFOBYNAME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073152 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYM_INFOBYNAMEEX</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073216 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYM_RELEASEHND</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073120 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYM_UPLOAD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073280 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYM_UPLOADINFO</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073312 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYM_VALBYHND</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073088 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYM_VALBYNAME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073056 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYM_VERSION</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073184 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYMNAME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3072960 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYMNOTE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073344 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIGRP_SYMTAB</p></td>
+<td><p>UDINT</p></td>
+<td><p>3072928 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIGRP_SYMVAL</p></td>
+<td><p>UDINT</p></td>
+<td><p>3072992 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSIOFFS_DEVDATA_ADSSTATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073696 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSIOFFS_DEVDATA_DEVSTATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073728 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSLOG_MSGTYPE_ERROR</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074784 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSLOG_MSGTYPE_HINT</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074720 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSLOG_MSGTYPE_LOG</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074816 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSLOG_MSGTYPE_MSGBOX</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074848 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSLOG_MSGTYPE_RESOURCE</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074880 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSLOG_MSGTYPE_STRING</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074912 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSLOG_MSGTYPE_WARN</p></td>
+<td><p>DWORD</p></td>
+<td><p>3074752 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_CONFIG</p></td>
+<td><p>UINT</p></td>
+<td><p>3072832 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_ERROR</p></td>
+<td><p>UINT</p></td>
+<td><p>3072768 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_EXCEPTION</p></td>
+<td><p>UINT</p></td>
+<td><p>3072896 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_IDLE</p></td>
+<td><p>UINT</p></td>
+<td><p>3072608 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_INCOMPATIBLE</p></td>
+<td><p>UINT</p></td>
+<td><p>3072880 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_INIT</p></td>
+<td><p>UINT</p></td>
+<td><p>3072640 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_INVALID</p></td>
+<td><p>UINT</p></td>
+<td><p>3072592 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_LOADCFG</p></td>
+<td><p>UINT</p></td>
+<td><p>3072720 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_MAXSTATES</p></td>
+<td><p>UINT</p></td>
+<td><p>3072912 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_POWERFAILURE</p></td>
+<td><p>UINT</p></td>
+<td><p>3072736 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_POWERGOOD</p></td>
+<td><p>UINT</p></td>
+<td><p>3072752 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_RECONFIG</p></td>
+<td><p>UINT</p></td>
+<td><p>3072848 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_RESET</p></td>
+<td><p>UINT</p></td>
+<td><p>3072624 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_RESUME</p></td>
+<td><p>UINT</p></td>
+<td><p>3072816 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_RUN</p></td>
+<td><p>UINT</p></td>
+<td><p>3072672 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_SAVECFG</p></td>
+<td><p>UINT</p></td>
+<td><p>3072704 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_SHUTDOWN</p></td>
+<td><p>UINT</p></td>
+<td><p>3072784 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_START</p></td>
+<td><p>UINT</p></td>
+<td><p>3072656 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_STOP</p></td>
+<td><p>UINT</p></td>
+<td><p>3072688 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.ADSSTATE_STOPPING</p></td>
+<td><p>UINT</p></td>
+<td><p>3072864 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.ADSSTATE_SUSPEND</p></td>
+<td><p>UINT</p></td>
+<td><p>3072800 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_EVENTLOG</p></td>
+<td><p>UINT</p></td>
+<td><p>3072304 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_LOGGER</p></td>
+<td><p>UINT</p></td>
+<td><p>3072288 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_CAM</p></td>
+<td><p>UINT</p></td>
+<td><p>3072528 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_CAMTOOL</p></td>
+<td><p>UINT</p></td>
+<td><p>3072544 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_CNC</p></td>
+<td><p>UINT</p></td>
+<td><p>3072416 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_IO</p></td>
+<td><p>UINT</p></td>
+<td><p>3072336 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_ISG</p></td>
+<td><p>UINT</p></td>
+<td><p>3072400 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_LINE</p></td>
+<td><p>UINT</p></td>
+<td><p>3072432 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_NC</p></td>
+<td><p>UINT</p></td>
+<td><p>3072352 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_NCSAF</p></td>
+<td><p>UINT</p></td>
+<td><p>3072368 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_NCSVB</p></td>
+<td><p>UINT</p></td>
+<td><p>3072384 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_PLC</p></td>
+<td><p>UINT</p></td>
+<td><p>3072448 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_PLC_RTS1</p></td>
+<td><p>UINT</p></td>
+<td><p>3072464 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_PLC_RTS2</p></td>
+<td><p>UINT</p></td>
+<td><p>3072480 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_PLC_RTS3</p></td>
+<td><p>UINT</p></td>
+<td><p>3072496 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R0_PLC_RTS4</p></td>
+<td><p>UINT</p></td>
+<td><p>3072512 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R0_RTIME</p></td>
+<td><p>UINT</p></td>
+<td><p>3072320 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.AMSPORT_R3_SCOPESERVER</p></td>
+<td><p>UINT</p></td>
+<td><p>3072576 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.AMSPORT_R3_SYSSERV</p></td>
+<td><p>UINT</p></td>
+<td><p>3072560 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.bEcFoeOpenFileNameWithFileExt</p></td>
+<td><p>BOOL</p></td>
+<td><p>3080256 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.BOOTDATAFLAGS_PERSISTENT_INVALID</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074976 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.BOOTDATAFLAGS_PERSISTENT_LOADED</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074968 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.BOOTDATAFLAGS_RETAIN_INVALID</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074952 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.BOOTDATAFLAGS_RETAIN_LOADED</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074944 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.BOOTDATAFLAGS_RETAIN_REQUESTED</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074960 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.bSeqReadDrvAttrAndValue</p></td>
+<td><p>BOOL</p></td>
+<td><p>3078136 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.COM_BUFFER_MAXIDX</p></td>
+<td><p>INT</p></td>
+<td><p>3080288 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.DEFAULT_ADS_TIMEOUT</p></td>
+<td><p>TIME</p></td>
+<td><p>3075712 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_CANOPEN_SDO</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078368 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_CANOPEN_SDO_LASTERROR</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078400 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_ECAT_SOE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078016 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_ECAT_SOE_LASTERROR</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078048 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_FOE_FCLOSE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078208 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_FOE_FOPENREAD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078144 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_FOE_FOPENWRITE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078176 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_FOE_FREAD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078240 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_FOE_FWRITE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078272 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_FOE_LASTERROR</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078336 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_FOE_PROGRESSINFO</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078304 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_COUNT_FRAME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077984 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_COUNT_SLAVE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077600 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_DEVICESTATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077952 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_SENDCMD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077760 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_SLAVE_ABNORMAL_STATE_CHANGES</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077888 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_SLAVE_ADDRESSES</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077728 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_SLAVE_CRC</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077856 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_SLAVE_IDENTITY</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077824 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_SLAVE_SETPRESENT_CHANGES</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077920 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IGRP_MASTER_STATEMACHINE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077472 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IGRP_SLAVE_STATEMACHINE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077792 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IOFFS_MASTER_COUNT_PORT</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077664 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IOFFS_MASTER_COUNT_ROUTER</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077696 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IOFFS_MASTER_COUNT_SLAVE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077632 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IOFFS_MASTER_CURSTATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077504 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_ADS_IOFFS_MASTER_INTERNALSTATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077568 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_ADS_IOFFS_MASTER_REQSTATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3077536 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_AMSPORT_MASTER</p></td>
+<td><p>UINT</p></td>
+<td><p>3077184 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_CMD_TYPE_APRD</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077216 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_CMD_TYPE_APRW</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077232 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_CMD_TYPE_APWR</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077224 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_CMD_TYPE_BRD</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077264 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_CMD_TYPE_BRW</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077280 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_CMD_TYPE_BWR</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077272 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_CMD_TYPE_FPRD</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077240 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_CMD_TYPE_FPRW</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077256 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_CMD_TYPE_FPWR</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077248 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_CMD_TYPE_LRD</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077288 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_CMD_TYPE_LRW</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077304 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_CMD_TYPE_LWR</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077296 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_ACCESS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079008 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_BLK_SIZE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078880 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_CCS_SCS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078848 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_CRC</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078944 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_DATA_RANGE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079424 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_DATA_RANGE1</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079456 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_DATA_RANGE2</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079488 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_DATA_SIZE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079296 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_DATA_SIZE1</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079328 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_DATA_SIZE2</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079360 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_DICTIONARY</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079680 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_GENERAL</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079552 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_HARDWARE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079264 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_I_INCOMP</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079232 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_INDEX</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079104 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_MEMORY</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078976 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_MINMAX</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079520 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_OFFSET</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079392 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_P_INCOMP</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079200 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_PDO_LEN</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079168 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_PDO_MAP</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079136 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_READONLY</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079072 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_SEQNO</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078912 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_TIMEOUT</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078816 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_TOGGLE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078784 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_TRANSFER</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079584 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_TRANSFER1</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079616 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_COE_PROTERR_TRANSFER2</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079648 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_COE_PROTERR_WRITEONLY</p></td>
+<td><p>UDINT</p></td>
+<td><p>3079040 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DCTIME_DATEDELTA_OFFSET</p></td>
+<td><p>DWORD</p></td>
+<td><p>3079712 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DCTIME_DELTA_OFFSET</p></td>
+<td><p>T_ULARGE_INTEGER</p></td>
+<td><p>3079744 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DCTIME_DELTA_OFFSET64</p></td>
+<td><p>ULINT</p></td>
+<td><p>3080000 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DCTIME_TICKSPERDAY</p></td>
+<td><p>T_ULARGE_INTEGER</p></td>
+<td><p>3079936 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DCTIME_TICKSPERDAY64</p></td>
+<td><p>ULINT</p></td>
+<td><p>3080192 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DCTIME_TICKSPERMSEC</p></td>
+<td><p>T_ULARGE_INTEGER</p></td>
+<td><p>3079808 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DCTIME_TICKSPERMSEC64</p></td>
+<td><p>ULINT</p></td>
+<td><p>3080064 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DCTIME_TICKSPERSEC</p></td>
+<td><p>T_ULARGE_INTEGER</p></td>
+<td><p>3079872 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DCTIME_TICKSPERSEC64</p></td>
+<td><p>ULINT</p></td>
+<td><p>3080128 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DEVICE_STATE_BOOTSTRAP</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077336 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DEVICE_STATE_DISABLED</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077384 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DEVICE_STATE_ERROR</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077360 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DEVICE_STATE_INIT</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077320 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DEVICE_STATE_INITCMD_ERROR</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077376 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DEVICE_STATE_INVALID_VPRS</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077368 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DEVICE_STATE_MASK</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077312 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DEVICE_STATE_OP</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077352 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_DEVICE_STATE_PREOP</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077328 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_DEVICE_STATE_SAFEOP</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077344 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_FOE_PROTERR_ACCESS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078496 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_FOE_PROTERR_BOOTSTRAPONLY</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078688 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_FOE_PROTERR_DISKFULL</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078528 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_FOE_PROTERR_EXISTS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078624 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_FOE_PROTERR_ILLEAGAL</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078560 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_FOE_PROTERR_INVALIDPASSWORD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078752 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_FOE_PROTERR_NOTDEFINED</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078432 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_FOE_PROTERR_NOTFOUND</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078464 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_FOE_PROTERR_NOTINBOOTSTRAP</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078720 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_FOE_PROTERR_NOUSER</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078656 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_FOE_PROTERR_PACKENO</p></td>
+<td><p>UDINT</p></td>
+<td><p>3078592 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_LINK_STATE_ADDITIONAL_LINK</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077424 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_LINK_STATE_LINK_WITHOUT_COMM</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077408 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_LINK_STATE_MISSING_LINK</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077416 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_LINK_STATE_NOT_PRESENT</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077400 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_LINK_STATE_OK</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077392 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_LINK_STATE_PORT_A</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077432 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_LINK_STATE_PORT_B</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077440 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_LINK_STATE_PORT_C</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077448 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_LINK_STATE_PORT_D</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077456 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_MAX_SLAVES</p></td>
+<td><p>UINT</p></td>
+<td><p>3077200 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_SOE_ELEMENT_ATTRIBUTE</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078088 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_SOE_ELEMENT_DATASTATE</p></td>
+<td><p>BYTE</p></td>
+<td><p>3077464 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_SOE_ELEMENT_DEFAULT</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078128 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_SOE_ELEMENT_MAX</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078112 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_SOE_ELEMENT_MIN</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078104 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_SOE_ELEMENT_NAME</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078080 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.EC_SOE_ELEMENT_UNIT</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078096 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.EC_SOE_ELEMENT_VALUE</p></td>
+<td><p>BYTE</p></td>
+<td><p>3078120 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.eWatchdogConfig</p></td>
+<td><p>E_WATCHDOG_TIME_CONFIG</p></td>
+<td><p>3075632 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.FOPEN_MODEAPPEND</p></td>
+<td><p>DWORD</p></td>
+<td><p>3075072 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.FOPEN_MODEBINARY</p></td>
+<td><p>DWORD</p></td>
+<td><p>3075136 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.FOPEN_MODEPLUS</p></td>
+<td><p>DWORD</p></td>
+<td><p>3075104 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.FOPEN_MODEREAD</p></td>
+<td><p>DWORD</p></td>
+<td><p>3075008 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.FOPEN_MODETEXT</p></td>
+<td><p>DWORD</p></td>
+<td><p>3075168 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.FOPEN_MODEWRITE</p></td>
+<td><p>DWORD</p></td>
+<td><p>3075040 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.MAX_STRING_LENGTH</p></td>
+<td><p>UDINT</p></td>
+<td><p>3075744 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.MAX_TELEGRAM_IDX</p></td>
+<td><p>INT</p></td>
+<td><p>3080272 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.MODBUSBUFFERSIZE_DEBUGBUFFER</p></td>
+<td><p>INT</p></td>
+<td><p>3080304 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.MODBUSRTU_CHARACTERRECEIVETIMEOUT</p></td>
+<td><p>TIME</p></td>
+<td><p>3080352 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.MODBUSRTU_MEMORYACCESS_OFFSET</p></td>
+<td><p>WORD</p></td>
+<td><p>3080336 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.MODBUSRTU_OUTPUTACCESS_OFFSET</p></td>
+<td><p>WORD</p></td>
+<td><p>3080320 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.nWatchdogTime</p></td>
+<td><p>BYTE</p></td>
+<td><p>3075000 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.PI</p></td>
+<td><p>LREAL</p></td>
+<td><p>3075648 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_CHANGENETID</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074528 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_CLOSEHANDLE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073888 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_CREATEFILE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073856 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FCLOSE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073952 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_FDELETE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074272 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FEOF</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074240 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_FGETS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074112 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FOPEN</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073920 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_FPRINTF</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074208 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FPUTS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074144 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_FREAD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073984 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FRENAME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074304 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_FSCANF</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074176 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FSEEK</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074048 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_FTELL</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074080 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_FWRITE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074016 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_MKDIR</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074336 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_OPENCREATE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073760 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_OPENREAD</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073792 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_OPENWRITE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3073824 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_REG_HKEYLOCALMACHINE</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074400 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_RMDIR</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074368 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_SENDEMAIL</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074432 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSERVICE_STARTPROCESS</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074496 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSERVICE_TIMESERVICES</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074464 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.SYSTEMSTATEFLAGS_BSOD</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074984 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.SYSTEMSTATEFLAGS_RTVIOLATION</p></td>
+<td><p>BYTE</p></td>
+<td><p>3074992 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENT_FMTPRGSIZE</p></td>
+<td><p>INT</p></td>
+<td><p>3075616 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TCEVENT_SRCNAMESIZE</p></td>
+<td><p>INT</p></td>
+<td><p>3075600 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENTFLAG_AUTOFMTALL</p></td>
+<td><p>WORD</p></td>
+<td><p>3075504 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TCEVENTFLAG_FMTSELF</p></td>
+<td><p>WORD</p></td>
+<td><p>3075440 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENTFLAG_LOG</p></td>
+<td><p>WORD</p></td>
+<td><p>3075456 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TCEVENTFLAG_MSGBOX</p></td>
+<td><p>WORD</p></td>
+<td><p>3075472 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENTFLAG_PRIOCLASS</p></td>
+<td><p>WORD</p></td>
+<td><p>3075424 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TCEVENTFLAG_SRCID</p></td>
+<td><p>WORD</p></td>
+<td><p>3075488 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENTSTATE_CONFIRMED</p></td>
+<td><p>WORD</p></td>
+<td><p>3075568 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TCEVENTSTATE_INVALID</p></td>
+<td><p>WORD</p></td>
+<td><p>3075520 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENTSTATE_RESET</p></td>
+<td><p>WORD</p></td>
+<td><p>3075552 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TCEVENTSTATE_RESETCON</p></td>
+<td><p>WORD</p></td>
+<td><p>3075584 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TCEVENTSTATE_SIGNALED</p></td>
+<td><p>WORD</p></td>
+<td><p>3075536 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TIMESERVICE_ADJUSTTIMETORTC</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074656 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TIMESERVICE_DATEANDTIME</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074560 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TIMESERVICE_RTCTIMEDIFF</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074624 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Variables.TIMESERVICE_SYSTEMTIMES</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074592 (32)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Variables.TIMESERVICE_TIMEZONINFORMATION</p></td>
+<td><p>UDINT</p></td>
+<td><p>3074688 (32)</p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br /></section>
+<section id="global-version">
+<h2>Global_Version<a class="headerlink" href="#global-version" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Global_Version.stLibVersion_EPS</p></td>
+<td><p>ST_LibVersion</p></td>
+<td><p>3127424 (288)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Version.stLibVersion_Tc2_System</p></td>
+<td><p>ST_LibVersion</p></td>
+<td><p>3072000 (288)</p></td>
+</tr>
+<tr class="row-even"><td><p>Global_Version.stLibVersion_Tc2_Utilities</p></td>
+<td><p>ST_LibVersion</p></td>
+<td><p>3076896 (288)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Global_Version.stLibVersion_Tc3_Module</p></td>
+<td><p>ST_LibVersion</p></td>
+<td><p>3076288 (288)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gvl-el3174">
+<h2>GVL_EL3174<a class="headerlink" href="#gvl-el3174" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GVL_EL3174.fRawLowerLimit</p></td>
+<td><p>LREAL</p></td>
+<td><p>3126336 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_EL3174.fRawUpperLimit</p></td>
+<td><p>LREAL</p></td>
+<td><p>3126272 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_EL3174.fScaleLowerLimit</p></td>
+<td><p>LREAL</p></td>
+<td><p>3126464 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_EL3174.fScaleUpperLimit</p></td>
+<td><p>LREAL</p></td>
+<td><p>3126400 (64)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gvl-io">
+<h2>GVL_IO<a class="headerlink" href="#gvl-io" title="Link to this heading"></a></h2>
+<details>
+    <summary>20 Symbols</summary><table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GVL_IO.bAmphosOn</p></td>
+<td><p>BOOL</p></td>
+<td><p>3103896 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bAmphosRelay</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126656 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bAmphosShutterEnable</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126616 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bAmphosShutterManualOverride</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126624 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bBaseplateChillerFlow</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126600 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bBaseplateChillerRelay</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126648 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bCarbideOn</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126680 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bCarbideShutterEnable</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126664 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bCarbideShutterEnableManualOperation</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126672 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bDumpChillerFlow</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126608 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bDumpChillerRelay</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126640 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bLeakDetected</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126560 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bLoopTempSW01</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126568 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bLoopTempSW02</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126576 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bLoopTempSW03</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126584 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.bLoopTempSW04</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126592 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.bLoopTempSW05</p></td>
+<td><p>BOOL</p></td>
+<td><p>3126632 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.nAmphosVoltageRaw</p></td>
+<td><p>INT</p></td>
+<td><p>3126528 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_IO.nMpcVoltageRaw</p></td>
+<td><p>INT</p></td>
+<td><p>3126544 (16)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_IO.nOpcpaVoltageRaw</p></td>
+<td><p>INT</p></td>
+<td><p>3125872 (16)</p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br /></section>
+<section id="gvl-laser">
+<h2>GVL_Laser<a class="headerlink" href="#gvl-laser" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GVL_Laser.stAmphosSP</p></td>
+<td><p>ST_LaserSetpoints</p></td>
+<td><p>3125888 (128)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_Laser.stMpcSP</p></td>
+<td><p>ST_LaserSetpoints</p></td>
+<td><p>3126144 (128)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_Laser.stOpcpaSP</p></td>
+<td><p>ST_LaserSetpoints</p></td>
+<td><p>3126016 (128)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gvl-plc">
+<h2>GVL_PLC<a class="headerlink" href="#gvl-plc" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GVL_PLC.AMSNetId</p></td>
+<td><p>AMSNETID</p></td>
+<td><p>3125824 (48)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gvl-temperaturemonitor">
+<h2>GVL_TemperatureMonitor<a class="headerlink" href="#gvl-temperaturemonitor" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GVL_TemperatureMonitor.stTempMonSP01</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3126720 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_TemperatureMonitor.stTempMonSP02</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3126784 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_TemperatureMonitor.stTempMonSP03</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3126848 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_TemperatureMonitor.stTempMonSP04</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3126912 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_TemperatureMonitor.stTempMonSP05</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3126976 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_TemperatureMonitor.stTempMonSP06</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3127040 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>GVL_TemperatureMonitor.stTempMonSP07</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3127104 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_TemperatureMonitor.stTempMonSP08</p></td>
+<td><p>ST_TemperatureMonitorSetpoints</p></td>
+<td><p>3127168 (64)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="gvl-tracetek">
+<h2>GVL_TraceTek<a class="headerlink" href="#gvl-tracetek" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GVL_TraceTek.nModbusSlaveAddress</p></td>
+<td><p>BYTE</p></td>
+<td><p>3126688 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>GVL_TraceTek.stLeakMonitorBoundaries</p></td>
+<td><p>ST_LeakBoundaries</p></td>
+<td><p>3127232 (192)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="main">
+<h2>MAIN<a class="headerlink" href="#main" title="Link to this heading"></a></h2>
+<details>
+    <summary>29 Symbols</summary><table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MAIN.bAmphosReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3101952 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.bAmpShutterClosed</p></td>
+<td><p>BOOL</p></td>
+<td><p>3103872 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.bBaseplateChillerReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3101984 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.bDumpChillerReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3101976 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.bLatchStart</p></td>
+<td><p>BOOL</p></td>
+<td><p>3103888 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.bLeakMonitorReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3080264 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.bMasterLatchReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3103880 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.bMasterOverride</p></td>
+<td><p>BOOL</p></td>
+<td><p>3101992 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.bMpcReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3101968 (8)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.bOpcpaReset</p></td>
+<td><p>BOOL</p></td>
+<td><p>3101960 (8)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbAmphos</p></td>
+<td><p>FB_LaserTimer</p></td>
+<td><p>3101376 (576)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbBaseplateChiller</p></td>
+<td><p>FB_BaseplateChiller</p></td>
+<td><p>3103232 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbChillerLoop01</p></td>
+<td><p>FB_ChillerLoop</p></td>
+<td><p>3101056 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbChillerLoop02</p></td>
+<td><p>FB_ChillerLoop</p></td>
+<td><p>3101120 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbChillerLoop03</p></td>
+<td><p>FB_ChillerLoop</p></td>
+<td><p>3101184 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbChillerLoop04</p></td>
+<td><p>FB_ChillerLoop</p></td>
+<td><p>3101248 (64)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbChillerLoop05</p></td>
+<td><p>FB_ChillerLoop</p></td>
+<td><p>3101312 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbDiag</p></td>
+<td><p>FB_EcatDiag</p></td>
+<td><p>3103904 (21920)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbDumpChiller</p></td>
+<td><p>FB_DumpChiller</p></td>
+<td><p>3103168 (64)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbErrorTriggers</p></td>
+<td><p>FB_ErrorTriggers</p></td>
+<td><p>3090176 (864)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbLaserShutterInterlocks</p></td>
+<td><p>FB_LaserShutterInterlock</p></td>
+<td><p>3103296 (576)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbLeakMonitor</p></td>
+<td><p>FB_LeakMonitor</p></td>
+<td><p>3100864 (192)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbMpc</p></td>
+<td><p>FB_LaserTimer_MPC</p></td>
+<td><p>3102592 (576)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbOpcpa</p></td>
+<td><p>FB_LaserTimer</p></td>
+<td><p>3102016 (576)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbTraceTekModbus</p></td>
+<td><p>FB_TraceTekModbus</p></td>
+<td><p>3091040 (9824)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.fbTraceTekModbus.fbModbusMaster.InData</p></td>
+<td><p>MB_KL6inData22B</p></td>
+<td><p>3091408 (192)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.fbTraceTekModbus.fbModbusMaster.OutData</p></td>
+<td><p>MB_KL6outData22B</p></td>
+<td><p>3091600 (192)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MAIN.Mode_LPS</p></td>
+<td><p>E_Mode</p></td>
+<td><p>3102000 (16)</p></td>
+</tr>
+<tr class="row-even"><td><p>MAIN.stErrors</p></td>
+<td><p>ST_ErrorStates</p></td>
+<td><p>3090048 (128)</p></td>
+</tr>
+</tbody>
+</table>
+</details>
+<br /></section>
+<section id="twincat-licenseinfovarlist">
+<h2>TwinCAT_LicenseInfoVarList<a class="headerlink" href="#twincat-licenseinfovarlist" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TwinCAT_LicenseInfoVarList._LicenseInfo</p></td>
+<td><p>PlcLicenseInfo</p></td>
+<td><p>3127968 (2048)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="twincat-systeminfovarlist">
+<h2>TwinCAT_SystemInfoVarList<a class="headerlink" href="#twincat-systeminfovarlist" title="Link to this heading"></a></h2>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Offset/Size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>TwinCAT_SystemInfoVarList.__PlcTask</p></td>
+<td><p>_Implicit_Task_Info</p></td>
+<td><p>3133152 (704)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TwinCAT_SystemInfoVarList._AppInfo</p></td>
+<td><p>PlcAppSystemInfo</p></td>
+<td><p>3130016 (2048)</p></td>
+</tr>
+<tr class="row-even"><td><p>TwinCAT_SystemInfoVarList._TaskInfo</p></td>
+<td><p>PlcTaskSystemInfo</p></td>
+<td><p>3132096 (1024)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TwinCAT_SystemInfoVarList._TaskOid_PlcTask</p></td>
+<td><p>OTCID</p></td>
+<td><p>3133120 (32)</p></td>
+</tr>
+<tr class="row-even"><td><p>TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask</p></td>
+<td><p>OTCID</p></td>
+<td><p>3132064 (32)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="SLAC_OPCPA_EPS_links.html" class="btn btn-neutral float-left" title="Links" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SLAC_OPCPA_EPS_opcpa_lps_plc_01_epics.html" class="btn btn-neutral float-right" title="Data Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, SLAC National Accelerator Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

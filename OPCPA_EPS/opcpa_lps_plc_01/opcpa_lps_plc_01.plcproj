@@ -21,6 +21,9 @@
     </CompilerVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\E_Mode.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\E_LeakLocation.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -72,9 +75,6 @@
     <Compile Include="POUs\Communication\FB_TraceTekModbus.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Devices\FB_Laser.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\Devices\FB_BaseplateChiller.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -84,10 +84,13 @@
     <Compile Include="POUs\Devices\FB_ChillerLoop.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Devices\FB_AmphosMRC.TcPOU">
+    <Compile Include="POUs\Devices\FB_LaserShutterInterlock.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Devices\FB_TemperatureMonitor.TcPOU">
+    <Compile Include="POUs\Devices\FB_LaserTimer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Devices\FB_LaserTimer_MPC.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Devices\FB_LeakMonitor.TcPOU">
@@ -99,19 +102,7 @@
     <Compile Include="POUs\Helpers\FB_ErrorTriggers.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Interlocks\F_AmphosAttenuatorEnable.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\Interlocks\F_AmphosEnable.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\Interlocks\F_AmphosShutterEnable.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="POUs\Interlocks\F_BaseplateChillerEnable.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\Interlocks\F_CarbideShutterEnable.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Interlocks\F_DumpChillerEnable.TcPOU">

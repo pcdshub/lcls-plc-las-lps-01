@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <DUT Name="E_Mode" Id="{29e1ff7a-74cb-4ae2-94c2-0c1ccc091b4e}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+TYPE E_Mode :
+(
+    MASTER_Override     :=1,
+    Protection          := 2,
+    AMPHOS_Maintenance  := 3
+);
+END_TYPE]]></Declaration>
+  </DUT>
+</TcPlcObject>

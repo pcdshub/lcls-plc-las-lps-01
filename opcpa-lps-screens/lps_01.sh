@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+export PCDS_CONDA_VER=6.0.1
 source /reg/g/pcds/pyps/conda/pcds_conda
-pydm -m 'P=PLC:LAS:OPCPA:01' /reg/g/pcds/epics-dev/payers/lcls-plc-las-lps-01/opcpa-lps-screens/home.ui
+
+THIS_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+pydm -m 'P=PLC:LAS:OPCPA:01' "${THIS_DIR}/home.ui"
 echo "Running from: $PWD"

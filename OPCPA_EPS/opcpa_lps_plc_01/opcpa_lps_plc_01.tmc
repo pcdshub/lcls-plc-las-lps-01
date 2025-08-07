@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{87FE635B-4ADC-FF26-5BD0-11ECF31FE9F9}" GeneratedBy="TwinCAT XAE Plc">
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass" Hash="{90DE027A-E001-72EE-4BF6-3404642F5E8F}" GeneratedBy="TwinCAT XAE Plc">
   <DataTypes>
     <DataType>
       <Name GUID="{6F5942ED-BFA1-497D-8225-23C6DAAD0A09}" TcBaseType="true">ST_LibVersion</Name>
@@ -80,7 +80,7 @@
     <DataType>
       <Name>ST_ErrorStates</Name>
       <Comment> Error states that can occur in the program</Comment>
-      <BitSize>112</BitSize>
+      <BitSize>128</BitSize>
       <SubItem>
         <Name>bLeakOpticalTableAmphosOn</Name>
         <Type>BOOL</Type>
@@ -145,39 +145,53 @@
         <BitOffs>64</BitOffs>
       </SubItem>
       <SubItem>
+        <Name>bChillerLoop05</Name>
+        <Type>BOOL</Type>
+        <Comment> Temperature too high in loop 05</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>72</BitOffs>
+      </SubItem>
+      <SubItem>
         <Name>bAmphosBeam</Name>
         <Type>BOOL</Type>
         <Comment> Amphos beam error</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>72</BitOffs>
+        <BitOffs>80</BitOffs>
       </SubItem>
       <SubItem>
         <Name>bOpcpaBeam</Name>
         <Type>BOOL</Type>
         <Comment> OPCPA beam error</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>80</BitOffs>
+        <BitOffs>88</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bMpcBeam</Name>
+        <Type>BOOL</Type>
+        <Comment> MPC beam error</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>96</BitOffs>
       </SubItem>
       <SubItem>
         <Name>bDumpChiller</Name>
         <Type>BOOL</Type>
         <Comment> Dump chiller error</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>88</BitOffs>
+        <BitOffs>104</BitOffs>
       </SubItem>
       <SubItem>
         <Name>bBaseplateChiller</Name>
         <Type>BOOL</Type>
         <Comment> Baseplate chiller error</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>96</BitOffs>
+        <BitOffs>112</BitOffs>
       </SubItem>
       <SubItem>
         <Name>bHardwareFailure</Name>
         <Type>BOOL</Type>
         <Comment> A component of the EPS has failed</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>104</BitOffs>
+        <BitOffs>120</BitOffs>
       </SubItem>
     </DataType>
     <DataType>
@@ -291,7 +305,7 @@
         <Name>stNewErrors</Name>
         <Type>ST_ErrorStates</Type>
         <Comment> Rising-edge errors</Comment>
-        <BitSize>112</BitSize>
+        <BitSize>128</BitSize>
         <BitOffs>96</BitOffs>
         <Properties>
           <Property>
@@ -2693,13 +2707,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LOC_RES
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: LOC_RES
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2720,13 +2734,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2831,9 +2845,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MIN01
-		io: io
-	</Value>
+        pv: L_MIN01
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2846,9 +2860,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MAX01
-		io: io
-	</Value>
+        pv: L_MAX01
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2861,9 +2875,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MIN02
-		io: io
-	</Value>
+        pv: L_MIN02
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2876,9 +2890,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MAX02
-		io: io
-	</Value>
+        pv: L_MAX02
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2891,9 +2905,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MIN03
-		io: io
-	</Value>
+        pv: L_MIN03
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2906,9 +2920,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MAX03
-		io: io
-	</Value>
+        pv: L_MAX03
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2921,9 +2935,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MIN04
-		io: io
-	</Value>
+        pv: L_MIN04
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2936,9 +2950,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MAX04
-		io: io
-	</Value>
+        pv: L_MAX04
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2951,9 +2965,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MIN05
-		io: io
-	</Value>
+        pv: L_MIN05
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2966,9 +2980,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MAX05
-		io: io
-	</Value>
+        pv: L_MAX05
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2981,9 +2995,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MIN06
-		io: io
-	</Value>
+        pv: L_MIN06
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -2996,9 +3010,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: L_MAX06
-		io: io
-	</Value>
+        pv: L_MAX06
+        io: io
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3101,9 +3115,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LOW_RES
-		io: i
-	</Value>
+        pv: LOW_RES
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3124,9 +3138,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LEAKS
-		io: i
-	</Value>
+        pv: LEAKS
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3147,13 +3161,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LOTAO_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: LOTAO_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3174,13 +3188,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LOTNL_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: LOTNL_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3201,13 +3215,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LOCO_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: LOCO_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3228,13 +3242,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LUT_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: LUT_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3255,13 +3269,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LIR_ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: LIR_ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3335,13 +3349,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3362,11 +3376,11 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: OVERRIDE
-		io: io
-		field: ZNAM "OFF"
-		field: ONAM "ON"
-	</Value>
+        pv: OVERRIDE
+        io: io
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3403,6 +3417,31 @@
       </Properties>
     </DataType>
     <DataType>
+      <Name>E_Mode</Name>
+      <BitSize>16</BitSize>
+      <BaseType>INT</BaseType>
+      <EnumInfo>
+        <Text>MASTER_Override</Text>
+        <Enum>1</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>Protection</Text>
+        <Enum>2</Enum>
+      </EnumInfo>
+      <EnumInfo>
+        <Text>AMPHOS_Maintenance</Text>
+        <Enum>3</Enum>
+      </EnumInfo>
+      <Properties>
+        <Property>
+          <Name>qualified_only</Name>
+        </Property>
+        <Property>
+          <Name>generate_implicit_init_function</Name>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
       <Name>ST_LaserSetpoints</Name>
       <Comment> Setpoints for the lasers</Comment>
       <BitSize>128</BitSize>
@@ -3416,10 +3455,10 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: MIN_VOLTAGE
-		io: io
-		field: EGU Volts
-	</Value>
+        pv: MIN_VOLTAGE
+        io: io
+        field: EGU Volts
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3433,18 +3472,18 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: MIN_NOMINAL_VOLTAGE
-		io: io
-		field: EGU Volts
-	</Value>
+        pv: MIN_NOMINAL_VOLTAGE
+        io: io
+        field: EGU Volts
+    </Value>
           </Property>
         </Properties>
       </SubItem>
     </DataType>
     <DataType>
-      <Name>FB_Laser</Name>
+      <Name>FB_LaserTimer</Name>
       <Comment> Monitors the lasers for under voltage events</Comment>
-      <BitSize>320</BitSize>
+      <BitSize>576</BitSize>
       <SubItem>
         <Name>nVoltageRaw</Name>
         <Type>INT</Type>
@@ -3472,11 +3511,49 @@
         </Properties>
       </SubItem>
       <SubItem>
+        <Name>Timer</Name>
+        <Type Namespace="Tc2_Standard">TON</Type>
+        <Comment>Timer for reset</Comment>
+        <BitSize>224</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
         <Name>bMasterLatchReset</Name>
         <Type>BOOL</Type>
         <Comment>Master latched error reset</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>56</BitOffs>
+        <BitOffs>288</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bCarbideOn</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether Carbide is ON</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>296</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Mode</Name>
+        <Type>E_Mode</Type>
+        <BitSize>16</BitSize>
+        <BitOffs>304</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -3489,7 +3566,7 @@
         <Type ReferenceTo="true">ST_LaserSetpoints</Type>
         <Comment> Setpoints for the laser</Comment>
         <BitSize>32</BitSize>
-        <BitOffs>64</BitOffs>
+        <BitOffs>320</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -3502,7 +3579,7 @@
         <Type>LREAL</Type>
         <Comment> Voltage calculated from the raw ADC input</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>128</BitOffs>
+        <BitOffs>384</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -3511,23 +3588,22 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: VOLTAGE
-		io: i
-		field: HOPR 10.0
-		field: LOPR 0.0
-		field: LSV MINOR
-		field: LLSV MAJOR
-		field: EGU Volts
-	</Value>
+        pv: VOLTAGE
+        io: i
+        field: HOPR 10.0
+        field: LOPR 0.0
+        field: LSV MINOR
+        field: LLSV MAJOR
+        field: EGU Volts
+    </Value>
           </Property>
         </Properties>
       </SubItem>
       <SubItem>
         <Name>fPower</Name>
         <Type>LREAL</Type>
-        <Comment> Value to be scaled from fVoltage to give meter reading in terms of watts</Comment>
         <BitSize>64</BitSize>
-        <BitOffs>192</BitOffs>
+        <BitOffs>448</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -3548,7 +3624,7 @@
         <Type>BOOL</Type>
         <Comment> Whether an error was detected. Latches until reset</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>256</BitOffs>
+        <BitOffs>512</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -3557,13 +3633,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3572,7 +3648,7 @@
         <Type>BOOL</Type>
         <Comment>fVoltage is below the nominal setpoint</Comment>
         <BitSize>8</BitSize>
-        <BitOffs>264</BitOffs>
+        <BitOffs>520</BitOffs>
         <Properties>
           <Property>
             <Name>ItemType</Name>
@@ -3593,6 +3669,195 @@
       <Method>
         <Name>Reset</Name>
         <Comment> Reset latched errors</Comment>
+      </Method>
+      <Method>
+        <Name>__GetInterfaceReference</Name>
+        <ReturnType>BOOL</ReturnType>
+        <ReturnBitSize>8</ReturnBitSize>
+        <Parameter>
+          <Name>nInterfaceId</Name>
+          <Type>DINT</Type>
+          <BitSize>32</BitSize>
+        </Parameter>
+        <Parameter>
+          <Name>pRef</Name>
+          <Type PointerTo="2">DWORD</Type>
+          <BitSize>32</BitSize>
+        </Parameter>
+      </Method>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name>FB_LaserTimer_MPC</Name>
+      <Comment> Monitors the lasers for under voltage events</Comment>
+      <BitSize>576</BitSize>
+      <SubItem>
+        <Name>nVoltageRaw</Name>
+        <Type>INT</Type>
+        <Comment> The raw signal collected from the ADC</Comment>
+        <BitSize>16</BitSize>
+        <BitOffs>32</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bCarbideOn</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether the amphos is turned on</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>48</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Timer</Name>
+        <Type Namespace="Tc2_Standard">TON</Type>
+        <Comment>Timer for reset</Comment>
+        <BitSize>224</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bMasterLatchReset</Name>
+        <Type>BOOL</Type>
+        <Comment>Master latched error reset</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>288</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stSetpoints</Name>
+        <Type ReferenceTo="true">ST_LaserSetpoints</Type>
+        <Comment> Setpoints for the laser</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fVoltage</Name>
+        <Type>LREAL</Type>
+        <Comment> Voltage calculated from the raw ADC input</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: VOLTAGE
+        io: i
+        field: HOPR 10.0
+        field: LOPR 0.0
+        field: LSV MINOR
+        field: LLSV MAJOR
+        field: EGU Volts
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fPower</Name>
+        <Type>LREAL</Type>
+        <BitSize>64</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: SCALED_PWR
+        io: i
+        field: EGU Watts
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bError</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether an error was detected. Latches until reset</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>512</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+          <Property>
+            <Name>pytmc</Name>
+            <Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bBelowNominal</Name>
+        <Type>BOOL</Type>
+        <Comment>fVoltage is below the nominal setpoint</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>520</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Method>
+        <Name>__GetInterfacePointer</Name>
+        <ReturnType>BOOL</ReturnType>
+        <ReturnBitSize>8</ReturnBitSize>
+        <Parameter>
+          <Name>pRef</Name>
+          <Type PointerTo="2">DWORD</Type>
+          <BitSize>32</BitSize>
+        </Parameter>
+      </Method>
+      <Method>
+        <Name>Reset</Name>
+        <Comment> Reset latched errors</Comment>
+        <ReturnType>BOOL</ReturnType>
+        <ReturnBitSize>8</ReturnBitSize>
       </Method>
       <Method>
         <Name>__GetInterfaceReference</Name>
@@ -3673,13 +3938,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3776,13 +4041,13 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -3799,6 +4064,271 @@
       <Method>
         <Name>Reset</Name>
         <Comment> Reset latched errors</Comment>
+      </Method>
+      <Method>
+        <Name>__GetInterfaceReference</Name>
+        <ReturnType>BOOL</ReturnType>
+        <ReturnBitSize>8</ReturnBitSize>
+        <Parameter>
+          <Name>nInterfaceId</Name>
+          <Type>DINT</Type>
+          <BitSize>32</BitSize>
+        </Parameter>
+        <Parameter>
+          <Name>pRef</Name>
+          <Type PointerTo="2">DWORD</Type>
+          <BitSize>32</BitSize>
+        </Parameter>
+      </Method>
+      <Properties>
+        <Property>
+          <Name>PouType</Name>
+          <Value>FunctionBlock</Value>
+        </Property>
+      </Properties>
+    </DataType>
+    <DataType>
+      <Name>FB_LaserShutterInterlock</Name>
+      <BitSize>576</BitSize>
+      <SubItem>
+        <Name>fOpcpaVoltage</Name>
+        <Type>LREAL</Type>
+        <Comment> The voltage of the OPCPA</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>64</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fAmphosVoltage</Name>
+        <Type>LREAL</Type>
+        <Comment> The Amphos voltage</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>128</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>fMPCVoltage</Name>
+        <Type>LREAL</Type>
+        <Comment> The MPC voltage</Comment>
+        <BitSize>64</BitSize>
+        <BitOffs>192</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>AmphosStatus</Name>
+        <Type>BOOL</Type>
+        <Comment>Amphos Laser Shutter Status</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>256</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bLoopTempOverride01</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether the chiller loop error is overriden</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>264</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bLoopTempOverride02</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether the chiller loop error is overriden</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>272</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bLoopTempOverride03</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether the chiller loop error is overriden</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>280</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bLoopTempOverride04</Name>
+        <Type>BOOL</Type>
+        <Comment> Whether the chiller loop error is overriden</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>288</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Input</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stErrors</Name>
+        <Type ReferenceTo="true">ST_ErrorStates</Type>
+        <Comment> Currently detected errors</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>320</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stOpcpaSetpoints</Name>
+        <Type ReferenceTo="true">ST_LaserSetpoints</Type>
+        <Comment> OPCPA setpoints</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>352</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stAmphosSetpoints</Name>
+        <Type ReferenceTo="true">ST_LaserSetpoints</Type>
+        <Comment> The Amphos setpoints</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>384</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>stMPCSetpoints</Name>
+        <Type ReferenceTo="true">ST_LaserSetpoints</Type>
+        <Comment> The MPC setpoints</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>416</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>Mode</Name>
+        <Type ReferenceTo="true">E_Mode</Type>
+        <Comment> Mode</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>448</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bAmphosShutter</Name>
+        <Type ReferenceTo="true">BOOL</Type>
+        <Comment> Allowed Amphos Shutter state, point to NC Relay GVL</Comment>
+        <BitSize>32</BitSize>
+        <BitOffs>480</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>InOut</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <SubItem>
+        <Name>bChillerErrors</Name>
+        <Type>BOOL</Type>
+        <Comment> Local logical sum of chiller error states</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>512</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bTempSwitchErrors</Name>
+        <Type>BOOL</Type>
+        <Comment> Local logical sum of temperature switch errors</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>520</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bAmphosUnderVolt</Name>
+        <Type>BOOL</Type>
+        <Comment> Local var for checking Amphos under MinVoltage</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>528</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bOpcpaUnderVolt</Name>
+        <Type>BOOL</Type>
+        <Comment> Local var for checking OPCPA under MinVoltage</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>536</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bMpcUnderVolt</Name>
+        <Type>BOOL</Type>
+        <Comment> Local var for checking MPC under MinVoltage</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>544</BitOffs>
+      </SubItem>
+      <SubItem>
+        <Name>bCarbideShutter</Name>
+        <Type>BOOL</Type>
+        <Comment> Allowed Carbide Shutter state, point to NC Relay GVL</Comment>
+        <BitSize>8</BitSize>
+        <BitOffs>552</BitOffs>
+        <Properties>
+          <Property>
+            <Name>ItemType</Name>
+            <Value>Output</Value>
+          </Property>
+        </Properties>
+      </SubItem>
+      <Method>
+        <Name>__GetInterfacePointer</Name>
+        <ReturnType>BOOL</ReturnType>
+        <ReturnBitSize>8</ReturnBitSize>
+        <Parameter>
+          <Name>pRef</Name>
+          <Type PointerTo="2">DWORD</Type>
+          <BitSize>32</BitSize>
+        </Parameter>
       </Method>
       <Method>
         <Name>__GetInterfaceReference</Name>
@@ -5389,9 +5919,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: TYPE
-		io: i
-	</Value>
+        pv: TYPE
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5404,9 +5934,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ADDRESS
-		io: i
-	</Value>
+        pv: ADDRESS
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5419,9 +5949,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: NAME
-		io: i
-	</Value>
+        pv: NAME
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5434,29 +5964,29 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: DEVICE_STATE
-		io: i
-		field: ZRVL 0
-		field: ONVL 1
-		field: TWVL 2
-		field: THVL 3
-		field: FRVL 4
-		field: SXVL	8
-		field: ZRST INVALID
-		field: ONST INIT
-		field: TWST PREOP
-		field: THST BOOTSTRAP
-		field: FRST SAFEOP
-		field: SXST OP
-		field: ZRSV MAJOR
-		field: ONSV MAJOR
-		field: TWSV MAJOR
-		field: THSV MAJOR
-		field: FRSV MAJOR
-		field: FVSV MINOR
-		field: SXSV NO_ALARM
-		field: UNSV MAJOR
-	</Value>
+        pv: DEVICE_STATE
+        io: i
+        field: ZRVL 0
+        field: ONVL 1
+        field: TWVL 2
+        field: THVL 3
+        field: FRVL 4
+        field: SXVL	8
+        field: ZRST INVALID
+        field: ONST INIT
+        field: TWST PREOP
+        field: THST BOOTSTRAP
+        field: FRST SAFEOP
+        field: SXST OP
+        field: ZRSV MAJOR
+        field: ONSV MAJOR
+        field: TWSV MAJOR
+        field: THSV MAJOR
+        field: FRSV MAJOR
+        field: FVSV MINOR
+        field: SXSV NO_ALARM
+        field: UNSV MAJOR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5469,9 +5999,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: DEVICE_STATE_FLAGS
-		io: i
-	</Value>
+        pv: DEVICE_STATE_FLAGS
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5484,9 +6014,9 @@
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: LINK_STATE_FLAGS
-		io: i
-	</Value>
+        pv: LINK_STATE_FLAGS
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5496,14 +6026,14 @@
       <Comment>
 Ecat bus diagnostic tool
 2015-11-4 Alex Wallace
-This function block checks the states of all slaves on the ecat bus network, 
+This function block checks the states of all slaves on the ecat bus network,
 it could be modified to export the states of the slaves on an individual basis,
 but for now it sets the output boolean true if all slaves are OP and false otherwise.
 To start the block provide a falling edge on the first pass boolean input.
 
 2018-05-05 Margaret Ghaly
 Function block has been modified to retrieve the Device State of the Ethercat Master.
-It also exports the states and information of each individual configured Slave. 
+It also exports the states and information of each individual configured Slave.
 And saves them in the array q_aEcConfSlaveInfo.
 
 2019-08-28 Nathan Telles
@@ -5541,13 +6071,13 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: ERROR
-		io: i
-		field: OSV MAJOR
-		field: ZSV NO_ALARM
-		field: ZNAM OK
-		field: ONAM ERROR
-	</Value>
+        pv: ERROR
+        io: i
+        field: OSV MAJOR
+        field: ZSV NO_ALARM
+        field: ZNAM OK
+        field: ONAM ERROR
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5565,13 +6095,13 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: SLAVES_OK
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM ERROR
-		field: ONAM OK
-	</Value>
+        pv: SLAVES_OK
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM ERROR
+        field: ONAM OK
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5588,13 +6118,13 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: MASTER_OK
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM ERROR
-		field: ONAM OK
-	</Value>
+        pv: MASTER_OK
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM ERROR
+        field: ONAM OK
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5608,9 +6138,9 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: MASTER_DEV_STATE
-		io: i
-	</Value>
+        pv: MASTER_DEV_STATE
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5624,9 +6154,9 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: MASTER_STATE
-		io: i
-	</Value>
+        pv: MASTER_STATE
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5640,9 +6170,9 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: AMS_ID
-		io: i
-	</Value>
+        pv: AMS_ID
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5671,7 +6201,7 @@ linked to EPICS records. Remove unecessary diagnostics.
       <SubItem>
         <Name>fbGetAllSlaveStates</Name>
         <Type Namespace="Tc2_EtherCAT">FB_EcGetAllSlaveStates</Type>
-        <Comment>Acquires the ECAT Slave States puts them into astTermStates </Comment>
+        <Comment>Acquires the ECAT Slave States puts them into astTermStates</Comment>
         <BitSize>3552</BitSize>
         <BitOffs>6912</BitOffs>
       </SubItem>
@@ -5889,9 +6419,9 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: SLAVES_COUNT
-		io: i
-	</Value>
+        pv: SLAVES_COUNT
+        io: i
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -5953,10 +6483,10 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Property>
             <Name>pytmc</Name>
             <Value>
-		pv: MAX_TEMP
-		io: io
-		field: EGU C
-	</Value>
+        pv: MAX_TEMP
+        io: io
+        field: EGU C
+    </Value>
           </Property>
         </Properties>
       </SubItem>
@@ -6500,7 +7030,51 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>Input</Value>
               </Property>
             </Properties>
-            <BitOffs>3090992</BitOffs>
+            <BitOffs>3091408</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_IO.bAmphosOn</Name>
+            <Comment> Ch1</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: @(PREFIX):LPS:AMPHOS:POWER_STATE
+        io: i
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 1^Status^Input state</Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3103896</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_PLC.AMSNetId</Name>
+            <BitSize>48</BitSize>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3125824</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.nOpcpaVoltageRaw</Name>
@@ -6520,22 +7094,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3101712</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>GVL_PLC.AMSNetId</Name>
-            <BitSize>48</BitSize>
-            <BaseType GUID="{18071995-0000-0000-0000-000000000041}">AMSNETID</BaseType>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Input</Value>
-              </Property>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>3123648</BitOffs>
+            <BitOffs>3125872</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.nAmphosVoltageRaw</Name>
@@ -6555,26 +7114,17 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3123696</BitOffs>
+            <BitOffs>3126528</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>GVL_IO.bAmphosOn</Name>
-            <Comment> Ch1</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
+            <Name>GVL_IO.nMpcVoltageRaw</Name>
+            <Comment> Ch3</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>INT</BaseType>
             <Properties>
               <Property>
-                <Name>pytmc</Name>
-                <Value>
-		pv: @(PREFIX):LPS:AMPHOS:POWER_STATE
-		io: i
-		field: ZNAM "OFF"
-		field: ONAM "ON"
-	</Value>
-              </Property>
-              <Property>
                 <Name>TcLinkTo</Name>
-                <Value>TIIB[LPS_PLC_E07_EL1259]^MTI Inputs 10x Channel 1^Status^Input state</Value>
+                <Value>TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 3^Value</Value>
               </Property>
               <Property>
                 <Name>TcAddressType</Name>
@@ -6584,7 +7134,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124224</BitOffs>
+            <BitOffs>3126544</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bLeakDetected</Name>
@@ -6604,7 +7154,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124232</BitOffs>
+            <BitOffs>3126560</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bLoopTempSW01</Name>
@@ -6624,7 +7174,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124240</BitOffs>
+            <BitOffs>3126568</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bLoopTempSW02</Name>
@@ -6644,7 +7194,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124248</BitOffs>
+            <BitOffs>3126576</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bLoopTempSW03</Name>
@@ -6664,7 +7214,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124256</BitOffs>
+            <BitOffs>3126584</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bLoopTempSW04</Name>
@@ -6684,11 +7234,11 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124264</BitOffs>
+            <BitOffs>3126592</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bBaseplateChillerFlow</Name>
-            <Comment> Ch7 Baseplate chiller NC flow sensor	</Comment>
+            <Comment> Ch7 Baseplate chiller NC flow sensor</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
             <Properties>
@@ -6704,7 +7254,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124272</BitOffs>
+            <BitOffs>3126600</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bDumpChillerFlow</Name>
@@ -6724,7 +7274,27 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124280</BitOffs>
+            <BitOffs>3126608</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_IO.bLoopTempSW05</Name>
+            <Comment> Ch2 Loop 05 NC Temp switch (labelled TEMP SW04 on CAPTAR)</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcLinkTo</Name>
+                <Value>TIIB[LPS_PLC_E09_EL1259]^MTI Inputs 10x Channel 2^Status^Input state</Value>
+              </Property>
+              <Property>
+                <Name>TcAddressType</Name>
+                <Value>Input</Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3126632</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bCarbideOn</Name>
@@ -6735,11 +7305,11 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:OPCPA:POWER_STATE
-		io: i
-		field: ZNAM "OFF"
-		field: ONAM "ON"
-	</Value>
+        pv: @(PREFIX):LPS:MPC:POWER_STATE
+        io: i
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    </Value>
               </Property>
               <Property>
                 <Name>TcLinkTo</Name>
@@ -6753,7 +7323,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124344</BitOffs>
+            <BitOffs>3126680</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
@@ -6771,7 +7341,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>Output</Value>
               </Property>
             </Properties>
-            <BitOffs>3091184</BitOffs>
+            <BitOffs>3091600</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bAmphosShutterEnable</Name>
@@ -6782,13 +7352,13 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM DISABLED
-		field: ONAM ENABLED
-	</Value>
+        pv: @(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM DISABLED
+        field: ONAM ENABLED
+    </Value>
               </Property>
               <Property>
                 <Name>TcLinkTo</Name>
@@ -6802,25 +7372,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124288</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>GVL_IO.bAmphosShutterEnableManualOperation</Name>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Default>
-              <Value>1</Value>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>TcAddressType</Name>
-                <Value>Output</Value>
-              </Property>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>3124296</BitOffs>
+            <BitOffs>3126616</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bDumpChillerRelay</Name>
@@ -6831,13 +7383,13 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM DISABLED
-		field: ONAM ENABLED
-	</Value>
+        pv: @(PREFIX):LPS:DUMP_CHILLER_RELAY:ENABLE
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM DISABLED
+        field: ONAM ENABLED
+    </Value>
               </Property>
               <Property>
                 <Name>TcLinkTo</Name>
@@ -6851,7 +7403,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124304</BitOffs>
+            <BitOffs>3126640</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bBaseplateChillerRelay</Name>
@@ -6862,13 +7414,13 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM DISABLED
-		field: ONAM ENABLED
-	</Value>
+        pv: @(PREFIX):LPS:BASEPLATE_CHILLER_RELAY:ENABLE
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM DISABLED
+        field: ONAM ENABLED
+    </Value>
               </Property>
               <Property>
                 <Name>TcLinkTo</Name>
@@ -6882,7 +7434,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124312</BitOffs>
+            <BitOffs>3126648</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bAmphosRelay</Name>
@@ -6893,13 +7445,13 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:AMPHOS_RELAY:ENABLE
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM DISABLED
-		field: ONAM ENABLED
-	</Value>
+        pv: @(PREFIX):LPS:AMPHOS:ENABLE
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM DISABLED
+        field: ONAM ENABLED
+    </Value>
               </Property>
               <Property>
                 <Name>TcLinkTo</Name>
@@ -6913,7 +7465,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124320</BitOffs>
+            <BitOffs>3126656</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bCarbideShutterEnable</Name>
@@ -6924,13 +7476,13 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
-		io: i
-		field: OSV NO_ALARM
-		field: ZSV MAJOR
-		field: ZNAM DISABLED
-		field: ONAM ENABLED
-	</Value>
+        pv: @(PREFIX):LPS:CARBIDE_SHUTTER:ENABLE
+        io: i
+        field: OSV NO_ALARM
+        field: ZSV MAJOR
+        field: ZNAM DISABLED
+        field: ONAM ENABLED
+    </Value>
               </Property>
               <Property>
                 <Name>TcLinkTo</Name>
@@ -6944,7 +7496,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124328</BitOffs>
+            <BitOffs>3126664</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_IO.bCarbideShutterEnableManualOperation</Name>
@@ -6962,7 +7514,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124336</BitOffs>
+            <BitOffs>3126672</BitOffs>
           </Symbol>
         </DataArea>
         <DataArea>
@@ -9001,19 +9553,19 @@ linked to EPICS records. Remove unecessary diagnostics.
               </SubItem>
               <SubItem>
                 <Name>.iBuild</Name>
-                <Value>40</Value>
+                <Value>54</Value>
               </SubItem>
               <SubItem>
                 <Name>.iRevision</Name>
-                <Value>1</Value>
-              </SubItem>
-              <SubItem>
-                <Name>.nFlags</Name>
                 <Value>0</Value>
               </SubItem>
               <SubItem>
+                <Name>.nFlags</Name>
+                <Value>1</Value>
+              </SubItem>
+              <SubItem>
                 <Name>.sVersion</Name>
-                <String>3.3.40.1</String>
+                <String>3.3.54.0</String>
               </SubItem>
             </Default>
             <Properties>
@@ -10896,48 +11448,16 @@ linked to EPICS records. Remove unecessary diagnostics.
           <Symbol>
             <Name>MAIN.stErrors</Name>
             <Comment> Triggered error states</Comment>
-            <BitSize>112</BitSize>
+            <BitSize>128</BitSize>
             <BaseType>ST_ErrorStates</BaseType>
-            <BitOffs>3089632</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>MAIN.bAmphosReset</Name>
-            <Comment> Amphos laser error unlatch flag</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-		pv: @(PREFIX):LPS:AMPHOS:RESET
-		io: o
-	</Value>
-              </Property>
-            </Properties>
-            <BitOffs>3089744</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>MAIN.bOpcpaReset</Name>
-            <Comment> OPCPA laser error unlatch flag</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>
-		pv: @(PREFIX):LPS:OPCPA:RESET
-		io: o
-	</Value>
-              </Property>
-            </Properties>
-            <BitOffs>3089752</BitOffs>
+            <BitOffs>3090048</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbErrorTriggers</Name>
             <Comment> Brand new errors this cycle</Comment>
             <BitSize>864</BitSize>
             <BaseType>FB_ErrorTriggers</BaseType>
-            <BitOffs>3089760</BitOffs>
+            <BitOffs>3090176</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbTraceTekModbus</Name>
@@ -10950,7 +11470,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):TTSIM:DEV01</Value>
               </Property>
             </Properties>
-            <BitOffs>3090624</BitOffs>
+            <BitOffs>3091040</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbLeakMonitor</Name>
@@ -10963,7 +11483,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:LEAK</Value>
               </Property>
             </Properties>
-            <BitOffs>3100448</BitOffs>
+            <BitOffs>3100864</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbChillerLoop01</Name>
@@ -10976,7 +11496,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:TEMP01</Value>
               </Property>
             </Properties>
-            <BitOffs>3100640</BitOffs>
+            <BitOffs>3101056</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbChillerLoop02</Name>
@@ -10989,7 +11509,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:TEMP02</Value>
               </Property>
             </Properties>
-            <BitOffs>3100704</BitOffs>
+            <BitOffs>3101120</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbChillerLoop03</Name>
@@ -11002,7 +11522,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:TEMP03</Value>
               </Property>
             </Properties>
-            <BitOffs>3100768</BitOffs>
+            <BitOffs>3101184</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbChillerLoop04</Name>
@@ -11015,7 +11535,81 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:TEMP04</Value>
               </Property>
             </Properties>
-            <BitOffs>3100832</BitOffs>
+            <BitOffs>3101248</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.fbChillerLoop05</Name>
+            <Comment> Chiller loop 05</Comment>
+            <BitSize>64</BitSize>
+            <BaseType>FB_ChillerLoop</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>pv: @(PREFIX):LPS:TEMP05</Value>
+              </Property>
+            </Properties>
+            <BitOffs>3101312</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.fbAmphos</Name>
+            <Comment> Amphos laser</Comment>
+            <BitSize>576</BitSize>
+            <BaseType>FB_LaserTimer</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>pv: @(PREFIX):LPS:AMPHOS</Value>
+              </Property>
+            </Properties>
+            <BitOffs>3101376</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.bAmphosReset</Name>
+            <Comment> Amphos laser error unlatch flag</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: @(PREFIX):LPS:AMPHOS:RESET
+        io: o
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>3101952</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.bOpcpaReset</Name>
+            <Comment> OPCPA laser error unlatch flag</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: @(PREFIX):LPS:OPCPA:RESET
+        io: o
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>3101960</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.bMpcReset</Name>
+            <Comment> MPC laser error unlatch flag</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: @(PREFIX):LPS:MPC:RESET
+        io: o
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>3101968</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.bDumpChillerReset</Name>
@@ -11026,12 +11620,12 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:DUMP_CHILLER:RESET
-		io: o
-	</Value>
+        pv: @(PREFIX):LPS:DUMP_CHILLER:RESET
+        io: o
+    </Value>
               </Property>
             </Properties>
-            <BitOffs>3100896</BitOffs>
+            <BitOffs>3101976</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.bBaseplateChillerReset</Name>
@@ -11042,12 +11636,12 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:BASEPLATE_CHILLER:RESET
-		io: o
-	</Value>
+        pv: @(PREFIX):LPS:BASEPLATE_CHILLER:RESET
+        io: o
+    </Value>
               </Property>
             </Properties>
-            <BitOffs>3100904</BitOffs>
+            <BitOffs>3101984</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.bMasterOverride</Name>
@@ -11061,54 +11655,55 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:MASTER_OVERRIDE
-		io: o
-	</Value>
+        pv: @(PREFIX):LPS:MASTER_OVERRIDE
+        io: o
+    </Value>
               </Property>
             </Properties>
-            <BitOffs>3100912</BitOffs>
+            <BitOffs>3101992</BitOffs>
           </Symbol>
           <Symbol>
-            <Name>MAIN.bAmpShutterClosed</Name>
-            <Comment> Master Amphos Shutter control</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
+            <Name>MAIN.Mode_LPS</Name>
+            <Comment> Mode Definition</Comment>
+            <BitSize>16</BitSize>
+            <BaseType>E_Mode</BaseType>
             <Properties>
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:MASTER_AMP_SHUTTER
-		io: o
-	</Value>
+        pv: @(PREFIX):LPS:MODE
+        io: io
+        field: NOBT 3
+    </Value>
               </Property>
             </Properties>
-            <BitOffs>3100920</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>MAIN.fbAmphos</Name>
-            <Comment> Amphos laser</Comment>
-            <BitSize>320</BitSize>
-            <BaseType>FB_Laser</BaseType>
-            <Properties>
-              <Property>
-                <Name>pytmc</Name>
-                <Value>pv: @(PREFIX):LPS:AMPHOS</Value>
-              </Property>
-            </Properties>
-            <BitOffs>3100928</BitOffs>
+            <BitOffs>3102000</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbOpcpa</Name>
             <Comment> OPCPA laser</Comment>
-            <BitSize>320</BitSize>
-            <BaseType>FB_Laser</BaseType>
+            <BitSize>576</BitSize>
+            <BaseType>FB_LaserTimer</BaseType>
             <Properties>
               <Property>
                 <Name>pytmc</Name>
                 <Value>pv: @(PREFIX):LPS:OPCPA</Value>
               </Property>
             </Properties>
-            <BitOffs>3101248</BitOffs>
+            <BitOffs>3102016</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.fbMpc</Name>
+            <Comment> MPC laser</Comment>
+            <BitSize>576</BitSize>
+            <BaseType>FB_LaserTimer_MPC</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>pv: @(PREFIX):LPS:MPC</Value>
+              </Property>
+            </Properties>
+            <BitOffs>3102592</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbDumpChiller</Name>
@@ -11121,7 +11716,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:DUMP_CHILLER</Value>
               </Property>
             </Properties>
-            <BitOffs>3101568</BitOffs>
+            <BitOffs>3103168</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbBaseplateChiller</Name>
@@ -11134,7 +11729,30 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:BASEPLATE_CHILLER</Value>
               </Property>
             </Properties>
-            <BitOffs>3101632</BitOffs>
+            <BitOffs>3103232</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.fbLaserShutterInterlocks</Name>
+            <Comment> Laser shutter interlock handler</Comment>
+            <BitSize>576</BitSize>
+            <BaseType>FB_LaserShutterInterlock</BaseType>
+            <BitOffs>3103296</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>MAIN.bAmpShutterClosed</Name>
+            <Comment> Master Amphos Shutter control</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: @(PREFIX):LPS:MASTER_AMP_SHUTTER
+        io: o
+    </Value>
+              </Property>
+            </Properties>
+            <BitOffs>3103872</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.bMasterLatchReset</Name>
@@ -11145,22 +11763,22 @@ linked to EPICS records. Remove unecessary diagnostics.
               <Property>
                 <Name>pytmc</Name>
                 <Value>
-		pv: @(PREFIX):LPS:MASTER_LATCH_RESET
-		io: o
-	</Value>
+        pv: @(PREFIX):LPS:MASTER_LATCH_RESET
+        io: o
+    </Value>
               </Property>
             </Properties>
-            <BitOffs>3101696</BitOffs>
+            <BitOffs>3103880</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.bLatchStart</Name>
-            <Comment>Latch at start of loop. </Comment>
+            <Comment>Latch at start of loop.</Comment>
             <BitSize>8</BitSize>
             <BaseType>BOOL</BaseType>
             <Default>
               <Value>0</Value>
             </Default>
-            <BitOffs>3101704</BitOffs>
+            <BitOffs>3103888</BitOffs>
           </Symbol>
           <Symbol>
             <Name>MAIN.fbDiag</Name>
@@ -11173,7 +11791,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Value>pv: @(PREFIX):LPS:PLC</Value>
               </Property>
             </Properties>
-            <BitOffs>3101728</BitOffs>
+            <BitOffs>3103904</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_Laser.stAmphosSP</Name>
@@ -11192,7 +11810,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3123712</BitOffs>
+            <BitOffs>3125888</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_Laser.stOpcpaSP</Name>
@@ -11211,7 +11829,26 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3123840</BitOffs>
+            <BitOffs>3126016</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_Laser.stMpcSP</Name>
+            <Comment> MPC setpoints</Comment>
+            <BitSize>128</BitSize>
+            <BaseType>ST_LaserSetpoints</BaseType>
+            <Properties>
+              <Property>
+                <Name>TcPersistent</Name>
+              </Property>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>pv: @(PREFIX):LPS:MPC</Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3126144</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_EL3174.fRawUpperLimit</Name>
@@ -11226,7 +11863,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3123968</BitOffs>
+            <BitOffs>3126272</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_EL3174.fRawLowerLimit</Name>
@@ -11241,7 +11878,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124032</BitOffs>
+            <BitOffs>3126336</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_EL3174.fScaleUpperLimit</Name>
@@ -11256,7 +11893,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124096</BitOffs>
+            <BitOffs>3126400</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_EL3174.fScaleLowerLimit</Name>
@@ -11271,7 +11908,73 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124160</BitOffs>
+            <BitOffs>3126464</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_IO.bAmphosShutterManualOverride</Name>
+            <Comment> CMD to Amphos for Shutter Operation</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Properties>
+              <Property>
+                <Name>pytmc</Name>
+                <Value>
+        pv: @(PREFIX):LPS:AMPHOS:SHUTTER_CMD
+        io: io
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    </Value>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3126624</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>GVL_TraceTek.nModbusSlaveAddress</Name>
+            <Comment> Modbus slave address of the TraceTek device</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BYTE</BaseType>
+            <Default>
+              <Value>199</Value>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3126688</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>Constants.bLittleEndian</Name>
+            <Comment> Does the target support multiple cores?</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Default>
+              <Value>1</Value>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3126704</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>Constants.bSimulationMode</Name>
+            <Comment> Does the target support multiple cores?</Comment>
+            <BitSize>8</BitSize>
+            <BaseType>BOOL</BaseType>
+            <Default>
+              <Value>0</Value>
+            </Default>
+            <Properties>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3126712</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP01</Name>
@@ -11289,7 +11992,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124352</BitOffs>
+            <BitOffs>3126720</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP02</Name>
@@ -11307,7 +12010,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124416</BitOffs>
+            <BitOffs>3126784</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP03</Name>
@@ -11325,7 +12028,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124480</BitOffs>
+            <BitOffs>3126848</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP04</Name>
@@ -11343,7 +12046,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124544</BitOffs>
+            <BitOffs>3126912</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP05</Name>
@@ -11361,7 +12064,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124608</BitOffs>
+            <BitOffs>3126976</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP06</Name>
@@ -11379,7 +12082,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124672</BitOffs>
+            <BitOffs>3127040</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP07</Name>
@@ -11397,7 +12100,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124736</BitOffs>
+            <BitOffs>3127104</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TemperatureMonitor.stTempMonSP08</Name>
@@ -11415,22 +12118,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124800</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>GVL_TraceTek.nModbusSlaveAddress</Name>
-            <Comment> Modbus slave address of the TraceTek device</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BYTE</BaseType>
-            <Default>
-              <Value>199</Value>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>3124864</BitOffs>
+            <BitOffs>3127168</BitOffs>
           </Symbol>
           <Symbol>
             <Name>GVL_TraceTek.stLeakMonitorBoundaries</Name>
@@ -11449,37 +12137,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3124880</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>Constants.bLittleEndian</Name>
-            <Comment> Does the target support multiple cores?</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Default>
-              <Value>1</Value>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>3125072</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>Constants.bSimulationMode</Name>
-            <Comment> Does the target support multiple cores?</Comment>
-            <BitSize>8</BitSize>
-            <BaseType>BOOL</BaseType>
-            <Default>
-              <Value>0</Value>
-            </Default>
-            <Properties>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>3125080</BitOffs>
+            <BitOffs>3127232</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Global_Version.stLibVersion_EPS</Name>
@@ -11518,7 +12176,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125088</BitOffs>
+            <BitOffs>3127424</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.RuntimeVersion</Name>
@@ -11548,7 +12206,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125376</BitOffs>
+            <BitOffs>3127712</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.CompilerVersion</Name>
@@ -11578,7 +12236,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125440</BitOffs>
+            <BitOffs>3127776</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.nRegisterSize</Name>
@@ -11593,7 +12251,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125504</BitOffs>
+            <BitOffs>3127840</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.nPackMode</Name>
@@ -11608,7 +12266,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125520</BitOffs>
+            <BitOffs>3127856</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.bFPUSupport</Name>
@@ -11623,7 +12281,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125536</BitOffs>
+            <BitOffs>3127872</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.bMulticoreSupport</Name>
@@ -11637,7 +12295,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125544</BitOffs>
+            <BitOffs>3127880</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.RuntimeVersionNumeric</Name>
@@ -11652,7 +12310,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125568</BitOffs>
+            <BitOffs>3127904</BitOffs>
           </Symbol>
           <Symbol>
             <Name>Constants.CompilerVersionNumeric</Name>
@@ -11667,7 +12325,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125600</BitOffs>
+            <BitOffs>3127936</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_LicenseInfoVarList._LicenseInfo</Name>
@@ -11788,7 +12446,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3125632</BitOffs>
+            <BitOffs>3127968</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._AppInfo</Name>
@@ -11802,7 +12460,21 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3127680</BitOffs>
+            <BitOffs>3130016</BitOffs>
+          </Symbol>
+          <Symbol>
+            <Name>TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask</Name>
+            <BitSize>32</BitSize>
+            <BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
+            <Properties>
+              <Property>
+                <Name>no_init</Name>
+              </Property>
+              <Property>
+                <Name>TcVarGlobal</Name>
+              </Property>
+            </Properties>
+            <BitOffs>3132064</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskInfo</Name>
@@ -11820,21 +12492,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3129728</BitOffs>
-          </Symbol>
-          <Symbol>
-            <Name>TwinCAT_SystemInfoVarList._TaskPouOid_PlcTask</Name>
-            <BitSize>32</BitSize>
-            <BaseType GUID="{18071995-0000-0000-0000-00000000000F}">OTCID</BaseType>
-            <Properties>
-              <Property>
-                <Name>no_init</Name>
-              </Property>
-              <Property>
-                <Name>TcVarGlobal</Name>
-              </Property>
-            </Properties>
-            <BitOffs>3130752</BitOffs>
+            <BitOffs>3132096</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList._TaskOid_PlcTask</Name>
@@ -11848,7 +12506,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3130784</BitOffs>
+            <BitOffs>3133120</BitOffs>
           </Symbol>
           <Symbol>
             <Name>TwinCAT_SystemInfoVarList.__PlcTask</Name>
@@ -11869,7 +12527,7 @@ linked to EPICS records. Remove unecessary diagnostics.
                 <Name>TcVarGlobal</Name>
               </Property>
             </Properties>
-            <BitOffs>3130816</BitOffs>
+            <BitOffs>3133152</BitOffs>
           </Symbol>
         </DataArea>
       </DataAreas>
@@ -11882,11 +12540,11 @@ linked to EPICS records. Remove unecessary diagnostics.
         </Property>
         <Property>
           <Name>ChangeDate</Name>
-          <Value>2022-07-14T10:32:36</Value>
+          <Value>2025-07-31T15:01:45</Value>
         </Property>
         <Property>
           <Name>GeneratedCodeSize</Name>
-          <Value>114688</Value>
+          <Value>118784</Value>
         </Property>
         <Property>
           <Name>GlobalDataSize</Name>

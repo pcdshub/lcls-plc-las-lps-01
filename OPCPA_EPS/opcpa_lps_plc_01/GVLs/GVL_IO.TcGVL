@@ -13,6 +13,8 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 2^Value'}
     nAmphosVoltageRaw AT %I* : INT; // Ch2
 
+    {attribute 'TcLinkTo' :=    'TIIB[LPS_PLC_E01_EL3174]^AI Standard Channel 3^Value'}
+    nMpcVoltageRaw AT %I* : INT; // Ch3
 
 
     (* Slot2 EL3174 *)
@@ -90,7 +92,7 @@ VAR_GLOBAL
     *)
 
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:AMPHOS_SHUTTER:ENABLE
+        pv: @(PREFIX):LPS:AMPHOS:SHUTTER_ENABLE
         io: i
         field: OSV NO_ALARM
         field: ZSV MAJOR
@@ -101,15 +103,19 @@ VAR_GLOBAL
     bAmphosShutterEnable AT %Q* : BOOL; // Ch1
 
 
-    bAmphosShutterEnableManualOperation AT %Q* : BOOL := TRUE;
-
-
-
-
+    {attribute 'pytmc' := '
+        pv: @(PREFIX):LPS:AMPHOS:SHUTTER_CMD
+        io: io
+        field: ZNAM "OFF"
+        field: ONAM "ON"
+    '}
+    bAmphosShutterManualOverride : BOOL ; // CMD to Amphos for Shutter Operation
 
     (* Slot8 EL9184 *)
 
     (* Slot9 EL1259 *)
+    {attribute 'TcLinkTo' := 'TIIB[LPS_PLC_E09_EL1259]^MTI Inputs 10x Channel 2^Status^Input state'}
+    bLoopTempSW05 AT %I* : BOOL; // Ch2 Loop 05 NC Temp switch (labelled TEMP SW04 on CAPTAR)
 
     (* Slot10 EL9184 *)
 
@@ -137,7 +143,7 @@ VAR_GLOBAL
     bBaseplateChillerRelay AT %Q* : BOOL; // Ch2 Baseplate chiller NC relay
 
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:AMPHOS_RELAY:ENABLE
+        pv: @(PREFIX):LPS:AMPHOS:ENABLE
         io: i
         field: OSV NO_ALARM
         field: ZSV MAJOR
@@ -167,7 +173,7 @@ VAR_GLOBAL
 
     (* Slot14 EL1124 *)
     {attribute 'pytmc' := '
-        pv: @(PREFIX):LPS:OPCPA:POWER_STATE
+        pv: @(PREFIX):LPS:MPC:POWER_STATE
         io: i
         field: ZNAM "OFF"
         field: ONAM "ON"

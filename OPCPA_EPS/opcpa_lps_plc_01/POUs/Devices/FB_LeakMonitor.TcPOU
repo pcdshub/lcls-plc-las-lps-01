@@ -134,12 +134,12 @@ IF (bLeakDetected OR bLowResistance) THEN
 END_IF
 
 IF bMasterLatchReset THEN
-    nLeakLocations := E_LeakLocation.NO_LEAK;
-    bLeakOpticalTableAmphosOn := FALSE;
-    bLeakOpcpaCarbideOn := FALSE;
-    bLeakOpticalTableNoLaser := FALSE;
-    bLeakUnderTable := FALSE;
-    bLeakInsideRacks := FALSE;
+    nLeakLocations              := E_LeakLocation.NO_LEAK;
+    bLeakOpticalTableAmphosOn   := FALSE;
+    bLeakOpcpaCarbideOn         := FALSE;
+    bLeakOpticalTableNoLaser    := FALSE;
+    bLeakUnderTable             := FALSE;
+    bLeakInsideRacks            := FALSE;
 END_IF
 ]]></ST>
     </Implementation>
